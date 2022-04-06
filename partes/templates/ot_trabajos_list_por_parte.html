@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+
+  <ul class="list-unstyled">
+        <h3>Trabajos de este parte </h3>
+        <h6></h6>
+
+        <small><small> 'Num Parte, Num Trabajo, Descripcion trabajo' </small></small>
+
+      {% for Ot_Trabajos in object_list %}
+        <li>
+          <a  href="/partes/{{ Ot_Trabajos.num_ot_tra }} "> <small><small>{{ Ot_Trabajos.num_ot_tra }},</small></small></a>
+          <a  href="/partes/trabajo/{{ Ot_Trabajos.num_tra }}/{{ Ot_Trabajos.num_ot_tra }} "><small><small>{{ Ot_Trabajos.num_tra }},</small></small></a>
+          {{ Ot_Trabajos.descripcion_tra }},
+          <!-- {{ Ot_Trabajos.fecha_tra|date:"D d/m/y" }},-->
+          <small><small>{{ Ot_Trabajos.fecha_cambio_tra|date:"D d/m/y" }}</small></small>,
+        </li>
+      {% endfor %}
+  </ul>
+
+{% endblock %}

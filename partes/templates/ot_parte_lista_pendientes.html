@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+
+
+{% block content %}
+  <ul class="list-unstyled">
+
+        <h3>Lista Pendientes </h3>
+
+{% if user.is_authenticated %}
+
+
+        <h6>Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h6>
+ 
+ 
+ 
+ 
+ 
+ 
+      {% for Ot_Parte in object_list %}
+        <li>  <div> <a  href="/partes/{{ Ot_Parte.pk }} ">
+                <small><small>({{ Ot_Parte.prioridad_ot }})</small></small>
+                {{ Ot_Parte.ubicacion_ot }}</a>
+                <a>{{ Ot_Parte.elemento_ot }}
+                {{ Ot_Parte.descripcion_ot }}</a>
+                <br>
+              </div>
+
+        </li>
+      {% endfor %}
+      
+{% endif %}
+  </ul>
+{% endblock %}
+ 

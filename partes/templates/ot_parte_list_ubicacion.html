@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+  <ul class="list-unstyled">
+        <h3>Lista de partes por ubicacion  </h3>
+        <h6>Terminados o no</h6>
+
+      {% for los_partes in los_partes %}
+        <li>
+
+            <a href='/partes/{{ los_partes.num_ot }}'  ><small><small>{{ los_partes.num_ot }}</small></small></a>
+            {{ los_partes.ubicacion_ot }}
+            <a href="/partes/elemento/{{ los_partes.elemento_ot }}">{{ los_partes.elemento_ot }}</a>,
+            {{ los_partes.descripcion_ot }}</a>
+            <small><small>{{ los_partes.fecha_cambio_ot}}, {{ los_partes.estado_ot}}</small></small>
+
+       </li>
+
+
+      {% endfor %}
+
+  </ul>
+  <a href="/partes/nuevo"  type="submit" class="btn btn-outline-success" >No esta hecho, lo hago nuevo</a>
+{% endblock %}

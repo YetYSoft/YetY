@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+
+
+{% extends "inicio.html" %}
+
+{% block content %}
+<h3>Nuevo Pedido material</h3>
+<h6>Detalla lo que necesitas para evitar errores</h6>
+<form method="POST" class="post-form">{% csrf_token %}
+
+<div class="container_fluid">
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-lg-8" ">
+         {{ form.Material }}
+    </div>
+    <div class="col-xs-2 col-sm-2 col-lg-2">
+          {{ form.estado_ot }}
+    </div>
+      <div class="col-xs-1 col-sm-1 col-lg-1">
+        <button type="submit" class="btn btn-outline-success">Guardar</button>
+    </div>
+
+    </div>
+</div>
+
+
+
+</form>
+
+{% endblock %}
+
+
+style=" visibility : hidden "

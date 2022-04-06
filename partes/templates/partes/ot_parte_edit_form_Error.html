@@ -1,0 +1,36 @@
+{% extends "inicio.html" %}
+
+{% block content %}
+<h3>Editar o Nuevo parte</h3>
+<h6>Rellenar campos segun proceda </h6>
+<br><br>
+
+<form method="POST" class="post-form">{% csrf_token %}
+
+  <table class="list-unstyled">
+  <tr>  <td>Ubicación :   <select type="text" class="form-control" placeholder="{{ form.ubicacion_ot.value }}"{{ form.ubicacion_ot }}</tr>
+  <tr>  <td>Elemento :    <select type="text" class="form-control" placeholder="Campo de texto"{{ form.elemento_ot }}</tr>
+  <tr>  <td>Descripción : <input type="text" class="form-control" placeholder="Descripcion Parte"{{ form.descripcion_ot }}</tr>
+  <tr>  <td>Prioridad (Urgente, Daños, Etc) : <select type="text" class="form-control" placeholder="{{ form.prioridad_ot.value }}"{{form.prioridad_ot}}</tr>
+  <tr>  <td>Estado (Pendiente, En curso, Etc): <select type="text" class="form-control" placeholder="{{ form.estado_ot.value }}"{{ form.estado_ot}}</tr>
+  <tr>  <td>Recursos (Propios, Externos): <select type="text" class="form-control" placeholder="{{ form.recursos_ot}}"{{ form.recursos_ot}}</tr>
+  <tr>  <td>Etiqueta: <input type="text" class="form-control" placeholder="Etiquetas"{{form.etiqueta_ot}}</tr>
+  <tr>  <td>Notas: <input type="text" class="form-control" placeholder="Notas"{{form.notas_ot}}</td></tr>
+  <tr>  <td>Tipo de parte (Correctivo, Prev, Etc) : <select type="text" class="form-control" placeholder="{{ form.tipo_aviso_ot.value }}"{{form.tipo_aviso_ot}}</td></tr>
+  
+  </table>
+
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-1">
+            <button type="submit" class="btn btn-secondary my-2 my-sm-0" align="right" >Ok Guardar</button>
+          </div>
+
+      </div>
+
+  </div>
+
+
+
+</form>
+{% endblock %}

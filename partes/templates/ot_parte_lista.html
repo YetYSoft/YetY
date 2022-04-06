@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+  <ul class="list-unstyled">
+
+        <h3>Lista Últimos partes </h3>
+        <h6>Ultimos partes nuevos o modificados, terminados o no </h6>
+
+
+      {% for Ot_Parte in object_list %}
+
+
+        <li>
+          <small><small> <a  href="/partes/{{ Ot_Parte.num_ot }}" >{{ Ot_Parte.num_ot }} </small></small>
+          <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} "> {{ Ot_Parte.ubicacion_ot }}</a>
+          <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }} ">{{ Ot_Parte.elemento_ot }},</a>
+          {{ Ot_Parte.descripcion_ot }}
+          <small><small>
+            {{ Ot_Parte.fecha_cambio_ot}},
+            {{ Ot_Parte.estado_ot}}
+          </small></small>
+
+        </li>
+      {% endfor %}
+  </ul>
+{% endblock %}

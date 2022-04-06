@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+  <ul class="list-unstyled">
+
+        <h3>Lista Registros Temperaturas <small><small></small></small></h3>
+        <h6><a href="/registros/Temp_Clima/nuevo"> Nuevo Registro</a></h6>
+        <h6>Ubicacion, Imp, Ret y Ambiente,  Imp y Ret Calor, Imp y Ret Frio y Caudal</h6>
+
+
+      {% for Ot_Temp_Clima_Interior in object_list %}
+
+
+        <li>
+
+          <h6><a  href="/registros/Temp_Clima/{{ Ot_Temp_Clima_Interior.num_Temp_Clima }}" >{{ Ot_Temp_Clima_Interior.num_Temp_Clima }}</a>
+          <a href="/registros/ubicacion/{{ Ot_Temp_Clima_Interior.field }} "> {{ Ot_Temp_Clima_Interior.field }}</a>
+          <a>{{ Ot_Temp_Clima_Interior.fecha_hora_cambio_ot }}</a></h6>
+
+
+          <h6><a>
+            <small>Imp.</small>{{ Ot_Temp_Clima_Interior.Temp_Impulsion_Aire }}
+            <small>Ret.</small>{{ Ot_Temp_Clima_Interior.Temp_Retorno_Aire }}
+            <small>Ambiente</small> {{ Ot_Temp_Clima_Interior.Temp_Ambiente }}</a></h6>
+
+          <h6><a class="text-danger">{{ Ot_Temp_Clima_Interior.Temp_Impulsion_Agua_Caliente }}
+          {{ Ot_Temp_Clima_Interior.Temp_Retorno_Agua_Caliente }}</a>
+
+          <h6><a class="text-info">{{ Ot_Temp_Clima_Interior.Temp_Impulsion_Agua_Fria }}
+          {{ Ot_Temp_Clima_Interior.Temp_Retorno_Agua_Fria }}</a></h6>
+
+          <h6><a> {{ Ot_Temp_Clima_Interior.Caudal_de_aire }}</a></h6>
+
+
+
+        </li>
+      {% endfor %}
+  </ul>
+{% endblock %}

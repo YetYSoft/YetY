@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+
+
+{% extends "inicio.html" %}
+
+{% block content %}
+<h3>Lista por Elementos</h3>
+<h6>Selecciona la ubicación</h6>
+
+ot_form_lista_elementos.html
+
+<form action="/partes/elemento/" method="GET" class="post-form">
+    <div class="container_fluid">
+      <div class="row">
+        <div class="col-xs-12 ">
+          {{ form.elemento_ot }}
+        </div>
+        <div class="col-1">
+          <button type="submit" class="btn btn-outline-success">Lista ya</button>
+        </div>
+      </div>
+    </div>
+
+</form>
+{% endblock %}

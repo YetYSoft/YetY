@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+<!-- <h5>partes/ot_parte_detail.html</h5>-->
+
+<h3>Detalles del parte <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }}</a> </h3>
+<h6>Revisar según proceda </h6>
+<br>
+
+<ul class="list-unstyled">
+  <h5> <strong>
+    <a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'>{{ ot_parte.ubicacion_ot }}</a>,
+    <a <a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>{{ ot_parte.elemento_ot }}</a>
+  </strong> </h5>
+  <h5> <strong> {{ ot_parte.descripcion_ot}} </strong> </h5>
+</ul>
+<div class="row">
+    <div class="col-md-6">
+
+          <table >
+            <tr>  <td>Prioridad (Urgente, Daños, Etc) : </td>   <td><a>{{ ot_parte.prioridad_ot }}</a></td></tr>
+            <tr>  <td>Estado (Pendiente, En curso, Etc): </td>  <td><a>{{ ot_parte.estado_ot }}</a></td></tr>
+            <tr>  <td>Recursos (Propios, Externos): </td>       <td><a>{{ ot_parte.recursos_ot }}</a></td></tr>
+            <tr>  <td>Etiqueta: </td>                           <td><a>{{ ot_parte.etiqueta_ot }}</a></td></tr>
+            <tr>  <td>Notas: </td>                              <td><a href="https://">{{ ot_parte.notas_ot }}</a></td></tr>
+            <tr>  <td>Tipo (Correctivo, Prev, Etc) : </td>      <td><a>{{ ot_parte.tipo_aviso_ot }}</a></td></tr>
+            <tr>  <td>Fecha Parte : </td>                       <td><a>{{ ot_parte.fecha_ot }}</a></td></tr>
+            <tr>  <td>Fecha última edicion : </td>                     <td><a>{{ ot_parte.fecha_cambio_ot }}</a></td></tr>
+          </table>
+
+    </div>
+</div>
+<br><br>
+</button>
+
+<table>
+<tr>
+<td> <a <button type="button" href='edit/{{ ot_parte.pk }}' class="btn btn-primary my-2 my-sm-0"> Editar </a>  </button> </td>
+<td> <a <button type="button"href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning my-2 my-sm-0">  Añadir trabajo </a> </h5> </button></td>
+<td> <a <button type="button"href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-outline-info my-2 my-sm-0">  Ver Trabajos </a> </h5> </td>
+</tr>
+</table>
+{% endblock %}
+
+
+{% block contenido %}
+
+
+{% endblock %}

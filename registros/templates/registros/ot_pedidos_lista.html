@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+
+{% extends "inicio.html" %}
+
+{% block content %}
+
+  <ul class="list-unstyled">
+        <h3>Lista Últimas Peticiones de material
+        <h6><a  href="/registros/pedidos/nuevo/">Nuevo pedido</h3></h6>
+
+        <br>
+        <small><small> </small></small>
+
+      {% for Ot_Pedido_material in object_list %}
+        <li>
+          <a  href="/registros/pedidos/{{ Ot_Pedido_material.num_Pedido }} "> {{ Ot_Pedido_material.num_Pedido }} , {{ Ot_Pedido_material.Material }} , {{ Ot_Pedido_material.estado_ot }} </a>
+        </li>
+      {% endfor %}
+  </ul>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+hola mundo
+
+
+<!doctype html>
+<html lang="es">
+
+
+{% extends "inicio.html" %}
+
+{% block content %}
+<h3>Registro de temperaturas </h3>
+<h6></h6>
+
+
+<form method="POST" class="post-form">
+  {% csrf_token %}
+
+
+<p>{{ form.Ot_Temp_Clima_Interior.num_Temp_Clima }}</p>
+
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-4">
+              <table>
+                <tr><select type="text" class="form-control"  {{ form.field }}</tr>
+                <tr>  <td>{{ form.num_Temp_Clima}} </td>   <td><h6>Aire</h6></td></tr>
+                <tr>  <td><h6>Temperatura ambiente</h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Impulsion_Aire}}</a></td></tr>
+                <tr>  <td><h6>Temperatura Impulsion Aire</h6> </td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Retorno_Aire}}</a></td></tr>
+                <tr>  <td><h6>Temperatura Retorno Aire </h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Ambiente}}</a></td></tr>
+                <tr>  <td> </td>   <td><h6>Agua</h6></td></tr>
+                <tr>  <td><h6>Temp Impulsion tubo bateria grande </h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Impulsion_Agua_Fria}}</a></td></tr>
+                <tr>  <td><h6>Temp Ret. tubo bateria grande</h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Retorno_Agua_Fria}}</a></td></tr>
+                <tr>  <td><h6>Temp Impuls tubo bateria Pequeña</td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Impulsion_Agua_Caliente}}</a></td></tr>
+                <tr>  <td><h6>Temp Ret. tubo bateria Pequeña</h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.Temp_Retorno_Agua_Caliente}}</a></td></tr>
+                <tr>  <td> </td>   <td><h6>Caudal Aire</h6></td></tr>
+                <tr>  <td><h6>Caudal Aire</h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.TCaudal_de_aire}}</a></td></tr>
+                <tr>  <td><h6>Notas</h6></td>   <td><a><input id="ejemplo_email_2" type="text" class="form-control" {{ form.notas_ot}}</a></td></tr>
+                <tr>  <td></td>   <td><button type="submit" class="btn btn-outline-success">Ok Guardar</button></td></tr>
+            </table>
+
+          </div>
+      </div>
+  </div>
+</form>
+
+
+{% endblock %}
