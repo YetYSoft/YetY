@@ -21,10 +21,6 @@ urlpatterns = [
     path ('listaPor/' , views.nuevo_lista_partes, name='nuevo_lista_partes'), #Envia el dato del form
 
 
-
-
-
-
     # Formularios para listados y busquedas-----------------------------------
     path ('ubicacion_list_form/' , views.ubicacion_list_form, name='ubicacion_list_form'), #- Abre el formulario
     path ('elemento_list_form/' , views.elemento_list_form, name='elemento_list_form'), # Abre el formulario
