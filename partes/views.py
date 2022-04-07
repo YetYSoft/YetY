@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
 
 
 
-from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
+
+
 
 from django.views import View
 from django.views.generic.list import ListView
@@ -19,7 +19,11 @@ from django.urls import reverse
 import json
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
+
+from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
+from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
 
 #------------------Parte-----------------
 @login_required
