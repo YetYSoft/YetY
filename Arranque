@@ -1,5 +1,17 @@
 
 
 
-C:\Users\mantenimiento\Desktop\YetY\venv_windows\Scripts\activate.bat
+C:\Users\mantenimiento\Desktop\YetYSoft\venv_windows\Scripts\activate.bat
 Python manage.py runserver
+
+
+
+
+
+
+
+
+
+
+<!--  {% if.perm.ot_pedidos.change_ot_pedido_material %} -->
+
