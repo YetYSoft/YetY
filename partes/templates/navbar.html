@@ -2,11 +2,14 @@
 <html lang="es">
 
 
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-  <a class="navbar-brand" href="/"><hgroup><h2>YetY </h2> <h6> <small><small> Alpha 5.0.0</br>{{ user }}  </small></small></h6> </hgroup></a>
+<nav class="navbar navbar-expand navbar-dark bg-primary ">
+  <a class="navbar-brand" href="/">
+    <hgroup><h2>YetY </h2> <h6> <small><small> Alpha 5.0.0</br>{{ user }}  </small></small></h6> 
+    </hgroup>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> 
   
 <!--  Comprobacion permisos -->
   
@@ -14,32 +17,26 @@
   
 
   {% if user.is_authenticated %}
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class=" collapse navbar-collapse" id="navbarColor01">
 
     <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item active">
-        <a class="nav-link" href="/partes/nuevo_form">Parte</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/registros/pedidos/Listado">Pedidos</a>
-      </li>
+      <li class="nav-item active"><a class="nav-link" href="/partes/nuevo_form">Parte</a></li>
+      <li class="nav-item active"><a class="nav-link" href="/registros/pedidos/Listado">Pedidos</a></li>
 
 
       <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Listas
-              </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/partes/pendientes">Pendientes</a>
-            <a class="dropdown-item" href="/partes/partes">Últimos partes</a>
-            <a class="dropdown-item" href="/partes/trabajo/listado">Últimos trabajos</a>
-            <a class="dropdown-item" href="/partes/ubicacion_list_form">Lista por ubicacion</a>
-            <a class="dropdown-item" href="/partes/elemento_list_form">Lista por elemento</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/rondas">Otra cosa</a>
-            <a class="dropdown-item" href="#">Otra cosa</a>
-        </div>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listas</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/partes/pendientes">Pendientes</a>
+          <a class="dropdown-item" href="/partes/partes">Últimos partes</a>
+          <a class="dropdown-item" href="/partes/trabajo/listado">Últimos trabajos</a>
+          <a class="dropdown-item" href="/partes/ubicacion_list_form">Lista por ubicacion</a>
+          <a class="dropdown-item" href="/partes/elemento_list_form">Lista por elemento</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/rondas">Otra cosa</a>
+          <a class="dropdown-item" href="#">Otra cosa</a>
+      </div>
       </li>
 
 

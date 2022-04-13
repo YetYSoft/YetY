@@ -16,24 +16,24 @@
 
     <div class="container-fluid">
       <div class="row">
-          <div class="col-sm-4">
+          <div class="col-md-4">
             <select type="text" class="form-control"  {{ form.ubicacion_ot }}
             <select type="text" class="form-control" placeholder="Campo de texto"{{ form.elemento_ot }}
             <select type="text" class="form-control" placeholder="{{ form.estado_ot.value }}"{{ form.estado_ot}}
             <select type="text" class="form-control" placeholder="{{ form.prioridad_ot.value }}"{{form.prioridad_ot}}
-            <select type="text" class="form-control" placeholder="{{ form.estado_ot.value }}"{{ form.recursos_ot}}
+            <select type="text" class="form-control " placeholder="{{ form.estado_ot.value }}"{{ form.recursos_ot}}
             <select type="text" class="form-control" placeholder="{{ form.tipo_aviso_ot.value }}"{{form.tipo_aviso_ot}}
           </div>
 
-          <div class="col-sm-8">
+          <div class="col-md-8">
             <textarea type="text" rows="3" class="form-control" placeholder="Descripcion Parte"{{ form.descripcion_ot }} </textarea>
             <input type="text" class="form-control" placeholder="Etiquetas"{{form.etiqueta_ot}}
             <input type="text" class="form-control" placeholder="Notas"{{form.notas_ot}}
-            <button type="submit" class="btn btn-outline-success">Ok Guardar</button>
+            
           </div>
       </div>
 
-
+<button type="submit" class="btn btn-outline-success btn-block">Ok Guardar</button>
 
   </div>
 
