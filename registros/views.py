@@ -1,3 +1,4 @@
+from urllib.request import Request
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,6 +11,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from registros.models import Ot_Temp_Clima_Interior, Ot_Temp_Minibar,Ot_Pedido_material
 from registros.forms import Temp_Clima_Form, Pedido_Form
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Permission
+from django.contrib.auth import backends
 
 # Registro temperaturas...........................................
 
@@ -47,7 +50,7 @@ def Temp_Clima_editar(request,num_Temp_Clima):
     return render (request,'registros/ot_registro_edit_form.html',{'form':form})
 
 
-
+# Pedidos...........................................
 
 # listados
 class Pedidos_list (ListView):
@@ -55,6 +58,9 @@ class Pedidos_list (ListView):
     paginate_by = 100
     ordering = ['estado_ot','-fecha_hora_cambio_ot']
     template_name = 'registros/ot_pedidos_lista.html'
+    print(get_user_permissions()
+  
+
 
 # Editar registros de PEDIDOS ................
 @login_required
