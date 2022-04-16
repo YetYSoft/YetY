@@ -51,7 +51,7 @@ def Temp_Clima_editar(request,num_Temp_Clima):
     return render (request,'registros/ot_registro_edit_form.html',{'form':form})
 
 
-
+# Pedidos...........................................
 
 # listados
 class Pedidos_list (ListView):
@@ -59,7 +59,6 @@ class Pedidos_list (ListView):
     paginate_by = 100
     ordering = ['estado_ot','-fecha_hora_cambio_ot']
     template_name = 'registros/ot_pedidos_lista.html'
-    
 
 # Editar registros de PEDIDOS ................
 @login_required
