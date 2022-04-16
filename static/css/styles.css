@@ -1,13 +1,15 @@
-.sidebar-nav {
-    margin-top: 200px;
-    padding: 0;
-    list-style: none;
+
+a {
+  
+   margin-bottom: 0.5rem;
+   font-family: inherit;
+   font-weight: 300;
+   line-height: 1.2;
+   
 }
 
-.containerOwnApp {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
-    padding-top: 15px;
- }
+
+/* Plantilla de login */
   
  .login-page {
    padding: 18% 0 0;
@@ -37,3 +39,134 @@
  .login-form-font-header span {
     color: #007C9B;
  }
+
+
+
+
+ /* Grilla detalle parte*/
+
+ .grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr  ;
+   margin: 1px;
+    /*grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));*/
+    /*grid-auto-flow: dense;*/
+
+ }
+
+ .a {
+   grid-column:1/9 ;
+   
+   padding: 1px;
+   border: 1px solid #007C9B;
+ }
+ 
+ .b{
+   grid-column: 1/4;
+   background-color: #f3f3f3;
+   margin: 0px;
+   padding: 1px  ;
+   
+ }
+ .c{
+   grid-column: 4/9;
+   background-color: #f3f3f3;
+   margin: 0px;
+   padding: 1px;
+   
+ }
+ .grid_botones {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   margin: 1px;
+   align-items: center;
+ }
+ .d{
+   grid-column: 1/2;
+   margin: 0px;
+   padding: 1px  ;
+   justify-self: center;
+   
+ }
+ .e{
+   grid-column: 2/3;
+   margin: 0px;
+   padding: 1px  ;
+   justify-self: center;
+ }
+ .f{
+   grid-column: 3/4;
+   margin: 0px;
+   padding: 1px  ;
+   justify-self: center;
+  
+
+ }
+ 
+ /*
+ .f {
+   grid-column: 1.2;
+   background-color: rgb(216, 220, 217);
+   margin: 1em;
+   padding: 1em;
+   border: 5px solid rgb(243, 7, 7);
+ }
+.g {
+   grid-column: 2/7;
+   background-color: rgb(216, 220, 217);
+   margin: 1em;
+   padding: 1em;
+   border: 5px solid rgb(243, 7, 7);
+ }
+
+
+  .h {
+   display: grid;
+   grid-columns: 33%;
+   background-color: rgb(216, 220, 217);
+   margin: 1em;
+   padding: 1em;
+   border: 5px solid rgb(188, 208, 61);
+ }
+
+
+
+ .i {
+   display: grid;
+   grid-columns: 33%;
+   
+   background-color: rgb(175, 179, 247);
+   margin: .1em;
+   padding: .1em;
+   border: 5px solid rgb(4, 42, 112);
+ }
+ .j {
+   display: grid;
+   grid-columns: 33%;
+   
+   background-color: rgb(216, 220, 217);
+   margin: 1em;
+   padding: 1em;
+   border: 5px solid rgb(188, 208, 61);
+ }
+
+
+
+ .k {
+   display: grid;
+   background-color: rgb(175, 179, 247);
+   margin: .1em;
+   padding: .1em;
+   border: 5px solid rgb(4, 42, 112);
+ }
+
+
+
+ .l {
+   
+   background-color: rgb(28, 151, 58);
+   margin: 1em;
+   padding: 1em;
+   border: 5px solid rgb(7, 243, 82);
+ }
+ */

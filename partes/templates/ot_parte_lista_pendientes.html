@@ -13,21 +13,17 @@
 {% if user.is_authenticated %}
 
 
-        <h6>Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h6>
- 
- 
+        
+        <h5>Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h5>
+        
  
  
  
  
       {% for Ot_Parte in object_list %}
-        <li>  <div> <a  href="/partes/{{ Ot_Parte.pk }} ">
-                <small><small>({{ Ot_Parte.prioridad_ot }})</small></small>
-                {{ Ot_Parte.ubicacion_ot }}</a>
-                <a>{{ Ot_Parte.elemento_ot }}
-                {{ Ot_Parte.descripcion_ot }}</a>
-                <br>
-              </div>
+      <!--  <small><small>({{ Ot_Parte.prioridad_ot }})</small></small> -->
+        <li>   <a   href="/partes/{{ Ot_Parte.pk }} ">{{ Ot_Parte.ubicacion_ot }}</a> <a class="h6">{{ Ot_Parte.elemento_ot }} {{ Ot_Parte.descripcion_ot }}</a><br>
+              
 
         </li>
       {% endfor %}

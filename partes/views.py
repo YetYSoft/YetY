@@ -26,7 +26,7 @@ def index(request):
 
 class DetalleParte(DetailView):
     model = Ot_Parte
-
+    template_name = 'ot_parte_detail.html'
  
 #--------------Formularios para listados parte---------
 @login_required

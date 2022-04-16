@@ -10,6 +10,7 @@ from partes.models import Ot_Parte,Ot_Trabajos,Ot_Ubicaciones
 class ParteForm(forms.ModelForm):
     class Meta:
         model=Ot_Parte
+        
         ordering = ["ubicacion_ot"]
         fields= '__all__'
         template_name = 'ot_parte_edit_form.html'

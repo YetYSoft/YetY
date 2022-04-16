@@ -6,7 +6,7 @@ C:\Users\mantenimiento\Desktop\YetYSoft\venv_windows\Scripts\activate.bat
 *******Linux***************
 source /home/juan/Escritorio/YetYSoft/venv_Django_4.0.3/bin/activate
 
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
 
 
 
