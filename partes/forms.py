@@ -1,7 +1,15 @@
 from django import forms
 from django.forms import ModelForm,Textarea
+from django.urls import reverse
 #from betterforms.multiform import MultiModelForm # clase para varios modelos en un formulario
+
 from partes.models import Ot_Parte,Ot_Trabajos,Ot_Ubicaciones
+
+
+
+
+
+
 
 
 
@@ -10,7 +18,6 @@ from partes.models import Ot_Parte,Ot_Trabajos,Ot_Ubicaciones
 class ParteForm(forms.ModelForm):
     class Meta:
         model=Ot_Parte
-        
         ordering = ["ubicacion_ot"]
         fields= '__all__'
         template_name = 'ot_parte_edit_form.html'

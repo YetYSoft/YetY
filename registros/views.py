@@ -59,7 +59,7 @@ class Pedidos_list (ListView):
     paginate_by = 100
     ordering = ['estado_ot','-fecha_hora_cambio_ot']
     template_name = 'registros/ot_pedidos_lista.html'
-    print(get_user_permissions()
+  
   
 
 

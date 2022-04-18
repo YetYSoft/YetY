@@ -36,10 +36,13 @@
 </div>
 
 <div class="grid_botones">
-    <div class="d"> <button href='edit/{{ ot_parte.pk }}' class="btn btn-primary btn-block"    > Editar parte   </button> </div>
-    <div class="e"> <button href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning ">  Añadir trabajo </button></div>
-    <div class="f"> <button href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning ">  Ver Trabajos </div>
+    <div class="d"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+    <div class="e"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
+    <div class="f"> <a href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning">Ver Trabajos</a> </div>
 </div>
+
+
+
 
 
 {% endblock %}

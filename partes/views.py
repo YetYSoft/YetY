@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.shortcuts import get_list_or_404, get_object_or_404
 
@@ -15,24 +16,84 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 
 
+
 from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
 from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
+
+from django.forms.models import modelformset_factory # model form para querysets 
+ 
+
+
+
+
+########### combinar dos modelos en un template
+
+
+
+
+    
+# ......Ejemplo escribir registros en base de datos
+#           variable=modelo(campo1=valor_en_campo1,campo2=valor_en_campo2, etc)  
+#         y esto escribe los valores en la base de datos
+#           variable.save()   
+
+#.........lo mismo Abreviado      
+#           variable=modelo.objets.create(campo1=valor_en_campo1,campo2=valor_en_campo2, etc)  
+
+# ......Ejemplo modificar registros en base de datos
+#           variable=modelo(campo1=valor_en_campo1,campo2=valor_en_campo2, etc)  
+#           variable.save()   
+
+#           variable=modelo.objets.get(campo1=valor_en_campo1,
+#           variable.delete()   
+#           
+#........recupera el modelo completo
+#           variable=modelo.objets.all()
+
+
+def busqueda(request):
+     return render(request,'prueba.html')
+
+def buscar(request):
+
+    request.GET["prd"]
+    numero_recibido=request.GET["prd"]
+    numero_parte=Ot_Parte.objects.all()[:10]
+    print(type(numero_parte))
+    return render(request,"prueba_resultados.html",{"numero_parte":numero_parte, "ubicacion_ot" :numero_parte.ubicacion_ot})
+            
+  
+
+
+
+
+
+
+
+
+
 
 #------------------Parte-----------------
 @login_required
 def index(request):
     return redirect('Partes_Pendientes')
     #return render (request,'sidebar.html')
-
 class DetalleParte(DetailView):
     model = Ot_Parte
     template_name = 'ot_parte_detail.html'
+    
+
+
+
+
+
  
 #--------------Formularios para listados parte---------
 @login_required
 def ubicacion_list_form(request):
     form = Nuevo_form()
     return render (request,'ot_ubicaciones_lista_form.html',{'form':form})
+
 @login_required
 def elemento_list_form(request):#-
     form = Elemento_list_form()
@@ -184,9 +245,13 @@ def EditarTrab (request,num_tra,numero_ot):
     return render (request,'ot_trabajos_edit_form.html',{'form':form, 'parte':parte})
 
 
-@login_required
-def ListaTrab_parte(request, numparte):
+#@login_required
+#def ListaTrab_parte(request, numparte):
 
-        los_trabajos =Ot_Trabajos.objects.filter(num_ot_tra=numparte).order_by('-fecha_cambio_ot','num_ot_tra','estado_ot')
-        listado = {'los_trabajos':los_trabajos}
-        return render (request,'ot_trabajos_list', listado)
+ #       los_trabajos =Ot_Trabajos.objects.filter(num_ot_tra=numparte).order_by('-fecha_cambio_ot','num_ot_tra','estado_ot')
+ #       listado = {'los_trabajos':los_trabajos}
+ #       return render (request,'ot_trabajos_list', listado)
+        
+    
+
+
