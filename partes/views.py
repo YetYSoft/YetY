@@ -56,11 +56,16 @@ def busqueda(request):
 
 def buscar(request):
 
-    request.GET["prd"]
-    numero_recibido=request.GET["prd"]
-    numero_parte=Ot_Parte.objects.all()[:10]
-    print(type(numero_parte))
-    return render(request,"prueba_resultados.html",{"numero_parte":numero_parte, "ubicacion_ot" :numero_parte.ubicacion_ot})
+    if request.GET["prd"]: # comprueba que el formulario no esté vacío
+        palabra_recibida=request.GET["prd"]
+        partes=Ot_Parte.objects.filter(descripcion_ot__icontains=palabra_recibida) [:10]
+        print(type(partes))
+        print(partes.query)
+        return render(request,"prueba_resultados.html",{"los_partes":partes})
+    else:
+        
+        return HttpResponse("no has puesto nada")
+
             
   
 
