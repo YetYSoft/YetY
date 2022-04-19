@@ -61,13 +61,17 @@ def buscar(request):
         partes=Ot_Parte.objects.filter(descripcion_ot__icontains=palabra_recibida) [:10]
         print(type(partes))
         print(partes.query)
-        return render(request,"prueba_resultados.html",{"los_partes":partes})
+        return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":palabra_recibida})
     else:
         
         return HttpResponse("no has puesto nada")
 
             
-  
+ # def parte_y_trabajos(request,num_parte):
+  #   los_partes =Ot_Parte.objects.filter(ubicacion_ot=ubicaci).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','elemento_ot')
+   #   listado = {'los_partes':los_partes}
+    #  return render (request,'ot_parte_list_ubicacion.html', listado)
+
 
 
 
@@ -83,6 +87,8 @@ def buscar(request):
 def index(request):
     return redirect('Partes_Pendientes')
     #return render (request,'sidebar.html')
+
+
 class DetalleParte(DetailView):
     model = Ot_Parte
     template_name = 'ot_parte_detail.html'
@@ -129,10 +135,11 @@ def elemento_lista_partes(request): # Recoje el dato del form
 
 #------------------Listados Parte---------------------
 @login_required
-def PartesPorUbicacion (request, ubicaci):#-
+def PartesPorUbicacion (request, ubicaci):
     los_partes =Ot_Parte.objects.filter(ubicacion_ot=ubicaci).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','elemento_ot')
     listado = {'los_partes':los_partes}
     return render (request,'ot_parte_list_ubicacion.html', listado)
+
 @login_required
 def PartesPorElemento (request, element):
     los_partes =Ot_Parte.objects.filter(elemento_ot=element).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','ubicacion_ot')
