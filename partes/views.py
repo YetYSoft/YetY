@@ -59,8 +59,8 @@ from django.forms.models import modelformset_factory # model form para querysets
     #  return render (request,'ot_parte_list_ubicacion.html', listado)
 
 
-def cabecera_inicio(request):
-       return render(request,"cabecera.html")
+
+
             
 
 

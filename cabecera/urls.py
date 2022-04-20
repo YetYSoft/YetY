@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
 
-
+ # Pantalla cabecera
+ path('start/', views.start),
 
 
 ]

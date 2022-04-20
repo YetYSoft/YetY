@@ -12,8 +12,8 @@ from partes.views import *
 
 urlpatterns = [
 
-    # Pantalla cabecera
-    path('cabecera/', views.cabecera_inicio),
+   
+   
 
 
 
