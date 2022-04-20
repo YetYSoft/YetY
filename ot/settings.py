@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cabecera.apps.CabeceraConfig',
     'partes.apps.PartesConfig',
     'rondas.apps.RondasConfig',
     'registros.apps.RegistrosConfig',

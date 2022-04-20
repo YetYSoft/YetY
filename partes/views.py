@@ -51,6 +51,21 @@ from django.forms.models import modelformset_factory # model form para querysets
 #           variable=modelo.objets.all()
 
 
+ #def parte_y_trabajos(request,num_parte):
+
+     
+    #   los_partes =Ot_Parte.objects.filter(ubicacion_ot=ubicaci).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','elemento_ot')
+   #   listado = {'los_partes':los_partes}
+    #  return render (request,'ot_parte_list_ubicacion.html', listado)
+
+
+def cabecera_inicio(request):
+       return render(request,"cabecera.html")
+            
+
+
+
+#------------------Busqueda de parte basica-----------------
 def busqueda(request):
      return render(request,'prueba.html')
 
@@ -66,20 +81,6 @@ def buscar(request):
         
         return HttpResponse("no has puesto nada")
 
-            
- # def parte_y_trabajos(request,num_parte):
-  #   los_partes =Ot_Parte.objects.filter(ubicacion_ot=ubicaci).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','elemento_ot')
-   #   listado = {'los_partes':los_partes}
-    #  return render (request,'ot_parte_list_ubicacion.html', listado)
-
-
-
-
-
-
-
-
-
 
 
 #------------------Parte-----------------
@@ -93,10 +94,6 @@ class DetalleParte(DetailView):
     model = Ot_Parte
     template_name = 'ot_parte_detail.html'
     
-
-
-
-
 
  
 #--------------Formularios para listados parte---------
@@ -120,16 +117,6 @@ def elemento_lista_partes(request): # Recoje el dato del form
     if 'elemento_ot' in request.GET:
         element=request.GET['elemento_ot']
         return redirect('PartesPorElemento',element) #  Envia el daro al template del listado
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -216,6 +203,8 @@ class ListaTrab(ListView):#Ultimos trabajos realizados
     paginate_by = 25
     ordering = ['-fecha_cambio_tra','-num_tra']
     template_name = 'ot_trabajos_list.html'
+
+
 
 class ListaTrabParte(ListView): #listado por numero de parte
     model = Ot_Trabajos

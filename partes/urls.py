@@ -4,12 +4,18 @@ from django.views.generic import TemplateView
 
 from django.views import View
 from . import views
+from django.views.generic import RedirectView
 
 #from partes.views import partes, DetalleParte, parte_nuevo, parte_editar, EditarTrab
 
 from partes.views import *
 
 urlpatterns = [
+
+    # Pantalla cabecera
+    path('cabecera/', views.cabecera_inicio),
+
+
 
     path  ("", views.index, name='index'),  #va a pag de Inicio
     path ('partes/', views.partes.as_view(), name='Listapartes'), #va a class view.OtListView
@@ -42,7 +48,7 @@ urlpatterns = [
     path ('trabajo/nuevo/<int:numero_ot>' , views.NuevoTrab , name='add_trabajo'),
     path ('trabajo/ver/<int:numero_ot>' , views.ListaTrabParte.as_view() , name='ver_trabajos'),
     path ('trabajo/listado' , views.ListaTrab.as_view() , name='lista_trabajo'),
-    path ('prueba/' , views.busqueda , name='ver_traaaabajos'),
+    path ('busqueda/' , views.busqueda , name='ver_traaaabajos'),
     path ('buscar/' , views.buscar , name='ver_trajos'),
 
 
