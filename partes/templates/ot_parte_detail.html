@@ -5,45 +5,36 @@
 {% extends "inicio.html" %}
 
 {% block content %}
-<!-- <h5>partes/ot_parte_detail.html</h5>
+
 {% load static %}
 
-
-
-<link rel="stylesheet" href="/static/css/styles.css"
-<link rel="stylesheet" href="static/css/detail.css">-->
-<link rel="stylesheet" href="{% static '/css/styles.css' %}">
-
-
-
-<h6>Detalles del parte <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a> Revisar según proceda  </h6>
-
-
-
+<link rel="stylesheet" href="{% static '/css/partes.css' %}">
 
 <div class="grid"> <!-- contenedor -->
  
-    <div class="a"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
-    <div class="b"><a><h6>Prioridad</h6> </a></div>
-    <div class="c"><a>{{ ot_parte.prioridad_ot }}</a></div>
-    <div class="b"><a>Estado </a></div>
-    <div class="c"><a>{{ ot_parte.estado_ot }}</a></div>
-    <div class="b"><a>Recursos </a></div>
-    <div class="c"><a>{{ ot_parte.recursos_ot }}</a></div>
-    <div class="b"><a>Etiqueta:</a></div>
-    <div class="c"><a>{{ ot_parte.etiqueta_ot }}</a></div>
-    <div class="b"><a>Notas:</a></div>
-    <div class="c"><a>{{ ot_parte.notas_ot }}</a></div>
-    <div class="b"><a>Tipo :</a></div>
-    <div class="c"><a>{{ ot_parte.tipo_aviso_ot }}</a></div>
-    <div class="b"><a>Fecha Parte : </a></div>
-    <div class="c"><a>{{ ot_parte.fecha_ot }}</a></div>
+    <div class="cabecera"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
+    <div class="descripcion"><a><h6>Parte num</h6> </a></div>
+    <div class="datos"><a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a></div>
+    <div class="descripcion"><a><h6>Prioridad</h6> </a></div>
+    <div class="datos"><a>{{ ot_parte.prioridad_ot }}</a></div>
+    <div class="descripcion"><a>Estado </a></div>
+    <div class="datos"><a>{{ ot_parte.estado_ot }}</a></div>
+    <div class="descripcion"><a>Recursos </a></div>
+    <div class="datos"><a>{{ ot_parte.recursos_ot }}</a></div>
+    <div class="descripcion"><a>Etiqueta:</a></div>
+    <div class="datos"><a>{{ ot_parte.etiqueta_ot }}</a></div>
+    <div class="descripcion"><a>Notas:</a></div>
+    <div class="datos"><a>{{ ot_parte.notas_ot }}</a></div>
+    <div class="descripcion"><a>Tipo :</a></div>
+    <div class="datos"><a>{{ ot_parte.tipo_aviso_ot }}</a></div>
+    <div class="descripcion"><a>Fecha Parte : </a></div>
+    <div class="datos"><a>{{ ot_parte.fecha_ot }}</a></div>
     
    
 </div>
 
   
-<p>{%  static 'css/styles.css'%} </p>
+
 
 <div class="elemento1"> <!-- contenedor -->
 

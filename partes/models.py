@@ -43,7 +43,7 @@ class Ot_Trabajos(models.Model):
 class Ot_Ubicaciones(models.Model):
     ubicacion_ub=models.CharField(primary_key=True, max_length=30)
     class Meta:
-        ordering = ["ubicacion_ub"]
+        ordering = ['ubicacion_ub']
     def __str__(self):
         return '{}'.format(self.ubicacion_ub)
 
