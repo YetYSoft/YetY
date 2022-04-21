@@ -1,17 +1,24 @@
+
 <!doctype html>
 <html lang="es">
 
 {% extends "inicio.html" %}
 
 {% block content %}
-<!-- <h5>partes/ot_parte_detail.html</h5>-->
+<!-- <h5>partes/ot_parte_detail.html</h5>
+{% load static %}
+
+
+
+<link rel="stylesheet" href="/static/css/styles.css"
+<link rel="stylesheet" href="static/css/detail.css">-->
+<link rel="stylesheet" href="{% static '/css/styles.css' %}">
+
+
 
 <h6>Detalles del parte <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a> Revisar según proceda  </h6>
 
 
-{% load static %}
-
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 
 <div class="grid"> <!-- contenedor -->
@@ -35,13 +42,18 @@
    
 </div>
 
-<div class="btn-group" role="group" aria-label="Basic example" >
-    <div class="d"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
-    <div class="e"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
-    <div class="f"> <a href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning">Ver Trabajos</a> </div>
+  
+<p>{%  static 'css/styles.css'%} </p>
+
+<div class="elemento1"> <!-- contenedor -->
+
+
+        <div class="d"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div class="e"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
+        <div class="f"> <a href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning">Ver Trabajos</a> </div>
+  
+
 </div>
-
-
 
 
 

@@ -81,31 +81,26 @@ a {
    margin: 1px;
    align-items: center;
  }
- .d{
-   grid-column: 1/2;
-   margin: 10em;
-   padding: 10em  ;
-   justify-self: center;
-   
- }
- .e{
-   grid-column: 2/3;
-   margin: 10em;
-   padding: 10em  ;
-   justify-self: center;
- }
- .f{
-   grid-column: 3/4;
-   margin: 0px;
-   padding: 1px  ;
-   justify-self: center;
-  
 
- }
- 
-/* grilla Start  */
 
-.elemento1{
-  background: #007C9B;
+
+ /* grilla Start  */
+
+ .elemento1{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr ;
+  background: #e90f58;
   padding: 1em;
+  margin: 1em;
+}
+
+.btn{
+  display: grid;
+  grid-column: 1fr;
+  margin: 1em;
+  padding: 1em  ;
+  justify-self: center;
+ 
+  
 }
