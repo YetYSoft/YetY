@@ -15,38 +15,33 @@
     {% block content %}
        
  
-    <div class="elemento1">
+   
 
-    <a class="elemento1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, sed.</a>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/start.css' %}">
+
+    <div id="grid_start">
+        <div> <a href="/partes/" class="btn btn-primary">Partes (averias)</a></div>
+        <div> <a href="/rondas/" class="btn btn-primary">Rondas (Legal)</a></div>
+        <div> <a href="/registros/" class="btn btn-primary">Registros (Técnico)</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
     </div>
-    <div class="elemento2" >
-
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, sed.
-    </div>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"></link>
-
-
-    <div class="grid"> <!-- contenedor -->
-     
-        <div class="a"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
-        <div class="b"><a><h6>Prioridad</h6> </a></div>
-        <div class="c"><a>{{ ot_parte.prioridad_ot }}</a></div>
-        <div class="b"><a>Estado </a></div>
-        <div class="c"><a>{{ ot_parte.estado_ot }}</a></div>
-        <div class="b"><a>Recursos </a></div>
-        <div class="c"><a>{{ ot_parte.recursos_ot }}</a></div>
-        <div class="b"><a>Etiqueta:</a></div>
-        <div class="c"><a>{{ ot_parte.etiqueta_ot }}</a></div>
-        <div class="b"><a>Notas:</a></div>
-        <div class="c"><a>{{ ot_parte.notas_ot }}</a></div>
-        <div class="b"><a>Tipo :</a></div>
-        <div class="c"><a>{{ ot_parte.tipo_aviso_ot }}</a></div>
-        <div class="b"><a>Fecha Parte : </a></div>
-        <div class="c"><a>{{ ot_parte.fecha_ot }}</a></div>
-        
-       
-    </div>
-    
     
     {% endblock %}
 

@@ -1,0 +1,40 @@
+/* grid de cabecera*/
+
+#grid_start {
+  display: grid;
+  height: 200px;
+  grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  grid-gap: 10px 10px;
+}
+
+#grid_start > div {
+  display: grid;
+  background-color: lime;
+  margin: 1em;
+  
+}
+
+
+
+
+
+  /* grilla Start  
+
+ 
+  .elemento1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr ;
+    /*background: #e90f58;
+    
+    margin: 1em;
+    padding: 0em;
+  }
+  
+  .btn{
+    display: grid;
+    grid-column: 1fr;
+    margin: 2px;
+    padding: 1rem  ;
+    justify-self: center;
+  }  */

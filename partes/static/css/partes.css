@@ -9,36 +9,6 @@ a {
 }
 
 
-/* Plantilla de login */
-  
- .login-page {
-   padding: 18% 0 0;
-   margin: 0 auto 100px;
-   max-width: 360px;
-   position: relative;
- }
-  
- .login-form {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
- }
-  
- .login-form-header {
-    padding-top: 16px;
- }
-  
- .login-from-row {
-    padding-top: 16px;
-    padding-bottom: 16px;
- }
-  
- .login-form-font-header {
-    font-size:30px; 
-    font-weight: bold;
- }
-  
- .login-form-font-header span {
-    color: #007C9B;
- }
 
 
 
@@ -98,21 +68,26 @@ a {
  .grid_parte_edit{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-template-rows:1fr 1fr
-  margin: 1px;
+  grid-template-rows:1fr ;
+  margin-bottom: 0px;
+  background-color: #f8f8f8;
    /*grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));*/
    /*grid-auto-flow: dense;*/
  }
 
  .form-encabezado{
   grid-column: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0px;
   font-family: inherit;
+  
 }
 .texto-encabezado{
+  font-size: larger;
+  font-family: inherit;
   font-weight: 300;
   color: #008cba;
   text-decoration: none;
+  
 }
 
  .responsive_text_area{
@@ -121,40 +96,31 @@ a {
   min-height: 75px;
   outline: none;
   resize: none;
-  border: 1px solid grey;
+  margin-bottom: 2rem;
+  margin-top: 0px;
+  
+  font-size: larger;
+  font-family: inherit;
+  font-weight: 300;
+  color: #008cba;
+  text-decoration: none;
+ 
+  
  }
 
  .descrip_parte{
+  display: grid;
+  grid-column: auto;
   grid-column-start: auto;
   color: #737373;
-  background-color: #f8f8f8;
   margin: 0px;
-  padding: 1px  ;
+  padding: 2px  ;
  }
 
 
 
 
 
- /* grilla Start  */
-
- 
- .elemento1{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 1fr ;
-  /*background: #e90f58;
-  
-  margin: 1em;*/
-  padding: 0em;
-}
-
-.btn{
-  display: grid;
-  grid-column: 1fr;
-  margin: 2px;
-  padding: 1rem  ;
-  justify-self: center;
  
   
-}
+
