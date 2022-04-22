@@ -8,7 +8,7 @@
 <form method="POST" class="post-form">{% csrf_token %}
 
   <table class="list-unstyled">
-  <tr>  <td>Ubicación :   <select type="text" class="form-control" placeholder="{{ form.ubicacion_ot.value }}"{{ form.ubicacion_ot }}</tr>
+  <tr>  <td>Ubicación :   <select type="text" class="form-encabezado" placeholder="{{ form.ubicacion_ot.value }}"{{ form.ubicacion_ot }}</tr>
   <tr>  <td>Elemento :    <select type="text" class="form-control" placeholder="Campo de texto"{{ form.elemento_ot }}</tr>
   <tr>  <td>Descripción : <input type="text" class="form-control" placeholder="Descripcion Parte"{{ form.descripcion_ot }}</tr>
   <tr>  <td>Prioridad (Urgente, Daños, Etc) : <select type="text" class="form-control" placeholder="{{ form.prioridad_ot.value }}"{{form.prioridad_ot}}</tr>
@@ -30,7 +30,7 @@
 
   </div>
 
-
+ 
 
 </form>
 {% endblock %}

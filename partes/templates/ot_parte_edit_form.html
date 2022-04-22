@@ -15,19 +15,24 @@
 
 <link rel="stylesheet" href="{% static '/css/partes.css' %}">
 
-<div class="grid"> <!-- contenedor -->
-    <div class="descrip_linea1"><a> <h3><select type="text" class="form-control"  {{ form.ubicacion_ot }}</a></h3></div>
-    <div class="descrip_linea2"><select type="text" class="form-control" placeholder="Campo de texto"{{ form.elemento_ot }}</div>
-    <div class="cabecera"><h5>  <textarea type="text" rows="3" class="form-control" placeholder="Descripcion Parte"{{ form.descripcion_ot }} </textarea></h5></div> <!-- cada uno de los ítems del grid -->
-    <div class="descripcion"> <select type="text" class="form-control" placeholder="{{ form.prioridad_ot.value }}"{{form.prioridad_ot}}</div>
-    <div class="descripcion"><select type="text" class="form-control" placeholder="{{ form.estado_ot.value }}"{{ form.estado_ot}}</div>
-    <div class="descripcion"><select type="text" class="form-control " placeholder="{{ form.estado_ot.value }}"{{ form.recursos_ot}}</div>
-    <div class="descripcion"><input type="text" class="form-control" placeholder="Etiquetas"{{form.etiqueta_ot}}</div>
-    <div class="descripcion"><input type="text" class="form-control" placeholder="Notas"{{form.notas_ot}}</div>
-    <div class="descripcion"><select type="text" class="form-control" placeholder="{{ form.tipo_aviso_ot.value }}"{{form.tipo_aviso_ot}}</div>
-    
+<div class="grid_parte_edit"> <!-- contenedor -->
+    <div class="form-encabezado "><a > <h5><select  class="texto-encabezado"type="text"   {{ form.ubicacion_ot }}</a></h5></div>
+    <div class="form-encabezado"><a> <h5><select class="texto-encabezado"type="text"  placeholder="Campo de texto"{{ form.elemento_ot }}</a></h5></div>
+
+</div>    
+
+<div class="campo_parte"><h5>  <textarea  type="text" rows="3" cols="47"   class="responsive_text_area" placeholder="Descripcion Parte"{{ form.descripcion_ot }} </textarea></h5></div> <!-- cada uno de los ítems del grid -->
+
+<div>  
+    <div class="campo_parte"> <select type="text" class="form-control" placeholder="{{ form.prioridad_ot.value }}"{{form.prioridad_ot}}</div>
+    <div class="campo_parte"><select type="text" class="form-control" placeholder="{{ form.estado_ot.value }}"{{ form.estado_ot}}</div>
+    <div class="campo_parte"><select type="text" class="form-control " placeholder="{{ form.estado_ot.value }}"{{ form.recursos_ot}}</div>
+    <div class="campo_parte"><input type="text" class="form-control" placeholder="Etiquetas"{{form.etiqueta_ot}}</div>
+    <div class="campo_parte"><input type="text" class="form-control" placeholder="Notas"{{form.notas_ot}}</div>
+    <div class="campo_parte"><select type="text" class="form-control" placeholder="{{ form.tipo_aviso_ot.value }}"{{form.tipo_aviso_ot}}</div>
+</div>   
    
-</div>
+
 
   
 

@@ -47,7 +47,7 @@ a {
 
  .grid {
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr   ;
+   grid-template-columns: 1fr 1fr 1fr  1fr 1fr 1fr ;
    grid-template-rows: 1fr;
    margin: 1px;
     /*grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));*/
@@ -55,39 +55,18 @@ a {
 
  }
 
- 
-
  .cabecera {
-   grid-column:1/4 ;
-   
+   grid-column:1/7 ;
    padding: 1px;
    border: 1px solid #007C9B;
  }
  
- .descripcion{
-   grid-column: 1/2;
+  .descrip_linea1{
+   grid-column: 5/7;
    color: #737373;
    background-color: #f8f8f8;
    margin: 0px;
    padding: 1px  ;
-   
- }
- .datos{
-   grid-column: 2/4;
-   color: #737373;
-   background-color: #f8f8f8;
-   margin: 0px;
-   padding: 1px;
-   
- }
-
- .descrip_linea1{
-   grid-column: 1/2;
-   color: #737373;
-   background-color: #f8f8f8;
-   margin: 0px;
-   padding: 1px  ;
-   
  }
 
  .descrip_linea2{
@@ -96,11 +75,70 @@ a {
    background-color: #f8f8f8;
    margin: 0px;
    padding: 1px  ;
-   
  }
+ 
+ .descripcion{
+  grid-column: 1/2;
+  color: #737373;
+  background-color: #f8f8f8;
+  margin: 0px;
+  padding: 1px;
+}
+ .datos{
+   grid-column: 2/7;
+   color: #737373;
+   background-color: #f8f8f8;
+   margin: 0px;
+   padding: 1px;
+ }
+
+
+ /* Editar parte*/
+
+ .grid_parte_edit{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-rows:1fr 1fr
+  margin: 1px;
+   /*grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));*/
+   /*grid-auto-flow: dense;*/
+ }
+
+ .form-encabezado{
+  grid-column: auto;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+}
+.texto-encabezado{
+  font-weight: 300;
+  color: #008cba;
+  text-decoration: none;
+}
+
+ .responsive_text_area{
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  resize: none;
+  border: 1px solid grey;
+ }
+
+ .descrip_parte{
+  grid-column-start: auto;
+  color: #737373;
+  background-color: #f8f8f8;
+  margin: 0px;
+  padding: 1px  ;
+ }
+
+
+
+
 
  /* grilla Start  */
 
+ 
  .elemento1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
