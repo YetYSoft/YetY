@@ -23,14 +23,35 @@ from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, O
 from django.forms.models import modelformset_factory # model form para querysets 
  
 
+################  Permisos en las vistas 
 
+        ######## en las clases
+                #from django.contrib.auth.mixins import LoginRequiredMixin
+                #class MyView(LoginRequiredMixin, View):
+
+        ##### en las funciones
+                #from django.contrib.auth.decorators import login_required
+                #@login_required
+                #def my_view(request):
+        ########
+                #from django.contrib.auth.decorators import permission_required
+                #@permission_required('catalog.can_mark_returned')
+                #@permission_required('catalog.can_edit')
+                #def my_view(request):
+
+###############"Mixin" de permisos requeridos para vistas basadas en clases:
+##
+##              django.contrib.auth.mixins import PermissionRequiredMixin
+##              
+                #MyView(PermissionRequiredMixin, View):
+                #permission_required = 'catalog.can_mark_returned'
+                #Or multiple permissions
+                #permission_required = ('catalog.can_mark_returned', 'catalog.can_edit')
+                #Note that 'catalog.can_edit' is just an example
+                #the catalog application doesn't have such permission!
 
 
 ########### combinar dos modelos en un template
-
-
-
-
     
 # ......Ejemplo escribir registros en base de datos
 #           variable=modelo(campo1=valor_en_campo1,campo2=valor_en_campo2, etc)  
