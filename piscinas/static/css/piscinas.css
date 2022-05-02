@@ -2,37 +2,37 @@
 
 #grid_start {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
-  margin: 1em;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  /*grid-template: repeat(4, 1fr) ;*/
+  margin: 1rem;
   align-items: center;
   justify-content: center;
   /* height: 200px;*/
-  /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
+  /**/
 
   border: 2px solid rgb(243, 251, 11);
-  
-}
-#grid_start > div {
-  display: grid;
-  grid-column: 1fr;
  
-  margin: 1em;
-  align-self: center;
-  border: 2px solid rgb(11, 251, 83);
-  
 }
+  
+  #input {
+    display: grid;
+    grid-column: 1fr;
+    margin: 1rem;
+    
+    align-self: center;
+    /*border: 1px solid rgb(15, 11, 251); */
+    /*background-color: rgb(0, 255, 85);*/
+  
+  }
+  
+  #titulo{
+    text-align: center;
+    justify-content: center;
+  }
 
 
-#grid_start  form {
-  display: grid;
-  grid-column: 1fr;
- 
-  margin: 1em;
-  align-self: center;
-  border: 2px solid rgb(79, 11, 251);
+
   
-}
 
 
 
