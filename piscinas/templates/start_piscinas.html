@@ -1,0 +1,38 @@
+
+{% extends "start.html" %}
+{% load static %}
+<body>
+ 
+
+    {% if user.is_authenticated %}
+    {% include 'navbar_start.html'%}
+    {% endif %}
+    
+
+    {% block content %}
+       
+ 
+   
+
+   
+    <link rel="stylesheet" href="{% static '/css/start.css' %}">
+
+    <div id="grid_start">
+        <div> <a href="/resumen/" class="btn btn-primary">Resumen</a></div>
+        <div> <a href="/piscinas/piscina_grande/" class="btn btn-primary">Piscina Grande</a></div>
+        <div> <a href="/piscinas/piscinas/" class="btn btn-primary">Piscina pequeña</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Spa</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Jacuzzy</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">.</a></div>
+  </div>
+    
+    {% endblock %}
+
+
+
+
+
+
+
+
+</body>

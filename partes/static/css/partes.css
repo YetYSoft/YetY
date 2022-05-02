@@ -62,13 +62,14 @@ a {
    padding: 1px;
  }
 
+ 
 
  /* Editar parte*/
 
  .grid_parte_edit{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-template-rows:1fr ;
+ /* grid-template-rows:1fr ;*/
   margin-bottom: 0px;
   background-color: #f8f8f8;
    /*grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));*/
@@ -117,10 +118,4 @@ a {
   padding: 2px  ;
  }
 
-
-
-
-
- 
-  
 

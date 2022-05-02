@@ -14,32 +14,45 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django import views
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.views.generic import RedirectView,View
+from cabecera.views import *
 
 urlpatterns = [
+    path("", include('cabecera.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('cabecera/', include('cabecera.urls')),
+    path('aguas/', include('aguas.urls')),
     path('partes/', include('partes.urls')),
-    path('rondas/', include('rondas.urls')),
+    path('piscinas/', include('piscinas.urls')),
     path('registros/', include('registros.urls')),
+    path('rondas/', include('rondas.urls')),
 
+
+    #path  ("/", views.start, name='index'),  #va a pag de Inicio
+   
+   
+   
+    #path('/', RedirectView.as_view(url='/cabecera/start/', permanent=True)),
 
     #path('', include('partes.urls')),
 
     #path('', include('rondas.urls')),
 
     # path('', include('registros.urls')),
-
-
+    #path  ("", views.index, name='index'),  #va a pag de Inicio
+    #path('', RedirectView.as_view(url='/cabecera/start/', permanent=True))
 ]
 
 
 
 #Add URL maps to redirect the base URL to our application
-from django.views.generic import RedirectView
-urlpatterns += [
-    path('', RedirectView.as_view(url='/partes/', permanent=True)),
-]
+#
+#urlpatterns += [
+   # path('', RedirectView.as_view(url='/partes/', permanent=True)),
+#    path('', RedirectView.as_view(url='/start/', permanent=True)),
+#]

@@ -1,0 +1,60 @@
+/* grid de cabecera*/
+
+#grid_start {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
+  margin: 1em;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px;*/
+  /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
+
+  border: 2px solid rgb(243, 251, 11);
+  
+}
+#grid_start > div {
+  display: grid;
+  grid-column: 1fr;
+ 
+  margin: 1em;
+  align-self: center;
+  border: 2px solid rgb(11, 251, 83);
+  
+}
+
+
+#grid_start  form {
+  display: grid;
+  grid-column: 1fr;
+ 
+  margin: 1em;
+  align-self: center;
+  border: 2px solid rgb(79, 11, 251);
+  
+}
+
+
+
+
+
+/* grilla Start  
+
+ 
+  .elemento1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr ;
+    /*background: #e90f58;
+    
+    margin: 1em;
+    padding: 0em;
+  }
+  
+  .btn{
+    display: grid;
+    grid-column: 1fr;
+    margin: 2px;
+    padding: 1rem  ;
+    justify-self: center;
+  }  */

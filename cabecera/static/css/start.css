@@ -2,15 +2,25 @@
 
 #grid_start {
   display: grid;
-  height: 200px;
-  grid-template: repeat(4, 1fr) / repeat(3, 1fr);
-  grid-gap: 10px 10px;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
+  margin: 1em;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px;*/
+  /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
+
+  border: 2px solid rgb(207, 11, 251);
+  
 }
 
 #grid_start > div {
   display: grid;
-  background-color: lime;
+  grid-column: 1fr;
+ 
   margin: 1em;
+  align-self: center;
+  border: 2px solid rgb(15, 11, 251);
   
 }
 

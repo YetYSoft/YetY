@@ -6,8 +6,8 @@ from django.views import View
 from . import views
 
 urlpatterns = [
-    path ('rondas/', views.iniciorondas, name='iniciorondas'),
-
+    path ('rondas/', views.rondas_start, name='rondas_start'),
+   
 
 
 ]
