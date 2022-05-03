@@ -25,7 +25,7 @@ urlpatterns = [
     path('partes/', include('partes.urls')),
     path('rondas/', include('rondas.urls')),
     path('registros/', include('registros.urls')),
-
+   
 
     #path('', include('partes.urls')),
 
@@ -41,5 +41,8 @@ urlpatterns = [
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/partes/', permanent=True)),
+    #path('', RedirectView.as_view(url='partes/', permanent=True)),
+
+    # path('', RedirectView.as_view(url='start/', permanent=True)),
+   
 ]
