@@ -1,0 +1,34 @@
+{% extends "start.html" %}
+<body>
+    {% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/piscinas.css' %}">
+    
+   <h3 id="titulo">Piscina grande</h3>
+
+   <form action="{% url 'guardar' %{"metod="POST"> 
+       <div>
+        {% csrf_token %}
+        
+        <!--    https://bootswatch.com/yeti/      -->
+
+         <div id="grid_start">
+                {% for form in form %} 
+                <div id="input">
+                    {{ form }}
+                </div>
+                {% endfor %}
+
+
+     
+       
+        </div>
+ <button type="submit" class="btn btn-success btn-block">Ok Guardar</button>
+         
+       
+    </form> 
+    {% endblock %} 
+    </div>
+</body>
+ 

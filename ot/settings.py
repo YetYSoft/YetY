@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cabecera.apps.CabeceraConfig',
+    'aguas.apps.AguasConfig',
     'partes.apps.PartesConfig',
+    'piscinas.apps.PiscinasConfig',
     'rondas.apps.RondasConfig',
     'registros.apps.RegistrosConfig',
 ]
@@ -125,6 +127,6 @@ USE_TZ = True
 STATIC_URL = 'static/'  
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static'),]
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL= '/'
+LOGIN_REDIRECT_URL = '/cabecera/start/'
+LOGOUT_REDIRECT_URL= 'login'
 LOGIN_URL='login'

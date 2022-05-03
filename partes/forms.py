@@ -63,7 +63,7 @@ class TrabajosEditForm(forms.ModelForm):
 #        'Ot_Trabajos':TrabajosForm,
 #       }
 
-
+ 
 
 
 

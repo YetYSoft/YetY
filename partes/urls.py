@@ -16,8 +16,8 @@ urlpatterns = [
    
 
 
-
-    path  ("", views.index, name='index'),  #va a pag de Inicio
+    
+    #path  ("", views.index, name='index'),  #va a pag de Inicio
     path ('partes/', views.partes.as_view(), name='Listapartes'), #va a class view.OtListView
     path ('<int:pk>', views.DetalleParte.as_view(), name='Detalle_Parte'),
     path ('edit/<int:num_ot>', views.parte_editar, name='Editar_Parte'),
@@ -38,7 +38,7 @@ urlpatterns = [
 
 
     # Listados de partes------------------------------------------------------
-    path ('pendientes', views.partes_pendientes.as_view(), name='Partes_Pendientes'),
+    path ('pendientes/', views.partes_pendientes.as_view(), name='Partes_Pendientes'),
     path ('ubicacion/<str:ubicaci>' , views.PartesPorUbicacion, name='PartesPorUbicacion'),#-
     path ('elemento/<str:element>' , views.PartesPorElemento, name='PartesPorElemento'),
 

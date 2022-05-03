@@ -26,7 +26,7 @@ class Ot_Parte(models.Model):
         return '{}'.format(self.num_ot)
     class Meta:
         ordering = ["-num_ot"]
-
+ 
 class Ot_Trabajos(models.Model):
     num_tra=models.AutoField(primary_key=True,verbose_name='Numero TRA', help_text="Numero de Trabajo")
     num_ot_tra=models.ForeignKey('Ot_Parte',verbose_name='Num de parte', help_text="Num de parte",on_delete=models.CASCADE)

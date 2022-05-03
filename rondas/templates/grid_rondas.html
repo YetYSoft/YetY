@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+
+
+
+    {% block content %}
+       
+ 
+   
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/start.css' %}">
+
+    <div id="grid_start"> 
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Resumen</a></div>
+        <div> <a href="/partes/pendientes/" class="btn btn-info ">Piscina grande</a></div>
+        <div> <a href="/rondas/rondas" class="btn btn-info">Piscina Pequeña</a></div>
+        <div> <a href="/registros/" class="btn btn-info">Spa</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Jacuzzy</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Habitaciones</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Cocina</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Contador Agua</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Contador de Gas</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Contador electrico</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Contador riego</a></div>
+       
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-info">Editar parte</a></div>
+        
+    </div>
+    
+    {% endblock %}
+
+
+
+
+
+
+</body>
+</html>
