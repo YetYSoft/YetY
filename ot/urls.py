@@ -31,11 +31,20 @@ urlpatterns = [
     path('piscinas/', include('piscinas.urls')),
     path('registros/', include('registros.urls')),
 <<<<<<< HEAD
+<<<<<<< HEAD
    
 =======
+=======
+>>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
     path('rondas/', include('rondas.urls')),
 
 >>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
+
+    #path  ("/", views.start, name='index'),  #va a pag de Inicio
+   
+   
+   
+    #path('/', RedirectView.as_view(url='/cabecera/start/', permanent=True)),
 
     #path  ("/", views.start, name='index'),  #va a pag de Inicio
    
@@ -56,6 +65,7 @@ urlpatterns = [
 
 #Add URL maps to redirect the base URL to our application
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.views.generic import RedirectView
 urlpatterns += [
     #path('', RedirectView.as_view(url='partes/', permanent=True)),
@@ -64,9 +74,14 @@ urlpatterns += [
    
 ]
 =======
+=======
+>>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
 #
 #urlpatterns += [
    # path('', RedirectView.as_view(url='/partes/', permanent=True)),
 #    path('', RedirectView.as_view(url='/start/', permanent=True)),
 #]
+<<<<<<< HEAD
+>>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
+=======
 >>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6

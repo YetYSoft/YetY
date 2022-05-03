@@ -3,11 +3,14 @@
 #grid_start {
   display: grid;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 200px;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
   grid-gap: 10px 10px;
 =======
+=======
+>>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
   grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
   margin: 1em;
   padding: 1rem;
@@ -18,6 +21,9 @@
 
   border: 2px solid rgb(207, 11, 251);
   
+<<<<<<< HEAD
+>>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
+=======
 >>>>>>> f2e7bc42ef7b2b4c9efe4c14b64b36cc58305cd6
 }
 
