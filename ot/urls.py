@@ -39,12 +39,6 @@ urlpatterns = [
    
     #path('/', RedirectView.as_view(url='/cabecera/start/', permanent=True)),
 
-    #path  ("/", views.start, name='index'),  #va a pag de Inicio
-   
-   
-   
-    #path('/', RedirectView.as_view(url='/cabecera/start/', permanent=True)),
-
     #path('', include('partes.urls')),
 
     #path('', include('rondas.urls')),
@@ -57,17 +51,8 @@ urlpatterns = [
 
 
 #Add URL maps to redirect the base URL to our application
-from django.views.generic import RedirectView
-urlpatterns += [
-    #path('', RedirectView.as_view(url='partes/', permanent=True)),
-
-    # path('', RedirectView.as_view(url='start/', permanent=True)),
-   
-]
 #
 #urlpatterns += [
    # path('', RedirectView.as_view(url='/partes/', permanent=True)),
 #    path('', RedirectView.as_view(url='/start/', permanent=True)),
 #]
-
-
