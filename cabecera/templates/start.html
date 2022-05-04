@@ -20,46 +20,30 @@
     <link rel="stylesheet" type="text/css" href='{% static "css/bootstrap.min.css" %}'></link>
    
 
-
+    
 </head>
 <body>
- 
 
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><hgroup ><h2 style="margin: 1px; padding: 1px">YetY </h2> <h6> <small><small> Alpha 5.0.0  </small></small></h6> </hgroup></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-     {% if user.is_authenticated %}
-     {% include 'navbar_start.html'%}
+
+  
+  {% if  user.is_authenticated %}
+        {% include 'navbar_start.html'%}
+        {% else %} 
+        {% include 'registration/login.html' %}
      {% endif %}
      
-    </div>
-
     
-  </nav>
 
-    {% if user.is_authenticated %}
-    {% block content %}
-    {% endblock %}
+
+
+   {% if user.is_authenticated %}
+      {% block content %}
+      {% endblock %}
     
     {% endif %}
     
 </body>
 </html>
-
-
-
-
-</head>
-<body>
-    
-</body>
-</html>
-
-
 
 
 
