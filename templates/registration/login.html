@@ -1,8 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
 
 {% load static %}
-<!DOCTYPE html>
+
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +32,16 @@
 
     </head>
     <body>
-        {% include 'navbar.html'%}
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/"><hgroup ><h2 style="margin: 1px; padding: 1px">YetY </h2> <h6> <small><small> Alpha 5.0.0  </small></small></h6> </hgroup></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+        </nav>
+
+       
         <div class="container">
             <br>
             <div class="row text-center login-page">
@@ -32,24 +49,20 @@
                     <div class="row">
                         <div class="col-md-12 login-from-row">
                             
-                            
+                             
                                 <form role="form" method="post" id='form_login'>
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                       
-                                            <label for="exampleInputEmail1" class="form-label mt-4">Usuario</label>
-                                            {{ form.username }}
-                                    
-
+                                   {% csrf_token %}
+                                    <div class="col-md-12 form-group">                                     
+                                        <label for="exampleInputEmail1" class="form-label mt-4">Usuario</label>
                                     </div>
-                                    
-                                    <div class="form-group"></div>
+                                    <div class="col-md-12 form-group"> {{ form.username }}</div>
+                                   
+                                    <div class="col-md-12 form-group">
                                         <label for="exampleInputPassword1" class="form-label mt-4">Contraseña:</label>
-                                        {{ form.password }}
                                     </div>
+                                   <div class="col-md-12 form-group">{{ form.password }}</div>
                                    
-                                   
-                                    <br>
+                                 
                                     <div class="col-md-12 login-from-row">
                                          <button class="btn btn-info" type="submit" name="login">Login</button>
                                     </div>
