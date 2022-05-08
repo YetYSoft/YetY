@@ -33,8 +33,6 @@
    
 </div>
 
-  
-
 
 <div class="elemento1"> <!-- contenedor -->
 
@@ -46,7 +44,14 @@
        
 </div>
 
+<div>
+    <h5>Trabajos realizados en este parte</h5>
+    {% for form in form %}
 
+     <li><a>{{ form.descripcion_tra }}:</a></li>
+ 
+    {% endfor %}
+</div>
 
 {% endblock %}
 

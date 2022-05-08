@@ -22,8 +22,7 @@ class Temp_Clima (ListView):
     paginate_by = 100
     ordering = ['field','-fecha_hora_cambio_ot']
     template_name = 'registros/ot_registro_temp_lista.html'
-    print (User.user_permissions)
-    print("juan")
+ 
 
 
 # Editar registros de Clima

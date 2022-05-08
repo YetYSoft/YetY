@@ -1,3 +1,6 @@
+{% extends "start.html" %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,15 +11,19 @@
 </head>
 <body>
 
+     {% load static %} 
+
+
+    {% block content %}
  
-           <p>Estas buscando:{{palabra_recibida}}</p> 
+           <h5>Estas buscando:  &nbsp;  {{palabra_recibida}}</h5> 
             
     <ul>
     
       {% for parte in los_partes %}
     
       
-         <li>   {{ parte.num_ot }}   {{ parte.ubicacion_ot }} {{ parte.descripcion_ot }}  </li>
+         <li> <a href="/partes/{{ parte.num_ot }}">    {{ parte.ubicacion_ot }} , {{ parte.elemento_ot }} , {{ parte.descripcion_ot }}</a>  </li>
        
      
   
@@ -24,6 +31,6 @@
      </ul>
  
 
-          
+{% endblock %}       
 </body>
 </html> 

@@ -19,7 +19,7 @@ urlpatterns = [
     
     #path  ("", views.index, name='index'),  #va a pag de Inicio
     path ('partes/', views.partes.as_view(), name='Listapartes'), #va a class view.OtListView
-    path ('<int:pk>', views.DetalleParte.as_view(), name='Detalle_Parte'),
+    path ('<int:pk>', views.DetalleParte, name='Detalle_Parte'),
     path ('edit/<int:num_ot>', views.parte_editar, name='Editar_Parte'),
     path ('nuevo/', views.parte_nuevo, name='Nuevo_Parte'), # nuevo parte sin listado de partes
 
@@ -48,8 +48,13 @@ urlpatterns = [
     path ('trabajo/nuevo/<int:numero_ot>' , views.NuevoTrab , name='add_trabajo'),
     path ('trabajo/ver/<int:numero_ot>' , views.ListaTrabParte.as_view() , name='ver_trabajos'),
     path ('trabajo/listado' , views.ListaTrab.as_view() , name='lista_trabajo'),
-    path ('busqueda/' , views.busqueda , name='ver_traaaabajos'),
-    path ('buscar/' , views.buscar , name='ver_trajos'),
+   
+   
+   
+   
+    path ('buscar/' , views.buscar , name='ver_traaaabajos'),
+    path ('encontrar/' , views.encontrar , name='ver_trajos'),
+ #   path ('parte_y_trabajos/<int:numero_ot>' , views.parte_y_trabajos , name='ver_tasdarajos'),
 
 
  

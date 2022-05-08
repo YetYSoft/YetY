@@ -14,8 +14,8 @@
       {% for Ot_Trabajos in object_list %}
         <li>
           <a  href="/partes/{{ Ot_Trabajos.num_ot_tra }} "> <small><small>{{ Ot_Trabajos.num_ot_tra }},</small></small></a>
-          <a  href="/partes/trabajo/{{ Ot_Trabajos.num_tra }}/{{ Ot_Trabajos.num_ot_tra }} "><small><small>{{ Ot_Trabajos.num_tra }},</small></small></a>
-          {{ Ot_Trabajos.descripcion_tra }},
+          <a  href="/partes/trabajo/{{ Ot_Trabajos.num_tra }}/{{ Ot_Trabajos.num_ot_tra }} "><small><small>{{ Ot_Trabajos.num_tra }},</small></small>{{ Ot_Trabajos.descripcion_tra }},</a>
+          
           <!-- {{ Ot_Trabajos.fecha_tra|date:"D d/m/y" }},-->
           <small><small>{{ Ot_Trabajos.fecha_cambio_tra|date:"D d/m/y" }}</small></small>,
         </li>

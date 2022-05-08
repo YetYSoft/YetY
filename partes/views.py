@@ -1,7 +1,9 @@
-from multiprocessing import context
-from django.shortcuts import render,redirect
-from django.shortcuts import get_list_or_404, get_object_or_404
 
+import django
+from django import db
+from django.shortcuts import render,redirect
+
+ 
 from django.http import HttpResponse
 
 from django.views import View
@@ -9,8 +11,6 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from django.urls import reverse_lazy
-from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
@@ -20,7 +20,6 @@ from django.contrib.auth.models import User
 from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
 from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
 
-from django.forms.models import modelformset_factory # model form para querysets 
  
 
 ################  Permisos en las vistas 
@@ -82,25 +81,56 @@ from django.forms.models import modelformset_factory # model form para querysets
 
 
 
+#------------------ pruebas--------------------------
+
+  
             
 
 
 
 #------------------Busqueda de parte basica-----------------
-def busqueda(request):
-     return render(request,'prueba.html')
+
 
 def buscar(request):
+    return render(request,'prueba.html')
+"""
+def buscar(request):
 
-    if request.GET["prd"]: # comprueba que el formulario no esté vacío
-        palabra_recibida=request.GET["prd"]
+    if request.GET["palabra"]: # comprueba que el formulario no esté vacío
+        palabra_recibida=request.GET["palabra"]
         partes=Ot_Parte.objects.filter(descripcion_ot__icontains=palabra_recibida) [:10]
-        print(type(partes))
-        print(partes.query)
+    
+
         return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":palabra_recibida})
     else:
         
         return HttpResponse("no has puesto nada")
+
+"""
+from django.db.models import Q
+def encontrar(request):
+    busqueda = request.GET.get("palabra")
+    partes=Ot_Parte.objects.all()
+    if busqueda: 
+        partes=Ot_Parte.objects.filter (
+            Q (num_ot__icontains = busqueda)|   
+            Q (descripcion_ot__icontains = busqueda) |
+            Q (etiqueta_ot__icontains = busqueda)|
+            Q (notas_ot__icontains = busqueda) |
+            Q (tipo_aviso_ot__icontains = busqueda) |
+            Q (recursos_ot__icontains = busqueda)    
+        )
+        
+    return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":busqueda})
+
+    
+    
+    
+    
+
+
+
+
 
 
 
@@ -111,9 +141,17 @@ def index(request):
     #return render (request,'sidebar.html')
 
 
-class DetalleParte(DetailView):
-    model = Ot_Parte
-    template_name = 'ot_parte_detail.html'
+#class DetalleParte(DetailView):
+#   model = Ot_Parte
+#   template_name = 'ot_parte_detail.html'
+    
+
+    # ------   Detalle de parte y lista de trabajos --------
+def DetalleParte(request,pk):
+    ot_parte = Ot_Parte.objects.get(num_ot=pk)
+    Lista_trabajos = Ot_Trabajos.objects.filter(num_ot_tra=pk)
+    return render (request,'ot_parte_detail.html',{"ot_parte":ot_parte,'form':Lista_trabajos})
+
     
 
  
@@ -246,7 +284,7 @@ def NuevoTrab (request,numero_ot):
         if form.is_valid():
             form.save()
         #return redirect('lista_trabajo')
-        return redirect('ver_trabajos',numero_ot)
+        return redirect('Detalle_Parte',numero_ot)
     else:
         form=TrabajosForm(initial={'num_ot_tra': numero_ot})
 
@@ -262,6 +300,7 @@ def EditarTrab (request,num_tra,numero_ot):
         form=TrabajosEditForm(request.POST,instance=trabajo)
         if form.is_valid():
             form.save()
+            
         return redirect('ver_trabajos',numero_ot)
     #return render (request,'ot_trabajos_edit_form.html',{'form':form,'numero_ot':numero_ot, 'parte':parte,'form.num_ot_tra.value':911})
     return render (request,'ot_trabajos_edit_form.html',{'form':form, 'parte':parte})

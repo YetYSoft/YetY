@@ -22,7 +22,7 @@
  
       {% for Ot_Parte in object_list %}
       <!--  <small><small>({{ Ot_Parte.prioridad_ot }})</small></small> -->
-        <li>   <a   href="/partes/{{ Ot_Parte.pk }} ">{{ Ot_Parte.ubicacion_ot }}</a> <a class="h6" href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }} </a> {{ Ot_Parte.descripcion_ot }}<br>
+        <li>   <a   href="/partes/{{ Ot_Parte.pk }} ">{{ Ot_Parte.ubicacion_ot }},&nbsp;&nbsp;</a>  <a class="h6" href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}. </a> <h6 style="display: inline;">&nbsp;&nbsp;  {{ Ot_Parte.descripcion_ot }}</h6><br>
          
 
         </li>
