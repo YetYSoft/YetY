@@ -111,17 +111,23 @@ from django.db.models import Q
 def encontrar(request):
     busqueda = request.GET.get("palabra")
     partes=Ot_Parte.objects.all()
+    ubica=Ot_Ubicaciones.objects.all()
     if busqueda: 
         partes=Ot_Parte.objects.filter (
+         #   Q (Ot_Ubicaciones__ubicacion_ub__icontains = busqueda)|
             Q (num_ot__icontains = busqueda)|   
             Q (descripcion_ot__icontains = busqueda) |
             Q (etiqueta_ot__icontains = busqueda)|
             Q (notas_ot__icontains = busqueda) |
             Q (tipo_aviso_ot__icontains = busqueda) |
             Q (recursos_ot__icontains = busqueda)    
-        )
+        ) 
+        ubica=Ot_Ubicaciones.objects.filter(ubicacion_ub__icontains = busqueda)
         
-    return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":busqueda})
+    
+    
+    
+    return render(request,"prueba_resultados.html",{"los_partes":partes,"ubicaciones":ubica,"palabra_recibida":busqueda})
 
     
     

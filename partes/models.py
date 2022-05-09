@@ -62,18 +62,6 @@ class Ot_Pedidos(models.Model):
 
 
 
-#...............Herencia de Modelos ......................
-
-
-class Partes_y_trabajos(Ot_Parte):
-    class Meta:
-        proxy = True
-
-    def new_super_title(self):
-        return f'Nuevo título: {self.title}'
-
-
-
 
 
 

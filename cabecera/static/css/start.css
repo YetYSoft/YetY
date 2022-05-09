@@ -1,26 +1,37 @@
 /* grid de cabecera*/
 
+h1, h2, h3{
+  text-align: center;
+  
+  margin: 1rem;"
+}
+
+
+
+  h1, h2, h3, #grid_start, #grid_start > div{
+
+    border: 1px solid rgb(15, 11, 251); 
+  }
+
 #grid_start {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
-  margin: 1em;
-  padding: 1rem;
+  gap: 1rem;
+  margin: 5rem;
+  padding: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   align-items: center;
   justify-content: center;
   /* height: 200px;*/
   /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
 
-  border: 2px solid rgb(207, 11, 251);
-  
 }
 
 #grid_start > div {
   display: grid;
-  grid-column: 1fr;
+  padding: 5px;
+  grid-column: 2fr;
  
-  margin: 1em;
   align-self: center;
-  border: 2px solid rgb(15, 11, 251);
   
 }
 
