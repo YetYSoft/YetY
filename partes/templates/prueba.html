@@ -1,22 +1,20 @@
 {% extends "start.html" %}
-{% load static %}
 
+
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/start.css' %}">
 
 {% block content %}
 
+    <h3>Buscar Parte: </h3>
+        <form action="/partes/encontrar_partes/" method="get">
+            <div style="display: inline-flex; border: 1px solid rgb(15, 11, 251);">
+                <input type="text" name="palabra">
+                <input class="btn btn-primary"     type="submit" value="Buscar en los partes">
+            </div>
 
 
-<h3>Hola: </h3>
-
-
-
-<form action="/partes/encontrar/" method="get">
-    <input type="text" name="palabra">
-    <input class="btn btn-primary"     type="submit" value="Buscar">
-
-
-
-</form>
+        </form>
 
 
 {% endblock %}       

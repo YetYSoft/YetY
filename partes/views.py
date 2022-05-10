@@ -91,8 +91,7 @@ from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, O
 #------------------Busqueda de parte basica-----------------
 
 
-def buscar(request):
-    return render(request,'prueba.html')
+
 """
 def buscar(request):
 
@@ -111,12 +110,16 @@ def buscar(request):
 
 from django.db.models import Q
 
-def encontrar(request):
+def buscar_parte(request):
+    return render(request,'prueba.html')
+
+def encontrar_parte(request):
     busqueda = request.GET.get("palabra")
     partes=Ot_Parte.objects.all()
-    ubica=Ot_Ubicaciones.objects.all()
+   # ubica=Ot_Ubicaciones.objects.all()
     if busqueda: 
         partes=Ot_Parte.objects.filter (
+            Q (elemento_ot__elemento_el__icontains = busqueda)|
             Q (elemento_ot__elemento_el__icontains = busqueda)|
             Q (ubicacion_ot__ubicacion_ub__icontains = busqueda)|
             Q (num_ot__icontains = busqueda)|   
@@ -130,7 +133,7 @@ def encontrar(request):
     
     
     
-    return render(request,"prueba_resultados.html",{"los_partes":partes,"ubicaciones":ubica,"palabra_recibida":busqueda})
+    return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":busqueda})
 
     
     

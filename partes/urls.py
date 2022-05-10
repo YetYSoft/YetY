@@ -51,10 +51,9 @@ urlpatterns = [
    
    
    
-   
-    path ('buscar/' , views.buscar , name='ver_traaaabajos'),
-    path ('encontrar/' , views.encontrar , name='ver_trajos'),
- #   path ('parte_y_trabajos/<int:numero_ot>' , views.parte_y_trabajos , name='ver_tasdarajos'),
+   # Buscar partes
+    path ('buscar_partes/' , views.buscar_parte , name='buscar_parte'),
+    path ('encontrar_partes/' , views.encontrar_parte , name='encontrar_parte'),
 
 
  
