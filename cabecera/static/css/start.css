@@ -3,34 +3,32 @@
 h1, h2, h3{
   text-align: center;
   
-  margin: 1rem;"
+  margin: 1rem;
 }
 
 
 
-  h1, h2, h3, #grid_start, #grid_start > div{
+  h1, h2, h3, #borde, #grid_start, #grid_start > div{
 
-    border: 1px solid rgb(11, 203, 251); 
+    border: 1px solid #e4e4e4; 
   }
 
 #grid_start {
   display: grid;
   gap: 1rem;
-  margin: 5rem;
-  padding: 5rem;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   align-items: center;
   justify-content: center;
   /* height: 200px;*/
-  /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);*/
-
+  /*grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  border: 1px solid rgb(11, 231, 251);*/
 }
 
 #grid_start > div {
   display: grid;
   padding: 5px;
-  grid-column: 2fr;
- 
+  grid-column: 1fr;
+  /*border: 1px solid rgb(91, 93, 9);*/
   align-self: center;
   
 }

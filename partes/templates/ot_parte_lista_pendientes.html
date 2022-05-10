@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="es">
 
-{% extends "inicio.html" %}
+{% extends "start.html" %}
+
 
 
 
 {% block content %}
   <ul class="list-unstyled">
-
+{% include 'buscar_parte.html' %}
         <h3>Lista Pendientes </h3>
 
 {% if user.is_authenticated %}

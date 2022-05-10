@@ -111,7 +111,7 @@ def buscar(request):
 from django.db.models import Q
 
 def buscar_parte(request):
-    return render(request,'prueba.html')
+    return render(request,'buscar_parte.html')
 
 def encontrar_parte(request):
     busqueda = request.GET.get("palabra")
@@ -133,7 +133,7 @@ def encontrar_parte(request):
     
     
     
-    return render(request,"prueba_resultados.html",{"los_partes":partes,"palabra_recibida":busqueda})
+    return render(request,"encontrar_parte.html",{"los_partes":partes,"palabra_recibida":busqueda})
 
     
     
