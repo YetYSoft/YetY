@@ -1,29 +1,36 @@
 {% extends "start.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
 
      {% load static %} 
 
 
     {% block content %}
- 
-           <h5>Estas buscando:  &nbsp;  {{palabra_recibida}}</h5> 
+    <h3>Encontrado</h3>
+
+    <form action="/partes/encontrar_partes/" method="get">
             
-    <ul>
+        <div style= "display: flex; justify-content: center;">
+                <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
+                <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
+        </div>
+  
+
+</form>
+
+           <h5 style="padding-left: 5px"> Estas buscando:  &nbsp;  {{palabra_recibida}} </h5> 
+            
+    <ul class="list-unstyled" ; style="padding-left: 5px">
     
-     {% for parte in los_partes %}
-         <li> <a href="/partes/{{ parte.num_ot }}">    {{ parte.ubicacion_ot }} , {{ parte.elemento_ot }} , {{ parte.descripcion_ot }}</a>  </li>
-         
-     {% endfor %}
+     {% for Ot_Parte in Ot_Parte %}
+          <li> 
+            <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} ">{{ Ot_Parte.ubicacion_ot }},</a>  &nbsp;&nbsp;
+            <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}.</a> &nbsp;&nbsp;  
+            <a class="h6" href="/partes/{{ Ot_Parte.num_ot }} "> {{ Ot_Parte.descripcion_ot }}   </a>  &nbsp;&nbsp;
+           
+  
+          </li>     {% endfor %}
  
 
 </ul>

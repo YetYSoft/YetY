@@ -119,21 +119,20 @@ def encontrar_parte(request):
    # ubica=Ot_Ubicaciones.objects.all()
     if busqueda: 
         partes=Ot_Parte.objects.filter (
-            Q (elemento_ot__elemento_el__icontains = busqueda)|
-            Q (elemento_ot__elemento_el__icontains = busqueda)|
-            Q (ubicacion_ot__ubicacion_ub__icontains = busqueda)|
             Q (num_ot__icontains = busqueda)|   
             Q (descripcion_ot__icontains = busqueda) |
             Q (etiqueta_ot__icontains = busqueda)|
             Q (notas_ot__icontains = busqueda) |
             Q (tipo_aviso_ot__icontains = busqueda) |
-            Q (recursos_ot__icontains = busqueda)    
-        ) 
+            Q (recursos_ot__icontains = busqueda)  |  
+            Q (elemento_ot__elemento_el__icontains = busqueda)|
+            Q (ubicacion_ot__ubicacion_ub__icontains = busqueda)
+        ).order_by('-fecha_cambio_ot')
         
     
     
     
-    return render(request,"encontrar_parte.html",{"los_partes":partes,"palabra_recibida":busqueda})
+    return render(request,"encontrar_parte.html",{"Ot_Parte":partes,"palabra_recibida":busqueda})
 
     
     

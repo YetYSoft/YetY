@@ -1,10 +1,13 @@
 
 {% block buscar_parte %}
 
-    
+    {% load static%}
+    <link rel="stylesheet" href="{% static '/css/start.css' %}">
+
+
         <form action="/partes/encontrar_partes/" method="get">
             
-                <div id="grid_start">
+                <div style= "display: flex; justify-content: center;">
                         <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
                         <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
                 </div>

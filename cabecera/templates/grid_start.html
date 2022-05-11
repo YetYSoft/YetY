@@ -33,7 +33,16 @@
         <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Buscar</a></div>
         <div> <a href="/rondas/rondas/" class="btn btn-primary">Rondas (Legal)</a></div>
   </div>
-    
+  <form action="/partes/encontrar_partes/" method="get">
+            
+    <div style= "display: flex; justify-content: center;">
+            <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
+            <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
+    </div>
+
+
+</form>
+
     {% endblock %}
 
 

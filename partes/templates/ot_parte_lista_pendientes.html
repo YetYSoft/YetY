@@ -7,7 +7,7 @@
 
 
 {% block content %}
-  <ul class="list-unstyled">
+ 
 {% include 'buscar_parte.html' %}
         <h3>Lista Pendientes </h3>
 
@@ -15,15 +15,19 @@
 
 
         
-        <h5>Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h5>
+        <h5 style="padding-left: 5px">Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h5>
         
  
  
  
- 
-      {% for Ot_Parte in object_list %}
-      <!--  <small><small>({{ Ot_Parte.prioridad_ot }})</small></small> -->
-        <li>   <a   href="/partes/{{ Ot_Parte.pk }} ">{{ Ot_Parte.ubicacion_ot }},&nbsp;&nbsp;</a>  <a class="h6" href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}. </a> <h6 style="display: inline;">&nbsp;&nbsp;  {{ Ot_Parte.descripcion_ot }}</h6><br>
+        <ul class="list-unstyled" ; style="padding-left: 5px">
+          {% for Ot_Parte in object_list %}
+
+      <li>    
+
+          <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} ">{{ Ot_Parte.ubicacion_ot }},&nbsp;&nbsp;</a>  
+          <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}. </a> 
+          <a class="h6" href="/partes/{{ Ot_Parte.num_ot }} " >{{ Ot_Parte.descripcion_ot }}</a> &nbsp;&nbsp;
          
 
         </li>
