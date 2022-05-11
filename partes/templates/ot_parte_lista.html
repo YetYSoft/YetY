@@ -1,22 +1,22 @@
-<!doctype html>
-<html lang="es">
+{% extends "start.html" %}
+{% load static %} 
 
-{% extends "inicio.html" %}
+
 
 {% block content %}
-  <ul class="list-unstyled">
+  <ul class="list-unstyled"; style="padding-left: 5px">
 
-        <h3>Lista Últimos partes </h3>
-        <h6>Ultimos partes nuevos o modificados, terminados o no </h6>
+        <h3>Lista últimos partes </h3>
+        <h5 style="padding-left: 5px">Últimos partes nuevos o modificados, terminados o no </h5>
 
+      <ul class="list-unstyled" ; style="padding-left: 5px">
 
       {% for Ot_Parte in object_list %}
 
 
         <li>
-          <small><small> <a  href="/partes/{{ Ot_Parte.num_ot }}" >{{ Ot_Parte.num_ot }} </small></small>
-          <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} "> {{ Ot_Parte.ubicacion_ot }}</a>
-          <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }} ">{{ Ot_Parte.elemento_ot }},</a>
+          <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} "> {{ Ot_Parte.ubicacion_ot }}</a>&nbsp;&nbsp;
+          <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }} ">{{ Ot_Parte.elemento_ot }},</a>&nbsp;&nbsp;
           <a href="/partes/{{ Ot_Parte.num_ot }} " >{{ Ot_Parte.descripcion_ot }}</a> &nbsp;&nbsp;
           <small><small>
             {{ Ot_Parte.fecha_cambio_ot}},
@@ -24,6 +24,7 @@
           </small></small>
 
         </li>
+      
       {% endfor %}
   </ul>
 {% endblock %}

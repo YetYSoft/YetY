@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="es">
 
-{% extends "inicio.html" %}
+{% extends "start.html" %}
 
 {% block content %}
 
@@ -10,47 +10,47 @@
 
 <link rel="stylesheet" href="{% static '/css/partes.css' %}">
 
-<div class="grid"> <!-- contenedor -->
- 
-    <div class="cabecera"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
-    <div class="descripcion"><a><h6>Parte num</h6> </a></div>
-    <div class="datos"><a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a></div>
-    <div class="descripcion"><a><h6>Prioridad</h6> </a></div>
-    <div class="datos"><a>{{ ot_parte.prioridad_ot }}</a></div>
-    <div class="descripcion"><a>Estado </a></div>
-    <div class="datos"><a>{{ ot_parte.estado_ot }}</a></div>
-    <div class="descripcion"><a>Recursos </a></div>
-    <div class="datos"><a>{{ ot_parte.recursos_ot }}</a></div>
-    <div class="descripcion"><a>Etiqueta:</a></div>
-    <div class="datos"><a>{{ ot_parte.etiqueta_ot }}</a></div>
-    <div class="descripcion"><a>Notas:</a></div>
-    <div class="datos"><a>{{ ot_parte.notas_ot }}</a></div>
-    <div class="descripcion"><a>Tipo :</a></div>
-    <div class="datos"><a>{{ ot_parte.tipo_aviso_ot }}</a></div>
-    <div class="descripcion"><a>Fecha Parte : </a></div>
-    <div class="datos"><a>{{ ot_parte.fecha_ot }}</a></div>
-    
-   
-</div>
+
+<form action="/partes/encontrar_partes/" method="get">
+            
+    <div style= "display: flex; justify-content: center;">
+            <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
+            <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
+    </div>
 
 
-<div class="elemento1"> <!-- contenedor -->
+</form>
 
-
+<div style= "display: flex; justify-content: center;"> 
         <div class="btn"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
         <div class="btn"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
         <div class="btn"> <a href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning">Ver Trabajos</a> </div>
-  
-       
 </div>
 
+ <div style="padding-left: 5px">
+<div class="cabecera"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
+<div style= "display: flex; justify-content: left;"><a><h6>Parte num</h6> </a> &nbsp  <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Prioridad</h6> </a> &nbsp <a><strong> {{ ot_parte.prioridad_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Estado </h6></a> &nbsp <a><strong>{{ ot_parte.estado_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Recursos </h6></a>&nbsp <a><strong>{{ ot_parte.recursos_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Etiqueta:</h6></a>&nbsp <a><strong>{{ ot_parte.etiqueta_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Notas:</h6></a>&nbsp<a><strong>{{ ot_parte.notas_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Tipo :</h6></a>&nbsp<a><strong>{{ ot_parte.tipo_aviso_ot }}</strong></a></div>
+<div style= "display: flex; justify-content: left;"><a><h6>Fecha Parte : </h6></a>&nbsp<a><strong>{{ ot_parte.fecha_ot }}</strong></a></div>
+ </div>
+
+
+
+
 <div>
-    <h5>Trabajos realizados en este parte</h5>
+    <h3 style="padding-left: 5px">Trabajos realizados en este parte</h3>
+    <ol type="1"; style="padding-left: 3rem" >
     {% for form in form %}
 
-     <li><a>{{ form.descripcion_tra }}:</a></li>
+     <li><a>{{ form.descripcion_tra }}</a></li>
  
     {% endfor %}
+    </ol>
 </div>
 
 {% endblock %}
