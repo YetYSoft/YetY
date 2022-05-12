@@ -6,37 +6,31 @@
 
 {% block content %}
 <h3>Nuevo trabajo</h3>
-<h6>Escribe el trabajo realizado en este parte</h6>
-<form method="POST" class="post-form">{% csrf_token %}
-
-  <div class="container_fluid">
-    <div class="row">
-      <div class="col-xs-1 col-sm-1 col-lg-1">
-      <h6><input style=" visibility : hidden "  {{form.num_ot_tra}}</h6>
-      </div>
-    </div>
-  </div>
-
-
-
-
+<h5>Escribe un trabajo realizado en este parte</h5>
 
 <div class="container_fluid">
+
+
+<form method="POST" class="post-form">{% csrf_token %}
+  
+  <div class="cabecera">
+    <a href='/partes/ubicacion/{{ parte.ubicacion_ot}}'><h3>{{ parte.ubicacion_ot}} </a>
+    <a href='/partes/elemento/{{ parte.elemento_ot}}'>,    {{ parte.elemento_ot }} </a>
+    <a href='/partes/{{form.num_ot_tra.value}}'>,  {{ parte.descripcion_ot}} </h3> </a>
+    <div hidden>{{form.num_ot_tra}}</div> <!--- ES necesario para que devuelva el numero de trabajo-->
+
   <div class="row">
-    <div class="col-12 ">
-            <h5>{{ parte.ubicacion_ot}}, {{ parte.elemento_ot}}, {{ parte.descripcion_ot}}</h5>
-    </div>
-    </div>
-    <div class="row">
     <div class="col-9 ">
-      {{form.descripcion_tra}}
+        {{form.descripcion_tra}}
+        
     </div>
-      <div class="col-1">
+    <div class="col-1">
         <button type="submit" class="btn btn-outline-success">Guardar</button>
     </div>
-      </div>
-    </div>
   </div>
+  
+
+</div>
 
 
 

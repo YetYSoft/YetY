@@ -1,22 +1,18 @@
-<!doctype html>
-<html lang="es">
-
 {% extends "start.html" %}
 
 {% block content %}
 
   <ul class="list-unstyled">
         <h3>Lista Últimos Trabajos </h3>
-        <h6>Ultimos trabajos realizados </h6>
+        <h5>Ultimos trabajos realizados: </h5>
 
-        <br>
-        <small><small> 'Num Parte, Num Trabajo, Descripcion trabajo' </small></small>
+        <small><small> '(Num Parte),  Descripcion trabajo' </small></small>
 
       {% for Ot_Trabajos in object_list %}
         <li>
-          <a  href="/partes/{{ Ot_Trabajos.num_ot_tra }} "> <small><small>{{ Ot_Trabajos.num_ot_tra }},</small></small></a>
-          <a  href="/partes/trabajo/{{ Ot_Trabajos.num_tra }}/{{ Ot_Trabajos.num_ot_tra }} "><small><small>{{ Ot_Trabajos.num_tra }},</small></small></a>
-          {{ Ot_Trabajos.descripcion_tra }},
+          <a  href="/partes/{{ Ot_Trabajos.num_ot_tra }} "> <small><small>({{ Ot_Trabajos.num_ot_tra }}),</small></small></a>
+          <a  href="/partes/trabajo/{{ Ot_Trabajos.num_tra }}/{{ Ot_Trabajos.num_ot_tra }} ">{{ Ot_Trabajos.descripcion_tra }}</a>
+         ,
           <!-- {{ Ot_Trabajos.fecha_tra|date:"D d/m/y" }},-->
           <small><small>{{ Ot_Trabajos.fecha_cambio_tra|date:"D d/m/y" }}</small></small>,
         </li>

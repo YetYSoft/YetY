@@ -5,21 +5,27 @@
 {% extends "start.html" %}
 
 {% block content %}
-<h3>Lista partes</h3>
-<h6>Selecciona la ubicación</h6>
+<h3>Lista de partes</h3>
+<h6>Selecciona la ubicación para saber si el parte ya está hecho</h6>
 
 
 <form action="/partes/listaPor/" method="GET" class="post-form">
-    <div class="container_fluid">
-      <div class="row">
-        <div class="col-xs-12 ">
-          {{ form.ubicacion_ot }}
-        </div>
-        <div class="col-1">
-          <button type="submit" class="btn btn-outline-success">Existe ya?</button>
-        </div>
+  
+<div class="container_fluid">
+  
+
+    <div class="row">
+      <div class="col-9 ">
+           {{ form.ubicacion_ot }}
+      </div>
+      <div class="col-1">
+          <button type="submit" class="btn btn-outline-success">Existe?</button>
       </div>
     </div>
 
-</form>
+
+  </div>
+
+
+  </form>
 {% endblock %}

@@ -194,7 +194,7 @@ def elemento_lista_partes(request): # Recoje el dato del form
 @login_required
 def PartesPorUbicacion (request, ubicaci):
     los_partes =Ot_Parte.objects.filter(ubicacion_ot=ubicaci).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','elemento_ot')
-    listado = {'los_partes':los_partes}
+    listado = {'Ot_Parte':los_partes}
     return render (request,'ot_parte_list_ubicacion.html', listado)
 
 @login_required
@@ -230,7 +230,7 @@ def nuevo_form(request):
 def nuevo_lista_partes(request): # Recoje el dato del form
     if 'ubicacion_ot' in request.GET:
         ubicaci=request.GET['ubicacion_ot']
-        return redirect('PartesPorUbicacion',ubicaci) #  Envia el daro al template del listado
+        return redirect('PartesPorUbicacion',ubicaci) #  Envia el dato al template del listado
 
 
 
@@ -278,7 +278,7 @@ class ListaTrab(ListView):#Ultimos trabajos realizados
 
 class ListaTrabParte(ListView): #listado por numero de parte
     model = Ot_Trabajos
-    paginate_by = 10
+    paginate_by = 25
     ordering = ['-fecha_cambio_tra','-fecha_hora_cambio_tra','-num_tra']
     template_name = 'ot_trabajos_list_por_parte.html'
     def get_queryset(self):

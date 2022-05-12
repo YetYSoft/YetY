@@ -4,24 +4,32 @@
 {% extends "start.html" %}
 
 {% block content %}
-  <ul class="list-unstyled">
+{% include 'buscar_parte.html' %}
+
         <h3>Lista de partes por ubicacion  </h3>
-        <h6>Terminados o no</h6>
+        <h5 style="padding-left: 5px">Terminados o no</h5>
 
-      {% for los_partes in los_partes %}
-        <li>
 
-            <a href='/partes/{{ los_partes.num_ot }}'  ><small><small>{{ los_partes.num_ot }}</small></small></a>
-            {{ los_partes.ubicacion_ot }}
-            <a href="/partes/elemento/{{ los_partes.elemento_ot }}">{{ los_partes.elemento_ot }}</a>,
-            {{ los_partes.descripcion_ot }}</a>
-            <small><small>{{ los_partes.fecha_cambio_ot}}, {{ los_partes.estado_ot}}</small></small>
+<div class="container_fluid">
 
-       </li>
+  <ul class="list-unstyled" style="padding-left: 5px">
+
+      {% for Ot_Parte in Ot_Parte %}
+    
+    
+      <li>    
+        <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} ">{{ Ot_Parte.ubicacion_ot }},&nbsp;&nbsp;</a>  
+        <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}. </a> 
+        <a class="h6" href="/partes/{{ Ot_Parte.num_ot }} " >{{ Ot_Parte.descripcion_ot }}</a> &nbsp;&nbsp;
+      </li>
 
 
       {% endfor %}
 
   </ul>
+ 
+
+ 
   <a href="/partes/nuevo"  type="submit" class="btn btn-outline-success" >No esta hecho, lo hago nuevo</a>
 {% endblock %}
+
