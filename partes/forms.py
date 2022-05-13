@@ -18,7 +18,7 @@ from partes.models import Ot_Parte,Ot_Trabajos,Ot_Ubicaciones
 class ParteForm(forms.ModelForm):
     class Meta:
         model=Ot_Parte
-        ordering = ["ubicacion_ot"]
+        ordering = ["-fecha_cambio_ot"]
         fields= '__all__'
         template_name = 'ot_parte_edit_form.html'
         widgets={
@@ -72,6 +72,7 @@ class TrabajosEditForm(forms.ModelForm):
 class Nuevo_form(forms.ModelForm):
     class Meta:
         model = Ot_Parte
+        ordering = ["-fecha_cambio_ot"]
         fields =['ubicacion_ot']
         template_name = 'partes/ot_ubicaciones_lista_form.html'
         widgets={
@@ -81,6 +82,7 @@ class Nuevo_form(forms.ModelForm):
 class Ubicacion_list_form(forms.ModelForm):
     class Meta:
         model = Ot_Parte
+        ordering = ["-fecha_cambio_ot"]
         fields =['ubicacion_ot']
         template_name = 'partes/ot_ubicaciones_lista_form.html'
         widgets={
@@ -90,6 +92,7 @@ class Ubicacion_list_form(forms.ModelForm):
 class Elemento_list_form(forms.ModelForm):
     class Meta:
         model = Ot_Parte
+        ordering = ["-fecha_cambio_ot"]
         fields =['elemento_ot']
         template_name = 'partes/ot_elementos_lista_form.html'
         widgets={

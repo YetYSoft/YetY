@@ -9,18 +9,12 @@
 {% block content %}
  
 {% include 'buscar_parte.html' %}
-        <h3>Lista Pendientes </h3>
+<h3>Partes pendientes </h3>
+<h5 style="padding-left: 5px">Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h5>
 
 {% if user.is_authenticated %}
-
-
-        
-        <h5 style="padding-left: 5px">Urgentes arriba, seguidos de los mas  <a href="/partes/nuevo">nuevo</a>s </h5>
-        
  
- 
- 
-        <ul class="list-unstyled" ; style="padding-left: 5px">
+<ul class="list-unstyled" ; style="padding-left: 5px">
           {% for Ot_Parte in object_list %}
 
       <li>    
@@ -34,6 +28,7 @@
       {% endfor %}
       
 {% endif %}
-  </ul>
+ 
+</ul>
 {% endblock %}
  

@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="es">
 
-
 {% extends "start.html" %}
 
+
+
+
 {% block content %}
+{% include 'buscar_parte.html' %}
+
 <h3>Lista elementos</h3>
-<h6>Selecciona elemento</h6>
+<h5>Selecciona elemento</h5>
 
 
 <form action="/partes/elemento_lista_partes/" method="GET" class="post-form">

@@ -3,22 +3,35 @@
 
 {% extends "start.html" %}
 
+
+
+
 {% block content %}
-  <ul class="list-unstyled">
-        <h3>Lista de partes por elemento</h3>
-        <h6>Terminados o no</h6>
+
+{% include 'buscar_parte.html' %}
+        <h3>Partes por elemento</h3>
+        <h5>Terminados o no</h5>
+
+{% if user.is_authenticated %}
+
+<ul class="list-unstyled" ; style="padding-left: 5px">
+      {% for Ot_Parte in Ot_Parte %}
 
 
-        <sub> 'Num Parte, Ubicacion, Elemento, Descripcion parte' </sub>
-      {% for los_partes in los_partes %}
-        <li>
-                <a href='/partes/{{ los_partes.num_ot }}'> <small> <small> {{ los_partes.num_ot }} </small> </small> </a>
-                <a href="/partes/ubicacion/{{ los_partes.ubicacion_ot }} ">  {{ los_partes.ubicacion_ot }} </a>
-                {{ los_partes.elemento_ot }},
-                {{ los_partes.descripcion_ot }}
-                <small><small>{{ los_partes.fecha_cambio_ot}}, {{ los_partes.estado_ot}}</small></small>
+        <li>    
+
+          <a href="/partes/ubicacion/{{ Ot_Parte.ubicacion_ot }} ">{{ Ot_Parte.ubicacion_ot }},&nbsp;&nbsp;</a>  
+          <a href="/partes/elemento/{{ Ot_Parte.elemento_ot }}">{{ Ot_Parte.elemento_ot }}. </a> 
+          <a class="h6" href="/partes/{{ Ot_Parte.num_ot }} " >{{ Ot_Parte.descripcion_ot }}</a> &nbsp;&nbsp;
+         
 
         </li>
+
+
+
+
       {% endfor %}
-  </ul>
+{% endif %}
+    
+</ul>
 {% endblock %}

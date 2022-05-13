@@ -200,7 +200,7 @@ def PartesPorUbicacion (request, ubicaci):
 @login_required
 def PartesPorElemento (request, element):
     los_partes =Ot_Parte.objects.filter(elemento_ot=element).order_by('estado_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','ubicacion_ot')
-    listado = {'los_partes':los_partes}
+    listado = {'Ot_Parte':los_partes}
     return render (request,'ot_parte_list_elemento.html', listado)
 
 
