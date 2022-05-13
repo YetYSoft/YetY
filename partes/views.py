@@ -163,8 +163,12 @@ def DetalleParte(request,pk):
     Lista_trabajos = Ot_Trabajos.objects.filter(num_ot_tra=pk)
     return render (request,'ot_parte_detail.html',{"ot_parte":ot_parte,'form':Lista_trabajos})
 
+def Marcar_Terminado(request,num_ot):
+    parte = Ot_Parte.objects.get(num_ot=num_ot)
+    parte.estado_ot='Terminado'
+    return print(parte.estado_ot)
     
-
+    pass
  
 #--------------Formularios para listados parte---------
 @login_required
@@ -206,7 +210,7 @@ def PartesPorElemento (request, element):
 
 class partes_pendientes (ListView):#Urgentes arriba, seguidos de los mas nuevos
     model = Ot_Parte
-    paginate_by = 50
+    paginate_by = 20
     ordering = ['prioridad_ot','-fecha_cambio_ot','-fecha_hora_cambio_ot','-num_ot']
     queryset =Ot_Parte.objects.exclude(estado_ot = "Terminado")
     template_name = 'ot_parte_lista_pendientes.html'

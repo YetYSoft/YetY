@@ -6,7 +6,7 @@ from django.views import View
 from . import views
 from django.views.generic import RedirectView
 
-#from partes.views import partes, DetalleParte, parte_nuevo, parte_editar, EditarTrab
+#from partes.views import partes, DetalleParte, parte_nuevo, parte_editar, EditarTrab,Marcar_Terminado
 
 from partes.views import *
 
@@ -20,6 +20,8 @@ urlpatterns = [
     #path  ("", views.index, name='index'),  #va a pag de Inicio
     path ('partes/', views.partes.as_view(), name='Listapartes'), #va a class view.OtListView
     path ('<int:pk>', views.DetalleParte, name='Detalle_Parte'),
+    path ('Marcar_Terminado/<int:num_ot>', views.Marcar_Terminado, name='Marcar_Terminado'),
+
     path ('edit/<int:num_ot>', views.parte_editar, name='Editar_Parte'),
     path ('nuevo/', views.parte_nuevo, name='Nuevo_Parte'), # nuevo parte sin listado de partes
 
