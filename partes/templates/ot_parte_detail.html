@@ -37,7 +37,8 @@
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Notas:</h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.notas_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Tipo :</h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.tipo_aviso_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Fecha Parte : </h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.fecha_ot }}</strong></a></div>
- </div>
+    
+</div>
 
 
 
@@ -52,7 +53,9 @@
     {% endfor %}
     </ol>
 </div>
-
+<div style= "display: flex; justify-content: center;"> 
+    <div class="btn "> <a href="Marcar_Terminado/{{ ot_parte.pk }}" class="btn btn-success">Marcar como terminado</a></div>
+</div>
 {% endblock %}
 
 
