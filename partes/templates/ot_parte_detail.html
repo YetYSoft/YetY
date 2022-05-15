@@ -14,22 +14,22 @@
 <form action="/partes/encontrar_partes/" method="get">
             
     <div style= "display: flex;  justify-content: center; ">
-            <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
-            <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
+              <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua">  
+              <input class="btn btn-success"     type="submit" value="Buscar en los partes">
     </div>
 
 
 </form>
 
-<div style= "display: flex; justify-content: center;"> 
+ <!-- <div style= "display: flex; justify-content: right;"> 
         <div class="btn"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
-        <div class="btn"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
+      <div class="btn"> <a href="/partes/trabajo/nuevo/{{ ot_parte.num_ot }}" class="btn btn-warning">Añadir trabajo</a> </div>
         <div class="btn"> <a href="/partes/trabajo/ver/{{ ot_parte.num_ot }}" class="btn btn-warning">Ver Trabajos</a> </div>
-</div>
+</div>-->
 
 <div style="padding-left: 5px">
     <div class="cabecera"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
-    <br>
+    <div style= "display: flex; justify-content: right;" class="btn"> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Editar parte</a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Parte num</h6> </a> &nbsp; &nbsp; <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a>&nbsp; &nbsp; &nbsp; &nbsp; <h6>Hecho por:</h6> </a> &nbsp; &nbsp; <a href='usuario/{{ user }}'  >{{ ot_parte.Usuario_ot }} </a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Prioridad</h6> </a>  &nbsp; &nbsp; <a><strong> {{ ot_parte.prioridad_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Estado </h6></a> &nbsp; &nbsp; <a><strong>{{ ot_parte.estado_ot }}</strong></a></div>
@@ -43,18 +43,27 @@
 </div>
 
 <br>
+
+<form method="POST" class="post-form">{% csrf_token %}
+
+    <div style= "display: flex; justify-content: center;">
+         {{form_trabajo_nuevo.descripcion_tra}}          <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+
+<br>
+
 <div>
     <h3 style="padding-left: 5px">Trabajos realizados en este parte</h3>
     <ol type="1"; style="padding-left: 3rem" >
-    {% for form in form %}
+    {% for form_trabajos in form_trabajos %}
 
-     <li><a>{{ form.descripcion_tra }}</a></li>
+     <li><a>{{ form_trabajos.descripcion_tra }}</a></li>
  
     {% endfor %}
     </ol>
 </div>
-<div style= "display: flex; justify-content: center;"> 
-    <div class="btn "> <a href="Marcar_Terminado/{{ ot_parte.pk }}" class="btn btn-success">Marcar como terminado</a></div>
+<div style= "display: flex; justify-content: right;"> 
+    <div class="btn "> <a href="Marcar_Terminado/{{ ot_parte.pk }}" class="btn btn-success">Marcar terminado</a></div>
 </div>
 {% endblock %}
 

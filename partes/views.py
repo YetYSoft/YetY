@@ -17,7 +17,7 @@ from django.contrib.auth.models import User
 
 
 
-from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
+from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form,Trabajo_nuevo_en_parte
 from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
 
 from datetime import datetime
@@ -107,7 +107,7 @@ def buscar(request):
 
 """
 
-
+#------------------ Buscar en los partes----------------
 from django.db.models import Q
 
 def buscar_parte(request):
@@ -129,18 +129,7 @@ def encontrar_parte(request):
             Q (ubicacion_ot__ubicacion_ub__icontains = busqueda)
         ).order_by('-fecha_cambio_ot')
         
-    
-    
-    
     return render(request,"encontrar_parte.html",{"Ot_Parte":partes,"palabra_recibida":busqueda})
-
-    
-    
-    
-    
-
-
-
 
 
 
@@ -150,23 +139,34 @@ def encontrar_parte(request):
 def index(request):
     return redirect('Partes_Pendientes')
     #return render (request,'sidebar.html')
-
-
-#class DetalleParte(DetailView):
-#   model = Ot_Parte
-#   template_name = 'ot_parte_detail.html'
     
 
-    # ------   Detalle de parte y lista de trabajos --------
+# ------   Detalle de parte y lista de trabajos --------
 def DetalleParte(request,pk):
     ot_parte = Ot_Parte.objects.get(num_ot=pk)
-    Lista_trabajos = Ot_Trabajos.objects.filter(num_ot_tra=pk)
-    return render (request,'ot_parte_detail.html',{"ot_parte":ot_parte,'form':Lista_trabajos})
+    Lista_trabajos = Ot_Trabajos.objects.filter(num_ot_tra=pk).order_by('-fecha_hora_cambio_tra')
+
+    if request.method == "POST":
+        form = Trabajo_nuevo_en_parte (request.POST)
+        if form.is_valid():
+           form.save()
+        #return redirect('lista_trabajo')
+        return redirect('Detalle_Parte',pk)
+    else:
+        form=Trabajo_nuevo_en_parte(initial={'num_ot_tra': pk})
+
+
+
+    form_trabajos=form
+
+    return render (request,'ot_parte_detail.html',{"ot_parte":ot_parte,'form_trabajos':Lista_trabajos,"form_trabajo_nuevo":form_trabajos})
+
+
+
 
 def Marcar_Terminado(request,num_ot):
     parte = Ot_Parte.objects.get(num_ot=num_ot)
     parte.estado_ot="Terminado"
-    print("---------------------------")
     print(request.user.username)
     print(request.user.id)
     print(request.user)

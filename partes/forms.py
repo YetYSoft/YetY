@@ -46,6 +46,25 @@ class TrabajosForm(forms.ModelForm):
              'descripcion_tra':'Descripcion de trabajo',
           }
          
+class Trabajo_nuevo_en_parte(forms.ModelForm):
+    class Meta:
+        model=Ot_Trabajos
+        ordering = ["-fecha_cambio_tra"]
+
+        fields= [
+            'num_ot_tra',
+            'descripcion_tra'
+        ]
+        widgets={
+            'num_ot_tra':forms.TextInput(attrs={'class':'form-control'} ),
+            'descripcion_tra':forms.TextInput(attrs={'class':'form-control','placeholder': 'Añade aquí un trabajo ya hecho para este parte'}),
+         }
+        labels={
+             'num_ot_tra':'Numero de parte',
+             'descripcion_tra':'Descripcion de trabajo',
+          }
+
+
 
 class TrabajosEditForm(forms.ModelForm):
     class Meta:

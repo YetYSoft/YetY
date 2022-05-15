@@ -12,35 +12,35 @@
     <link rel="stylesheet" href="{% static '/css/start.css' %}">
 
     <div id="grid_start">
-        <div> <a href="/resumen/" class="btn btn-primary">Resumen</a></div>
+        <div> <a href="/resumen/" class="btn btn-secondary">Resumen</a></div>
         <div> <a href="/partes/pendientes/" class="btn btn-primary">Partes<small><br>Aquí están las averías y los trabajos relacionados con ellas</small> </a></div>
         <div> <a href="/piscinas" class="btn btn-primary">Piscinas</a></div>
-        <div> <a href="/aguas/aguas" class="btn btn-primary">Aguas</a></div>
-        <div> <a href="/consumos/" class="btn btn-primary">Consumos</a></div>
-        <div> <a href="/registros/" class="btn btn-primary">Registros (Datos Técnicos)</a></div>
-        <div> <a href="/legal_semanal/" class="btn btn-primary ">legal_semanal</a></div>
-        <div> <a href="/legal_mensual/" class="btn btn-primary">legal_mensual</a></div>
-        <div> <a href="/legal_trimestral/" class="btn btn-primary">legal_trimestral</a></div>
-        <div> <a href="/legal_semestral/" class="btn btn-primary">legal_semestral</a></div>
-        <div> <a href="/legal_anual/" class="btn btn-primary">legal_anual</a></div>
-        <div> <a href="/legal_bianual/" class="btn btn-primary">legal_bianual</a></div>
-        <div> <a href="/legal_quinquenal/" class="btn btn-primary">legal_quinquenal</a></div>
-        <div> <a href="/pedidos/" class="btn btn-primary">Pedidos</a></div>
-        <div> <a href="/mis_trabajos/" class="btn btn-primary">Mis trabajos.</a></div>
-        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Periodicos</a></div>
-        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Inventarios</a></div>
-        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-primary">Buscar</a></div>
-        <div> <a href="/rondas/rondas/" class="btn btn-primary">Rondas (Legal)</a></div>
-        <div> <a href="/listados/" class="btn btn-primary">Listados</a></div>
-        <div> <a href="/listados/" class="btn btn-primary">Listados</a></div>
+        <div> <a href="/aguas/aguas" class="btn btn-secondary">Aguas</a></div>
+        <div> <a href="/consumos/" class="btn btn-secondary">Consumos</a></div>
+        <div> <a href="/registros/" class="btn btn-secondary">Registros (Datos Técnicos)</a></div>
+        <div> <a href="/legal_semanal/" class="btn btn-secondary ">legal_semanal</a></div>
+        <div> <a href="/legal_mensual/" class="btn btn-secondary">legal_mensual</a></div>
+        <div> <a href="/legal_trimestral/" class="btn btn-secondary">legal_trimestral</a></div>
+        <div> <a href="/legal_semestral/" class="btn btn-secondary">legal_semestral</a></div>
+        <div> <a href="/legal_anual/" class="btn btn-secondary">legal_anual</a></div>
+        <div> <a href="/legal_bianual/" class="btn btn-secondary">legal_bianual</a></div>
+        <div> <a href="/legal_quinquenal/" class="btn btn-secondary">legal_quinquenal</a></div>
+        <div> <a href="/pedidos/" class="btn btn-secondary">Pedidos</a></div>
+        <div> <a href="/mis_trabajos/" class="btn btn-secondary">Mis trabajos.</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-secondary">Periodicos</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-secondary">Inventarios</a></div>
+        <div> <a href="edit/{{ ot_parte.pk }}" class="btn btn-secondary">Buscar</a></div>
+        <div> <a href="/rondas/rondas/" class="btn btn-secondary">Rondas (Legal)</a></div>
+        <div> <a href="/listados/" class="btn btn-secondary">Listados</a></div>
+        <div> <a href="/listados/" class="btn btn-secondary">Listados</a></div>
 
  
     </div>
   <form action="/partes/encontrar_partes/" method="get">
             
     <div style= "display: flex; justify-content: center;">
-            <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
-            <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
+              <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> 
+              <input class="btn btn-success"     type="submit" value="Buscar en los partes">
     </div>
 
 
