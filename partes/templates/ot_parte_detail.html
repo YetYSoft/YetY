@@ -13,7 +13,7 @@
 
 <form action="/partes/encontrar_partes/" method="get">
             
-    <div style= "display: flex; justify-content: center;">
+    <div style= "display: flex;  justify-content: center; ">
             <div>  <input class="form-control" type="text" name="palabra" placeholder="Ej. Agua"> </div>
             <div>  <input class="btn btn-secondary"     type="submit" value="Buscar en los partes"></div>
     </div>
@@ -29,7 +29,8 @@
 
 <div style="padding-left: 5px">
     <div class="cabecera"><a href='/partes/ubicacion/{{ ot_parte.ubicacion_ot}}'><h3> {{ ot_parte.ubicacion_ot }}</a><a href='/partes/elemento/{{ ot_parte.elemento_ot }}'>,    {{ ot_parte.elemento_ot }}</h3> </a><h5>  {{ ot_parte.descripcion_ot}}  </h5></div> <!-- cada uno de los ítems del grid -->
-    <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Parte num</h6> </a> &nbsp; &nbsp; <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a></div>
+    <br>
+    <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Parte num</h6> </a> &nbsp; &nbsp; <a href='edit/{{ ot_parte.pk }}'  >{{ ot_parte.pk }} </a>&nbsp; &nbsp; &nbsp; &nbsp; <h6>Hecho por:</h6> </a> &nbsp; &nbsp; <a href='usuario/{{ user }}'  >{{ ot_parte.Usuario_ot }} </a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Prioridad</h6> </a>  &nbsp; &nbsp; <a><strong> {{ ot_parte.prioridad_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Estado </h6></a> &nbsp; &nbsp; <a><strong>{{ ot_parte.estado_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Recursos: </h6></a>&nbsp; &nbsp; <a><strong>{{ ot_parte.recursos_ot }}</strong></a></div>
@@ -37,12 +38,11 @@
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Notas:</h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.notas_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Tipo :</h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.tipo_aviso_ot }}</strong></a></div>
     <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Fecha Parte : </h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.fecha_ot }}</strong></a></div>
-    
+    <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Fecha terminado : </h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.fecha_hora_terminado_ot|date:" d  M Y"  }}</strong></div>      
+    <div style= "display: flex; justify-content: left;height: 20px;"><a><h6>Terminado por: : </h6></a>&nbsp; &nbsp;<a><strong>{{ ot_parte.Tecnico_fin_parte_ot }}</strong>
 </div>
 
-
-
-
+<br>
 <div>
     <h3 style="padding-left: 5px">Trabajos realizados en este parte</h3>
     <ol type="1"; style="padding-left: 3rem" >

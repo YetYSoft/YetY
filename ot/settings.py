@@ -114,6 +114,9 @@ LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'Europe/Madrid'
 
+DATE_FORMAT = "Y-m-d"
+
+
 USE_I18N = True
 
 USE_L10N = True

@@ -33,6 +33,6 @@ class Valores_Piscina (models.Model):
     limpieza_bordes=models.BooleanField(verbose_name='limpieza_bordes', help_text="limpieza_bordes")
     Incidencias=models.CharField(max_length=300,verbose_name='valores_Incidencias', help_text="Descripción de la Incidencia")
     correctos=models.BooleanField(null=False)
-    intervencion_realizada=models.CharField(max_length=300,verbose_name='Intervencion realizada', help_text="Descripción de la Intervencion")
+    intervencion_realizada=models.CharField(max_length=300,default='',verbose_name='Intervencion realizada', help_text="Descripción de la Intervencion")
     registrados=models.BooleanField(null=False, default=False)
  

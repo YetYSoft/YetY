@@ -20,7 +20,7 @@ from django.contrib.auth.models import User
 from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form
 from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
 
- 
+from datetime import datetime
 
 ################  Permisos en las vistas 
 
@@ -165,10 +165,21 @@ def DetalleParte(request,pk):
 
 def Marcar_Terminado(request,num_ot):
     parte = Ot_Parte.objects.get(num_ot=num_ot)
-    parte.estado_ot='Terminado'
-    return print(parte.estado_ot)
+    parte.estado_ot="Terminado"
+    print("---------------------------")
+    print(request.user.username)
+    print(request.user.id)
+    print(request.user)
+    user = User.objects.get(id=request.user.id)
+    print(user)
+    parte.Tecnico_fin_parte_ot=user # tecnico que finaliza el parte
+
+    parte.fecha_hora_terminado_ot=datetime.now()
+
+    parte.save()
+    return redirect('Detalle_Parte',num_ot)
     
-    pass
+   
  
 #--------------Formularios para listados parte---------
 @login_required
@@ -244,6 +255,7 @@ def nuevo_lista_partes(request): # Recoje el dato del form
 def parte_nuevo(request):
     if request.method == "POST":
         form = ParteForm(request.POST)
+      
         if form.is_valid():
             form.save()
         return redirect('Listapartes')
@@ -256,11 +268,18 @@ def parte_editar(request,num_ot):
     parte = Ot_Parte.objects.get(num_ot=num_ot)
     if request.method == "GET":
         form = ParteForm(instance=parte)
+        print("--------------------------")
+       # print(form)
     else:
         form=ParteForm(request.POST,instance=parte)
+        form.save()
+        print(parte.Tecnico_fin_parte_ot)
+            #print(form.descripcion_ot)
         if form.is_valid():
+            print("////////////////////////////")
+
             form.save()
-        return redirect('Partes_Pendientes')
+        return redirect('Listapartes')
     return render (request,'ot_parte_edit_form.html',{'form':form})
 
 

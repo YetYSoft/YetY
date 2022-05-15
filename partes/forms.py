@@ -25,7 +25,6 @@ class ParteForm(forms.ModelForm):
             'ubicacion_ot':forms.Select(),
             'descripcion_ot':forms.Textarea()
         }
-
 #--------------Formularios para Editar o nuevo trabajo---------
 
 class TrabajosForm(forms.ModelForm):
@@ -46,6 +45,7 @@ class TrabajosForm(forms.ModelForm):
              'num_ot_tra':'Numero de parte',
              'descripcion_tra':'Descripcion de trabajo',
           }
+         
 
 class TrabajosEditForm(forms.ModelForm):
     class Meta:

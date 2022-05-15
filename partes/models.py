@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Ot_Parte(models.Model):
@@ -10,6 +10,7 @@ class Ot_Parte(models.Model):
     fecha_ot=models.DateField(auto_now_add=True,verbose_name='Fecha del parte')
     fecha_cambio_ot=models.DateField(auto_now=True,verbose_name='Fecha del ultimo cambio')
     fecha_hora_cambio_ot=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
+    fecha_hora_terminado_ot=models.DateTimeField(null=True,blank=True, verbose_name='Fecha y hora de la terminacion del parte', )
     PRIORIDADES=(('1','Urgente') ,('2','Provoca daños') , ('3','Molesta al cliente' ), ('4', 'Mala imagen' ),('5','Legal'))
     prioridad_ot=models.CharField(max_length=30, blank=True, default='1',choices=PRIORIDADES)
     ESTADOS_DE_OT=[ ('Pendiente','Pendiente'),('En Curso','En Curso'),('Terminado','Terminado'), ("Inversion","Inversion"), ('En espera','En espera'), ("Otro","Otro")]
@@ -20,7 +21,11 @@ class Ot_Parte(models.Model):
     notas_ot=models.CharField(default='',max_length=30, blank=True, help_text="Poner una nota a este parte") #        falta por definir (Nota para relacionar)
     CORRECTIVO_PREVENTIVO_LEGAL_SERVICIO=[('Correctivo','Correctivo'),('Preventivo','Preventivo'),('Legal','Legal'),('Servicio o Ayuda','Servicio o Ayuda'),('Atencion cliente','Atencion cliente')]
     tipo_aviso_ot=models.CharField(max_length=30,default='Correctivo',choices=CORRECTIVO_PREVENTIVO_LEGAL_SERVICIO) # correctivo, preventivo, servicio
-    #Usuario_ot     falta definir3
+    Usuario_ot=models.ForeignKey(User,related_name="Usuario_ot",default=1,on_delete=models.SET_NULL, null=True,blank=True,help_text="usuario que ha hecho este parte") 
+    Tecnico_ot=models.ForeignKey(User,related_name="Tecnico_ot",default=1,on_delete=models.SET_NULL, null=True,blank=True, help_text="Tecnico que tiene este parte") 
+    Tecnico_fin_parte_ot=models.ForeignKey(User,related_name="Tecnico_fin_parte_ot",default=1,on_delete=models.SET_NULL, null=True,blank=True,  help_text="Tecnico que tiene este parte") 
+    borrame_ot=models.CharField(default='',max_length=30, blank=True, help_text="Poner una nota a este parte") #        falta por definir (Nota para relacionar)
+
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
         return '{}'.format(self.num_ot)
@@ -34,7 +39,8 @@ class Ot_Trabajos(models.Model):
     fecha_tra=models.DateField(auto_now_add=True,verbose_name='Fecha del trabajo')
     fecha_cambio_tra=models.DateField(auto_now=True,verbose_name='Fecha del ultimo cambio')
     fecha_hora_cambio_tra=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
-
+    Usuario_tra=models.ForeignKey(User,related_name="Usuario_tra",default=1,on_delete=models.SET_NULL, null=True,blank=False,help_text="usuario que ha hecho este trabajo") 
+   
     def __str__(self):
         return '{}'.format(self.num_tra)
     class Meta:
@@ -59,6 +65,7 @@ class Ot_Etiquetas(models.Model):
 
 class Ot_Pedidos(models.Model):
     producto_pe=models.CharField(default='',max_length=30,verbose_name='Ele', help_text="Obj")
+    Usuario_pe=models.ForeignKey(User,related_name="Usuario_pe",default=1,on_delete=models.SET_NULL, null=True,blank=False,help_text="usuario que ha hecho este Pedido") 
 
 
 
