@@ -22,6 +22,12 @@ from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, O
 
 from datetime import datetime
 
+# Import module
+import sqlite3
+  
+
+
+
 ################  Permisos en las vistas 
 
         ######## en las clases
@@ -148,8 +154,13 @@ def DetalleParte(request,pk):
 
     if request.method == "POST":
         form = Trabajo_nuevo_en_parte (request.POST)
+        print("----------------------------------------")
+        print(form)
         if form.is_valid():
-           form.save()
+            print("+++++++++++++++++++++++++++++")
+            form.save()
+
+           
         #return redirect('lista_trabajo')
         return redirect('Detalle_Parte',pk)
     else:

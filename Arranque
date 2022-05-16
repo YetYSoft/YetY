@@ -11,12 +11,27 @@ python3 manage.py runserver 0.0.0.0:8000
 
 python -m django --version
 
-
-
-
-
-
-
 <!--  {% if.perm.registros.change_ot_pedido_material %} -->
 <!--  {% if.perm.registros.change_ot_pedido_material %} -->
 
+
+
+
+
+
+                Pero sin el WHERE, asi afectará a toda la columna
+                UPDATE "nombre_tabla" SET "columna_1" = [nuevo valor]
+
+                UPDATE Ot_Parte SET Usuario_ot = 1
+
+                # Connecting to sqlite
+                conn = sqlite3.connect('db.sqlite3')
+                
+                # Creating a cursor object using 
+                # the cursor() method
+                cursor = conn.cursor()
+
+                data=cursor.execute ( '''UPDATE partes_ot_parte SET Tecnico_ot = 1;''')
+                conn.commit()
+                conn.close()
+  
