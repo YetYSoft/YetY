@@ -37,13 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cabecera.apps.CabeceraConfig',
     'aguas.apps.AguasConfig',
+    'cabecera.apps.CabeceraConfig',
     'partes.apps.PartesConfig',
     'piscinas.apps.PiscinasConfig',
-    'rondas.apps.RondasConfig',
     'registros.apps.RegistrosConfig',
-]
+    'resumen.apps.ResumenConfig',
+    'rondas.apps.RondasConfig',
+
+]    
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
