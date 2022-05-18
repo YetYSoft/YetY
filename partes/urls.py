@@ -47,7 +47,6 @@ urlpatterns = [
 
     # Trabajos ------------------------------------------------------
     path ('trabajo/<int:num_tra>/<int:numero_ot>' , views.EditarTrab , name='edit_trabajo'),
-    path ('trabajo/nuevo/<int:numero_ot>' , views.NuevoTrab , name='add_trabajo'),
     path ('trabajo/ver/<int:numero_ot>' , views.ListaTrabParte.as_view() , name='ver_trabajos'),
     path ('trabajo/listado' , views.ListaTrab.as_view() , name='lista_trabajo'),
    

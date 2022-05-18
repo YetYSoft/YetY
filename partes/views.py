@@ -38,6 +38,8 @@ import sqlite3
                 #from django.contrib.auth.decorators import login_required
                 #@login_required
                 #def my_view(request):
+ #               @permission_required('partes.add_ot_trabajos')
+
         ########
                 #from django.contrib.auth.decorators import permission_required
                 #@permission_required('catalog.can_mark_returned')
@@ -148,10 +150,11 @@ def index(request):
     
 
 # ------   Detalle de parte y lista de trabajos --------
+
 def DetalleParte(request,pk):
     ot_parte = Ot_Parte.objects.get(num_ot=pk)
     Lista_trabajos = Ot_Trabajos.objects.filter(num_ot_tra=pk).order_by('-fecha_hora_cambio_tra')
-
+   
     if request.method == "POST":
         form = Trabajo_nuevo_en_parte (request.POST)
         print("----------------------------------------")
@@ -174,7 +177,7 @@ def DetalleParte(request,pk):
 
 
 
-@permission_required('Can_add_ot_trabajos')
+@permission_required('partes.add_ot_trabajos')
 def Marcar_Terminado(request,num_ot):
     parte = Ot_Parte.objects.get(num_ot=num_ot)
     parte.estado_ot="Terminado"
@@ -318,8 +321,7 @@ class ListaTrabParte(ListView): #listado por numero de parte
     def get_queryset(self):
         return Ot_Trabajos.objects.filter(num_ot_tra=self.kwargs['numero_ot'])
 
-@login_required
-def NuevoTrab (request,numero_ot):
+"""def NuevoTrab (request,numero_ot):
     parte = Ot_Parte.objects.get(num_ot=numero_ot)
 
     if request.method == "POST":
@@ -334,7 +336,7 @@ def NuevoTrab (request,numero_ot):
         form=TrabajosForm(initial={'num_ot_tra': numero_ot})
 
     return render (request,'ot_trabajos_nuevo_form.html',{'form':form,'numero_ot':numero_ot, 'parte':parte})
-
+"""
 @login_required
 def EditarTrab (request,num_tra,numero_ot):
     trabajo = Ot_Trabajos.objects.get(num_tra=num_tra)
