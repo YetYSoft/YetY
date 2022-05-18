@@ -5,6 +5,7 @@ from django.db import models
 
 "https://docs.djangoproject.com/en/4.0/topics/db/queries/"
 "https://docs.djangoproject.com/en/4.0/ref/models/querysets/"
+"https://docs.djangoproject.com/en/4.0/ref/models/querysets/#field-lookups"
 
 
 from datetime import date

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
-
+ 
 class Ot_Parte(models.Model):
     num_ot=models.AutoField(primary_key=True, verbose_name='numero de Ot', help_text="numero de orden de trabajo")
     ubicacion_ot=models.ForeignKey('Ot_Ubicaciones',max_length=30,verbose_name='Ubicación', help_text="Numero de Habitación o ubicación",on_delete=models.SET_NULL,null=True)
