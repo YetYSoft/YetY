@@ -174,7 +174,7 @@ def DetalleParte(request,pk):
 
 
 
-
+@permission_required('Can_add_ot_trabajos')
 def Marcar_Terminado(request,num_ot):
     parte = Ot_Parte.objects.get(num_ot=num_ot)
     parte.estado_ot="Terminado"
