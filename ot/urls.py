@@ -32,6 +32,7 @@ urlpatterns = [
     path('registros/', include('registros.urls')),
     path('resumen/', include('resumen.urls')),
     path('rondas/', include('rondas.urls')),
+    path('espacios/', include('espacios.urls')),
 
 
     #path  ("/", views.start, name='index'),  #va a pag de Inicio

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'registros.apps.RegistrosConfig',
     'resumen.apps.ResumenConfig',
     'rondas.apps.RondasConfig',
+    'espacios.apps.EspaciosConfig',
 
 ]    
 

@@ -13,7 +13,7 @@ from partes.views import *
 urlpatterns = [
 
    
-   
+    
 
 
     

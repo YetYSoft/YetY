@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+
+
+{% extends "start.html" %}
+
+{% block content %}
+
+<form method="POST" class="post-form">{% csrf_token %}
+   
+{% load static %}
+
+<div style= "display: flex ;  padding: 5px">
+     {{form}} &nbsp; <button type="submit" class="btn btn-success ">Ok Guardar</button>
+
+
+</form>
+
+{% endblock %}
