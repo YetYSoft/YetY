@@ -5,15 +5,17 @@
 {% extends "start.html" %}
 
 {% block content %}
-
+{% load static %}
 <form method="POST" class="post-form">{% csrf_token %}
    
-{% load static %}
+     <div>
 
-<div style= "display: flex ;  padding: 5px">
-     {{form}} &nbsp; <button type="submit" class="btn btn-success ">Ok Guardar</button>
+          <div style= "display: flex ;  padding: 5px; align-item :center;   ">
+               {{form}} &nbsp; <button type="submit" class="btn btn-success ">Ok Guardar</button>
 
-
+          </div>
+     </div>
 </form>
 
 {% endblock %}
+ 
