@@ -12,15 +12,13 @@ class Nuevo_departamento_form(forms.ModelForm):
     class Meta:
         model = Departamentos
         fields= ['nombre']
-      #  template_name = 'departamento_form.html'
-      #  success_url= '/espacios/Departamentos_list'
-   #     widgets={
-   #             'departamento':forms.TextInput(attrs={'class':'form-control','placeholder': 'Nombre departamento', }),
-   #         }
+        #help_texts={'nombre':'What is your favorite fruit?'}
+        #print ("/////////////////////")
+        #print (form)
 
-    
     def clean_nombre(self):
         nombre_dep= self.cleaned_data ['nombre']
+        nombre_dep=nombre_dep.capitalize()
      #   print ("/////////////////////")
     #    print (nombre)
         existe = Departamentos.objects.filter (nombre__iexact=nombre_dep).exists()

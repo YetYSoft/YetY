@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -28,17 +28,19 @@ class Departamentos_list (ListView): # Lista de departamentos
 
 def nuevo_departamento (request):
     data ={ 'form' :Nuevo_departamento_form()  }
-
     if request.method == "POST":
         form=Nuevo_departamento_form (data=request.POST)
         if form.is_valid():
            form.save()
-            
+           return redirect ('Departamentos_list')
+         #  print('//////////////////////////')
+         #  print(form)
         else:
             data['form' ] =form
+            print('++++++++++++++++++++')
+            print(form)
 
-
-     
+   
     return render (request, 'departamento_form.html', data)
 
   

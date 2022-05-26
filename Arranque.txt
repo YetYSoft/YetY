@@ -34,4 +34,3 @@ python -m django --version
                 data=cursor.execute ( '''UPDATE partes_ot_parte SET Tecnico_ot = 1;''')
                 conn.commit()
                 conn.close()
-  
