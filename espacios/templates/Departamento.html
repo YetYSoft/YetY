@@ -3,10 +3,9 @@
 
 
 {% extends "start.html" %}
-
 {% block content %}
 {% load static %}
-
+{% include 'navbar_espacios.html'%}
 
 <form method="POST" class="post-form">{% csrf_token %}
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
@@ -20,7 +19,7 @@
 
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                <div style= "text-align: center;"> </div> &nbsp;{{form.nombre}} &nbsp; <button type="submit" class="btn btn-success ">Ok Guardar</button>
-          </div>
+          </div>{{form.id}}
          
          
 </form>

@@ -14,7 +14,9 @@ python -m django --version
 <!--  {% if.perm.registros.change_ot_pedido_material %} -->
 <!--  {% if.perm.registros.change_ot_pedido_material %} -->
 
-
+**************   Resetea las migraciones ********************
+python3 manage.py migrate --fake espacios  zero
+python3 manage.py migrate espacios
 
 
 
