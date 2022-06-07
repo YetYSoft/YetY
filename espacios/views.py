@@ -1,9 +1,11 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.forms import ModelForm
+from requests import request
 
 from espacios.models import *
 from espacios.forms import *
@@ -89,19 +91,33 @@ class Plantas_o_zonas_list (ListView): # Lista de departamentos
 def Plantas_o_zonas_edit(request,pk):
     zonas = Planta_o_zonas.objects.get(id=pk)
     if request.method == "GET":
-        form = Planta_o_zona_nueva_form(instance=zonas)
+        form = Planta_o_zona_edit_form(instance=zonas)
         print("--------------------------")
        # print(form)
     else:
-        form=Planta_o_zona_nueva_form(request.POST,instance=zonas)
+        form=Planta_o_zona_edit_form(request.POST,instance=zonas)
+        print("Es valido? ++++++++++++++++++++++++++++++++")
        
         if form.is_valid():
-
+            print("Es valido ++++++++++++++++++++++++++++++++")
             form.save()
+            print("Guardado ++++++++++++++++++++++++++++++++")
+            
         return redirect('/espacios/Plantas_o_zonas_list/')
     print("////////////////////////////")
     print (type(pk))
     return render (request,'Planta_o_zona.html',{'form':form,"pk":pk })
+
+
+
+class Zonas_listado (ListView): # Lista de departamentos
+    model = Planta_o_zonas
+    fields= '__all__'
+    template_name = 'zonas_listado.html'
+    ordering = ['nombre']
+    paginate_by = 25
+    context_object_name = 'list' # Esto es lo que envía al template
+
 
 
 
@@ -138,11 +154,11 @@ class Hab_cuarto_sala_list (ListView): # Lista de departamentos
 def Hab_cuarto_sala_edit(request,pk):
     cuarto = Habs_cuartos_salas.objects.get(id=pk)
     if request.method == "GET":
-        form = Hab_cuarto_sala_nueva_form(instance=cuarto)
+        form = Hab_cuarto_sala_edit_form(instance=cuarto)
         print("--------------------------")
        # print(form)
     else:
-        form=Hab_cuarto_sala_nueva_form(request.POST,instance=cuarto)
+        form=Hab_cuarto_sala_edit_form(request.POST,instance=cuarto)
        
         if form.is_valid():
             print("////////////////////////////")
@@ -150,3 +166,91 @@ def Hab_cuarto_sala_edit(request,pk):
             form.save()
         return redirect('/espacios/Hab_cuarto_sala_list/')
     return render (request,'Hab_cuarto_sala.html',{'form':form})
+
+
+
+############     Puertas   ###################
+
+def puerta_nueva (request):
+    data ={ 'form' :Puerta_nueva_form()  }
+    if request.method == "POST":
+        form=Puerta_nueva_form (data=request.POST)
+        if form.is_valid():
+           form.save()
+           return redirect ('puerta_list')
+         #  print('//////////////////////////')
+         #  print(form)
+        else:
+            data['form' ] =form
+            print('++++++++++++++++++++')
+            print(form)
+    return render (request, 'puerta.html', data)
+
+
+
+class puerta_list (ListView): # Lista de departamentos
+    model = Puertas
+    fields= '__all__'
+    template_name = 'puerta_list.html'
+    ordering = ['nombre']
+    paginate_by = 25
+    context_object_name = 'list' # Esto es lo que envía al template
+
+
+def puerta_edit(request,pk):
+    cuarto = Puertas.objects.get(id=pk)
+    if request.method == "GET":
+        form = Puerta_edit_form(instance=cuarto)
+        print("--------------------------")
+       # print(form)
+    else:
+        form=Puerta_edit_form(request.POST,instance=cuarto)
+       
+        if form.is_valid():
+            print("////////////////////////////")
+
+            form.save()
+        return redirect('/espacios/puerta_list/')
+    return render (request,'puerta.html',{'form':form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######  Zona User   ############
+
+# listado de Habs o Ubicaciones 
+
+class Habs_listado (ListView): # Lista de departamentos
+    model = Habs_cuartos_salas
+    fields= '__all__'
+    template_name = 'Habs_listado.html'
+    ordering = ['nombre']
+    paginate_by = 25
+    context_object_name = 'list' # Esto es lo que envía al template 
+    def get_queryset(self):
+        return Habs_cuartos_salas.objects.filter(planta_o_zona=self.kwargs['pk'])
+    #queryset =Habs_cuartos_salas.objects.filter(planta_o_zona = self.kwargs['pk'])
+
+
+
+
+class Hab_user (ListView) :
+    pass

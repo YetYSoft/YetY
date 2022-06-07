@@ -48,14 +48,25 @@ class Planta_o_zona_nueva_form(forms.ModelForm):
     def clean_nombre(self):
         nombre_zona= self.cleaned_data ['nombre']
         nombre_zona=nombre_zona.upper()          #.capitalize()
-     #   print ("/////////////////////")
-     #   print (nombre)
         existe = Planta_o_zonas.objects.filter (nombre__iexact=nombre_zona).exists()
 
         if existe:
             #return redirect('Departamentos_list/')
-
+            print ("Existe /////////////////////")
             raise ValidationError("Ya existe este departamento")
+        return nombre_zona
+
+class Planta_o_zona_edit_form(forms.ModelForm):
+    class Meta:
+        model = Planta_o_zonas
+        fields= '__all__'
+        widgets={
+            'nombre':forms.TextInput(attrs={'class':'form-control form-control-lg'}),
+            'departamento':forms.CheckboxSelectMultiple(),
+        }
+    def clean_nombre(self):
+        nombre_zona= self.cleaned_data ['nombre']
+        nombre_zona=nombre_zona.upper()          #.capitalize()
         return nombre_zona
 
 
@@ -69,17 +80,70 @@ class Hab_cuarto_sala_nueva_form(forms.ModelForm):
             'planta_o_zona':forms.CheckboxSelectMultiple(),
         }
 
-        #help_texts={'nombre':'What is your favorite fruit?'}
-        #print ("/////////////////////")
-        #print (form)
 
     def clean_nombre(self):
         nombre_cuarto= self.cleaned_data ['nombre']
         nombre_cuarto=nombre_cuarto.capitalize()          #.capitalize() upper()
-     #   print ("/////////////////////")
-     #   print (nombre)
         existe = Habs_cuartos_salas.objects.filter (nombre__iexact=nombre_cuarto).exists()
 
         if existe:
             raise ValidationError("Ya existe este departamento")
         return nombre_cuarto
+
+
+class Hab_cuarto_sala_edit_form(forms.ModelForm):
+    class Meta:
+        model = Habs_cuartos_salas
+        fields= '__all__'
+        widgets={
+            'nombre':forms.TextInput(attrs={'class':'form-control form-control-lg'}),
+            'departamento':forms.CheckboxSelectMultiple(),
+            'planta_o_zona':forms.CheckboxSelectMultiple(),
+        }
+
+    def clean_nombre(self):
+        nombre_cuarto= self.cleaned_data ['nombre']
+        nombre_cuarto=nombre_cuarto.capitalize()          #.capitalize() upper()
+        return nombre_cuarto
+
+
+
+
+class Puerta_nueva_form(forms.ModelForm):
+    class Meta:
+        model = Puertas
+        fields= '__all__'
+        widgets={
+            'nombre':forms.TextInput(attrs={'class':'form-control form-control-lg'}),
+            'departamento':forms.CheckboxSelectMultiple(),
+            'planta_o_zona':forms.CheckboxSelectMultiple(),
+            'cuarto':forms.CheckboxSelectMultiple(),
+        }
+
+
+    def clean_nombre(self):
+        nombre_puerta= self.cleaned_data ['nombre']
+        nombre_puerta=nombre_puerta.capitalize()          #.capitalize() upper()
+        existe = Puertas.objects.filter (nombre__iexact=nombre_puerta).exists()
+
+        if existe:
+            raise ValidationError("Ya existe esta puerta")
+        return nombre_puerta
+
+
+class Puerta_edit_form(forms.ModelForm):
+    class Meta:
+        model = Puertas
+        fields= '__all__'
+        widgets={
+            'nombre':forms.TextInput(attrs={'class':'form-control form-control-lg'}),
+            'departamento':forms.CheckboxSelectMultiple(),
+            'planta_o_zona':forms.CheckboxSelectMultiple(),
+            'cuarto':forms.CheckboxSelectMultiple(),
+
+        }
+
+    def clean_nombre(self):
+        nombre_puerta= self.cleaned_data ['nombre']
+        nombre_puerta=nombre_puerta.capitalize()          #.capitalize() upper()
+        return nombre_puerta

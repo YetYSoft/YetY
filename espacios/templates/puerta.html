@@ -11,7 +11,7 @@
 <form method="POST" class="post-form">{% csrf_token %}
      
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
-               <h3>Editar Hab o Sala.</h3>
+               <h3>Editar puerta.</h3>
           </div>
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                <h5>{{form.nombre.errors}} </h5>
@@ -25,15 +25,6 @@
           <div class =" row">
                <div class =" col">
                     <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
-                         <h3>Pertenece al departamento</h3>
-                    </div>
-
-                    <div style= "display: flex ;  padding-left: 10px; justify-content :left; text-align: left; ">
-                         <div style= "text-align: left;"> </div> &nbsp;{{form.departamento}} &nbsp; 
-                    </div>
-               </div>
-               <div class =" col">
-                    <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                     <h3>Pertenece a la zona</h3>
                     </div>
                
@@ -42,21 +33,35 @@
                     </div>
           
                </div>
+               <div class =" col">
+                <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
+                     <h3>Pertenece al cuarto</h3>
+                </div>
+
+                <div style= "display: flex ;  padding-left: 10px; justify-content :left; text-align: left; ">
+                     <div style= "text-align: left;"> </div> &nbsp;{{form.cuarto}} &nbsp; 
+                </div>
+           </div>
+
           </div>
           
           
           
-          <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
-               <div style= "text-align: center;"> </div> &nbsp;<button type="submit" class="btn btn-success ">Ok Guardar</button> &nbsp; 
-          </div>
+        <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
+            <div style= "text-align: center;"> </div> &nbsp;<button type="submit" class="btn btn-success ">Ok Guardar</button> &nbsp; 
+        </div>
 
 
-          <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
-               <div> <a href="/espacios/Departamento_nuevo" class="btn btn-secondary">Departamento nuevo</a></div>
-          </div>
+        <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
+            <div> <a href="/espacios/Departamento_nuevo" class="btn btn-secondary">Departamento nuevo</a></div>
+        </div>
 
-          <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
+        <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
             <div> <a href="/espacios/Planta_o_zona_nueva" class="btn btn-secondary">Zona nueva</a></div>
+        </div>
+       
+        <div style= "display: flex ;  padding: 5px; justify-content :end; text-align: center; ">
+            <div> <a href="/espacios/Hab_cuarto_sala_nueva/" class="btn btn-secondary">Cuarto nuevo</a></div>
        </div>
 
  

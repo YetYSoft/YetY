@@ -27,9 +27,10 @@ class Amaestramientos (models.Model):
     class Meta:
             ordering = ["nombre"]
 
-
+ 
 class Puertas (models.Model):
     nombre=models.CharField(default='' ,null=False,max_length=50,verbose_name='Puerta de la sala o lugar', help_text="Puerta de la sala o lugar",blank=True)
+    cuarto=models.ManyToManyField('Habs_cuartos_salas',  max_length=50,verbose_name='acceso a ...',  help_text="acceso a ..." , blank=True)
     planta_o_zona=models.ManyToManyField('Planta_o_zonas',  max_length=50,verbose_name='acceso desde planta_o_zona',  help_text="acceso desde planta_o_zona" , blank=True)
     departamento=models.ManyToManyField('Departamentos',  max_length=50,verbose_name='departamento de',  help_text="departamento de" ,blank=True)
     def __str__(self):

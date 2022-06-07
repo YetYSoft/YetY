@@ -2,22 +2,24 @@
 <html lang="es">
 
 
-  {% extends "start.html" %}
-  {% block content %}
-  {% load static %}
-  {% include 'navbar_espacios.html'%}
+{% extends "start.html" %}
+{% block content %}
+{% load static %}
+{% include 'navbar_espacios.html'%}
+
 <form method="POST" class="post-form">{% csrf_token %}
  
-{% load static %}
+
 <div class="container_fluid" style="padding-left: 5px" >
+
   <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
-    <h3>Editar departamentos</h3>
-</div>
+    <h3>Lista habs, cuartos, etc.</h3>
+  </div>
+  
 {% for  list in list  %}
   <div class="row">
 
-
-   <div style= 'padding-left: 1rem;'>  <a href="/espacios/Departamento/{{ list.id }}" >{{ list.nombre }} {{ list.id }}</a>  </div>
+    <div style= 'padding-left: 1rem;'>  <a href="/espacios/Hab_user/{{ list.id }}" >{{ list.nombre }} {{ list.id }}</a>  </div>
 
    </div>
    

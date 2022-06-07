@@ -9,7 +9,8 @@
 
 <form method="POST" class="post-form">{% csrf_token %}
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
-               <h3>{{form.nombre.label}}</h3>
+
+               <h3> Editar {{form.nombre.label}}</h3>
           </div>
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                <h5>{{form.nombre.errors}} </h5>
