@@ -5,7 +5,6 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.forms import ModelForm
-from requests import request
 
 from espacios.models import *
 from espacios.forms import *
