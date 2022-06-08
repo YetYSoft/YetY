@@ -1,14 +1,10 @@
+<!doctype html>
+<html lang="es">
+
 {% extends "start.html" %}
-{% load static %} 
-
-
-
 {% block content %}
+<div>{% include 'navbar_partes.html'%} </div>
 {% include 'buscar_parte.html' %}
-
-
-
-  <ul class="list-unstyled"; style="padding-left: 5px">
 
         <h3>Lista últimos partes </h3>
         <h5 style="padding-left: 5px">Últimos partes nuevos o modificados, terminados o no </h5>

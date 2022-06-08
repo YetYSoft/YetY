@@ -43,6 +43,7 @@ class Habs_cuartos_salas(models.Model):
     nombre=models.CharField(default='' ,null=False,max_length=50,verbose_name='Nombre de la sala o lugar', help_text="Nombre de la planta o zona",blank=True)
     planta_o_zona=models.ManyToManyField('Planta_o_zonas',  max_length=50,verbose_name='acceso desde planta_o_zona',  help_text="acceso desde planta_o_zona", blank=True)
     departamento=models.ManyToManyField('Departamentos',  max_length=50,verbose_name='departamento de',  help_text="departamento de", blank=True)
+    habitacion=models.BooleanField(default= False,  verbose_name='Habitacion?',  help_text="Habitacion?") 
     def __str__(self):
         return '{}'.format(self.nombre)
     class Meta:
