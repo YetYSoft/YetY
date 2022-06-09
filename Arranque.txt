@@ -36,3 +36,7 @@ python3 manage.py migrate espacios
                 data=cursor.execute ( '''UPDATE partes_ot_parte SET Tecnico_ot = 1;''')
                 conn.commit()
                 conn.close()
+
+
+https://es.stackoverflow.com/questions/268473/django-queryset-que-devuelva-el-objeto-padre-junto-con-sus-hijos-que-cumplan-un
+

@@ -101,11 +101,10 @@ def Plantas_o_zonas_edit(request,pk):
             print("Es valido ++++++++++++++++++++++++++++++++")
             form.save()
             print("Guardado ++++++++++++++++++++++++++++++++")
-            
-        return redirect('/espacios/Plantas_o_zonas_list/')
+        return redirect('/espacios/Plantas_o_zonas_list/' )
     print("////////////////////////////")
     print (type(pk))
-    return render (request,'Planta_o_zona.html',{'form':form,"pk":pk })
+    return render (request,'Planta_o_zona.html',{'form':form, 'url':'Plantas_o_zonas_edit', "pk":pk })
 
 
 
@@ -164,7 +163,7 @@ def Hab_cuarto_sala_edit(request,pk):
 
             form.save()
         return redirect('/espacios/Hab_cuarto_sala_list/')
-    return render (request,'Hab_cuarto_sala.html',{'form':form})
+    return render (request,'Hab_cuarto_sala.html',{'form':form, 'url':'Hab_cuarto_sala_edit', "pk":pk })
 
 
 
@@ -210,7 +209,7 @@ def puerta_edit(request,pk):
 
             form.save()
         return redirect('/espacios/puerta_list/')
-    return render (request,'puerta.html',{'form':form})
+    return render (request,'puerta.html',{'form':form, 'url':'puerta_edit', "pk":pk})
 
 
 
