@@ -1,0 +1,8 @@
+<div style= "display: flex; justify-content: right;" >
+    {% if pk > 1   %}
+        <a href="/espacios/{{ url }}/{{  pk|add:'-1'  }}" class="btn btn-primary">Anterior</a>&nbsp;
+    {% endif %}
+
+        <a href="/espacios/{{ url }}/{{ pk|add:'1' }}" class="btn btn-primary">Siguiente</a>
+    
+</div>

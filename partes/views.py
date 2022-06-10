@@ -294,7 +294,7 @@ def parte_editar(request,num_ot):
 
             form.save()
         return redirect('Listapartes')
-    return render (request,'ot_parte_edit_form.html',{'form':form})
+    return render (request,'ot_parte_edit_form.html',{'form':form, 'num_ot':num_ot})
 
 
 

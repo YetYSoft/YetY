@@ -55,6 +55,9 @@ class Ot_Ubicaciones(models.Model):
 
 class Ot_Elementos(models.Model):
     elemento_el=models.CharField(primary_key=True, max_length=30)
+    elemento_en_hab=models.BooleanField(default= False,  verbose_name='Está en hab?',  help_text="Está en hab?") 
+    elemento_en_AyB=models.BooleanField(default= False,  verbose_name='Está en AyB?',  help_text="Está en AyB?") 
+    elemento_en_varios=models.BooleanField(default= False,  verbose_name='Está en varios?',  help_text="Está en varios?") 
     class Meta:
         ordering = ["elemento_el"]
     def __str__(self):
