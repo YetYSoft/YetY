@@ -2,7 +2,7 @@ from django.urls import path
 from django.views import View
 from django.views.generic import RedirectView
 
-
+ 
 
 from . import views
 
@@ -11,35 +11,47 @@ urlpatterns = [
 ############  Gestion ##############
     path ('Departamento_nuevo/', views.Departamento_nuevo, name='Departamento_nuevo'), # nuevo departamento
     path ('Departamentos_list/', views.Departamentos_list.as_view(), name='Departamentos_list'), # Departamentos_list
-    path ('Departamento/<int:pk>', views.Departamento_edit, name='Departamentos_edit'), # Plantas_o_zonas_list
+    path ('Departamento/<int:pk>', views.Departamento_edit, name='Departamentos_edit'), # zonas_list
 
-    path ('Planta_o_zona_nueva/', views.Planta_o_zona_nueva, name='Planta_o_zona_nueva'), # Planta_o_zona_nueva
-    path ('Plantas_o_zonas_list/', views.Plantas_o_zonas_list.as_view(), name='Plantas_o_zonas_list'), # Plantas_o_zonas_list
-    path ('Plantas_o_zonas_edit/<int:pk>', views.Plantas_o_zonas_edit, name='Plantas_o_zonas_edit'), # Plantas_o_zonas_list
+    path ('zona_nueva/', views.zona_nueva, name='zona_nueva'), # zona_nueva
+    path ('zonas_list/', views.zonas_list.as_view(), name='zonas_list'), # zonas_list
+    path ('zonas_edit/<int:pk>', views.zonas_edit, name='zonas_edit'), # zonas_list
 
-    path ('Hab_cuarto_sala_nueva/', views.Hab_cuarto_sala_nueva, name='Hab_cuarto_sala_nueva'), # Planta_o_zona_nueva
-    path ('Hab_cuarto_sala_list/', views.Hab_cuarto_sala_list.as_view(), name='Hab_cuarto_sala_list'), # Plantas_o_zonas_list
-    path ('Hab_cuarto_sala_edit/<int:pk>', views.Hab_cuarto_sala_edit , name='Hab_cuarto_sala_edit'), # Plantas_o_zonas_list
+    path ('ubicacion_nueva/', views.ubicacion_nueva, name='ubicacion_nueva'), # zona_nueva
+    path ('ubicacion_list/', views.ubicacion_list.as_view(), name='ubicacion_list'), # zonas_list
+    path ('ubicacion_edit/<int:pk>', views.ubicacion_edit , name='ubicacion_edit'), # zonas_list
 
     path ('puerta_nueva/', views.puerta_nueva, name='puerta_nueva'), # puerta_nueva
     path ('puerta_list/', views.puerta_list.as_view(), name='puerta_list'), # puerta_list
     path ('puerta_edit/<int:pk>', views.puerta_edit , name='puerta_edit'), # puerta_list
 
-
-
-
-
-
-
-
+    path ('llave_nueva/', views.llave_nueva, name='llave_nueva'), # llave_nueva
+    path ('llave_list/', views.llave_list.as_view(), name='llave_list'), # llave_list
+    path ('llave_edit/<int:pk>', views.llave_edit , name='llave_edit'), # llave_list
 
 
 
 ############  Usuarios ##############
 
-    path ('zonas_listado/', views.Zonas_listado.as_view(), name='zonas_listado'), # Plantas_o_zonas_list
-    path ('zona_user/<int:pk>', views.Habs_listado.as_view(), name='zonas_listado'), # Plantas_o_zonas_list
-    path ('Hab_user/<int:pk>', views.Hab_user.as_view(), name='Hab_user'), # Habitaciones y salas
+    path ('zonas_user_list/', views.Zonas_user_list.as_view(), name='zonas_listado'), # zonas_list
+    path ('zona_user/<int:pk>', views.ubicacion_user_list.as_view(), name='zonas_listado'), # zonas_list
+    path ('ubicacion_user_list/<int:pk>', views.ubicacion_user_list.as_view(), name='Hab_user'), # Habitaciones y salas
+    path ('ubicacion_user/<int:pk>', views.ubicacion_user.as_view(), name='Hab_user'), # Habitaciones y salas
+
+    path ('zona_select/', views.zona_select, name='zona_select'), # zona_select
+    path ('ubicaciones_select/', views.ubicaciones_select, name='ubicaciones_select'), # ubicaciones_select
+
+
+    path ('ubicacion_menu/<int:pk>', views.ubicacion_menu, name='ubicacion_menu'), # ubicacion_menu
+
+    
+    
+    
+    
+    
+    
+    
+    path ('pruebas/', views.pruebas, name='Hab_user'), # Habitaciones y salas
 
 
 

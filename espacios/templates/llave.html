@@ -11,13 +11,13 @@
 <form method="POST" class="post-form">{% csrf_token %}
      
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
-               <h3>Editar puerta.</h3>
+               <h3>Editar llave.</h3>
           </div>
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                <h5>{{form.nombre.errors}} </h5>
           </div>
 
-
+          {{form}}
 
           <div style= "display: flex ;  padding: 5px; justify-content :center; text-align: center; ">
                <div style= "text-align: center;"> </div> &nbsp;{{form.nombre}} &nbsp; 

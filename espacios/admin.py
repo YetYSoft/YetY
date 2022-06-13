@@ -4,8 +4,8 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(Departamentos)
-admin.site.register(Planta_o_zonas)
-admin.site.register(Habs_cuartos_salas)
+admin.site.register(Zonas)
+admin.site.register(Ubicaciones)
 admin.site.register(Puertas)
 
 admin.site.register(llaves)

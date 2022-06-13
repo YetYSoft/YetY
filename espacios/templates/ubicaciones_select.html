@@ -1,0 +1,12 @@
+<div style=    "display: flex;   padding: 5px; justify-content :left; text-align: center; ">
+    <h3>Elige una ubicacion</h3>
+  </div>
+
+   {% for  list in list  %}
+      <div class="row">
+
+        <div style= 'padding-left: 1rem;'>  <a href="/espacios/ubicacion_menu/{{ list.id }}" >{{ list }} (id.{{ list.id }})</a>  </div>
+    
+       </div>
+    
+    {% endfor %}  

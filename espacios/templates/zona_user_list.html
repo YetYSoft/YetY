@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+
+
+{% extends "base.html" %}
+
+{% block navbar2 %}{% include 'navbar_espacios.html'%}{% endblock navbar2 %}
+
+{% block header %}
+  <div style=    "display: flex;   padding: 5px; justify-content :left; text-align: center; ">
+    <h3>Lista de zonassss</h3>
+  </div>
+{% endblock header %}
+
+{% block header2 %}{% endblock header2 %}
+
+{% block content %}
+{% load static %}
+
+
+<form method="POST" class="post-form">{% csrf_token %}
+ 
+
+<div class="container_fluid" style="padding-left: 5px" >
+
+  
+{% for  list in list  %}
+  <div class="row">
+
+    <div style= 'padding-left: 1rem;'>  <a href="/espacios/ubicacion_user_list/{{ list.id }}" >{{ list.nombre }} </a>  </div>
+
+   </div>
+   
+{% endfor %}
+
+
+
+
+</div>
+</form>
+
+{% endblock %}

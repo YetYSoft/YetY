@@ -27,7 +27,7 @@
    {% load static %}
    <link rel="stylesheet" href="{% static '/css/start.css' %}">
    
-    
+   <title>{% block title %}{{ site.name }}{% endblock %}</title>
 </head>
 <body translate="no">
 
@@ -37,17 +37,21 @@
         {% include 'navbar_start.html'%}
       {% else %} 
         {% include 'registration/login.html' %}
-     
-     
         {% endif %}
-     
-    
+
+
+        {% block navbar2 %}{% endblock navbar2 %}
+        {% block header %}{% endblock header %}
+        {% block header2 %}{% endblock header2 %}
+        {% block content %}{% endblock content%}
+        {% block body %}{% endblock body %}
+        {% block footer %}{% endblock footer %}
 
 
 
    {% if user.is_authenticated %}
-      {% block content %}
-      {% endblock %}
+
+
       {% block pagination %}
       <h5>
         {% if is_paginated %}

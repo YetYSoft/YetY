@@ -117,3 +117,4 @@ class Elemento_list_form(forms.ModelForm):
         widgets={
             'elemento_ot':forms.Select(attrs={'class':'form-control'} )
             }
+ 
