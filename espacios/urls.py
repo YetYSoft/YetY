@@ -41,13 +41,12 @@ urlpatterns = [
     path ('zona_select/', views.zona_select, name='zona_select'), # zona_select
     path ('ubicaciones_select/', views.ubicaciones_select, name='ubicaciones_select'), # ubicaciones_select
 
+    path ('habitaciones_buscar/', views.habitaciones_buscar, name='habitaciones_buscar'), # buscar_Habitaciones
+    path ('habitaciones_encontrar/', views.habitaciones_encontrar, name='habitaciones_encontrar'), # buscar_Habitaciones
 
-    path ('ubicacion_menu/<int:pk>', views.ubicacion_menu, name='ubicacion_menu'), # ubicacion_menu
-
     
-    
-    
-    
+      path ('ubicacion_menu/<int:pk>', views.ubicacion_menu, name='ubicacion_menu'), # ubicacion_menu
+  
     
     
     

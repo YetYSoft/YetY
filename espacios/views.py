@@ -10,6 +10,7 @@ from django.forms import ModelForm
 from espacios.models import *
 from espacios.forms import *
 from espacios.urls import *
+from partes.models import Ot_Ubicaciones
 
 from django.forms import ValidationError 
 # Create your views here.
@@ -291,7 +292,7 @@ class ubicacion_user_list (ListView): # Lista de departamentos
     fields= '__all__'
     template_name = 'ubicacion_user_list.html'
     ordering = ['nombre']
-    paginate_by = 25
+    paginate_by = 20
     context_object_name = 'list' # Esto es lo que envía al template 
     def get_queryset(self):
         return Ubicaciones.objects.filter(zona=self.kwargs['pk'])
@@ -309,11 +310,6 @@ def zona_select (request):
 
 def ubicaciones_select (request):
     variable= request.GET.get('select_zona')  #####  este select viene de <select name="select_zona" class="form-control" hx-get="/espacios/ubicaciones_select/"
-    print('_________________-')
-    print (request)
-    print (variable)
-    print('_________________-')
-
     ubicaciones=Ubicaciones.objects.filter(zona=variable).order_by('nombre')
     list=ubicaciones
     return render (request,'ubicaciones_select.html',{'list':list })
@@ -323,5 +319,43 @@ def ubicacion_menu (request, pk):
     return render (request,'ubicacion_menu.html', {'ubicacion':ubicacion} )
 
 
+
+###############   Busqueda Habitaciones     ##############################   
+
+def habitaciones_buscar (request):
+    return render (request,'habitaciones_buscar.html',{'list':list })
+
+def habitaciones_encontrar (request):
+    print ("____________________________")
+
+    buscado= request.POST.get("search")  #####  este select viene de <select name="select_zona" class="form-control" hx-get="/espacios/ubicaciones_select/"
+    habitaciones=Ubicaciones.objects.filter(zona=3).filter(nombre__istartswith=buscado).order_by('nombre')
+    list=habitaciones
+    print ("____________________________")
+    print (request)
+    print (buscado)
+
+    print ("____________________________")
+    return render (request,'habitaciones_grid.html',{'list':list })
+
+
+
+#.filter(nombre=buscado)
+
+
+
+
+
+
+
+
+
+
+
 def pruebas (request):
+    datos=Ot_Ubicaciones.objects.all
+    print('_________________-')
+    print (datos)
+    #print (variable)
+    print('_________________-')
     return render (request,'pruebas.html')

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+
+
+{% extends "base.html" %}
+
+{% block navbar2 %}{% include 'navbar_espacios.html'%}{% endblock navbar2 %}
+
+{% block header %}
+  <div style=    "display: flex;   padding: 5px; justify-content :left; text-align: center; ">
+    <h3>Lista de habitaciones</h3>
+  </div>
+{% endblock header %}
+
+{% block header2 %}{% endblock header2 %}
+
+{% block content %}
+{% load static %}
+
+<h3> 
+ 
+    <span class="htmx-indicator"> 
+      
+     </span> 
+  </h3>
+  <form method="POST" class="post-form">{% csrf_token %}
+        <input class="form-control" type="search" 
+                name="search" placeholder="Numero de Habitacion..." 
+                hx-post="/espacios/habitaciones_encontrar/" 
+                hx-trigger="keyup changed delay:100ms, search" 
+                hx-target="#search-results" 
+                hx-indicator=".htmx-indicator">
+   </form>
+  
+
+<div 
+  
+<div class="row">
+
+    <div style= 'padding-left: 1rem;'id="search-results" </div>
+
+</div>
+    
+  
+  {% endblock %}

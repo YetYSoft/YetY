@@ -7,14 +7,10 @@
 {% block navbar2 %}{% include 'navbar_espacios.html'%}{% endblock navbar2 %}
 
 {% block header %}
-  <div style=    "display: flex;   padding: 5px; justify-content :left; text-align: center; ">
-    <h3>{{ubicacion.nombre}}</h3>
-
+  <div style=    "display: flex;   padding: 5px; justify-content :center; text-align: center; ">
+    <div><h3>{{ubicacion.nombre}},</h3></div>
+    <div><h3>Elige una opción</h3></div>
   </div>
-
-info de la llave
-
-    <h3>Elige una opción</h3>
 
 {% endblock header %}
 
@@ -22,7 +18,7 @@ info de la llave
 
 {% block content %}
 
-<div id="grid_start">
+<div id="grid_start" style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))">
     <div> <button type="button" class="btn btn-primary" href="/espacios/ubicacion_menu/{{ list.id }}">Nuevo parte</button></div>
     <div> <button type="button" class="btn btn-primary" href="/espacios/ubicacion_menu/{{ list.id }}">Inventario</button></div>
     <div><button type="button" class="btn btn-primary" href="/espacios/ubicacion_menu/{{ list.id }}">Notas</button></div>
@@ -30,5 +26,21 @@ info de la llave
 
 </div>
 
+  <div style=    "display: flex;   padding: 5px; justify-content :center; text-align: center; ">
+    <h6>Info de la llave</h6>
+  </div>
 
-{% endblock %}
+  <div style=    "display: flex;   padding: 5px; justify-content :center; text-align: center; ">
+    <h6>Lista partes pendientes</h6>
+  </div>
+
+  <div style=    "display: flex;   padding: 5px; justify-content :center; text-align: center; ">
+    <h6>Notas</h6>
+  </div>
+
+  <div style=    "display: flex;   padding: 5px; justify-content :center; text-align: center; ">
+    <h6>Incidencias</h6>
+  </div>
+
+
+  {% endblock %}
