@@ -353,9 +353,13 @@ def habitaciones_encontrar (request):
 
 
 def pruebas (request):
-    datos=Ot_Ubicaciones.objects.all
-    print('_________________-')
-    print (datos)
-    #print (variable)
-    print('_________________-')
+    ubic=Ubicaciones.objects.filter(nombre__istartswith=12).values('nombre',"id")[:5]
+    ubica=ubic
+    for i in ubica:
+        print('_________________-')
+        print ("tipo variable" ,type(ubic))
+        print ("valor",ubic)
+        print ("tipo variable" ,type(ubica))
+        print ("valor",ubica)
+        print('_________________-')
     return render (request,'pruebas.html')
