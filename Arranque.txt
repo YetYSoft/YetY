@@ -9,6 +9,7 @@ source /home/juan/Escritorio/YetYSoft/venv_Django_4.0.3/bin/activate
 python3 manage.py runserver 0.0.0.0:8000
 
 
+
 python -m django --version
 
 <!--  {% if.perm.registros.change_ot_pedido_material %} -->
