@@ -343,19 +343,28 @@ def habitaciones_encontrar (request):
 #.filter(nombre=buscado)
 
 
-
-
-
-
-
-
-
-
-
 def pruebas (request):
-    datos=Ot_Ubicaciones.objects.all
-    print('_________________-')
-    print (datos)
-    #print (variable)
-    print('_________________-')
+    q=Ubicaciones.objects.all () # [:5]
+    variable=q
+    for i in variable:
+        print('_________________-')
+        print ('i.id >>>>>>>',i.id)
+        print ('i.nombre >>>>>>>',i.nombre)
+   # try:
+        ubica=Ot_Ubicaciones.objects.get(ubicacion_ub=i.nombre)
+    #except:
+        #print('++++++++++++++++')
+        #print('no existe ubicacion >>>>>>>',i.nombre)
+    #else:
+
+        print ('ubica.ubicacion_ub >>>>>>>',ubica.ubicacion_ub)
+        print ('ubica. >>>>>>>',ubica)
+
+        #print ('type(i.nombre) >>>>>>>',type(i.nombre))
+        #print ('i.zona >>>>>>>',i.zona)
+        #print ('i.departamento >>>>>>>',i.departamento)
+        #print ('i.habitacion >>>>>>>',i.habitacion)
+        #print ('q >>>>>>>',q)
+        #print ('variable >>>>>>>',variable)
+        print('******************')
     return render (request,'pruebas.html')

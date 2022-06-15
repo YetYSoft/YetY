@@ -124,7 +124,6 @@ def buscar_parte(request):
 def encontrar_parte(request):
     busqueda = request.GET.get("palabra")
     partes=Ot_Parte.objects.all()
-   # ubica=Ot_Ubicaciones.objects.all()
     if busqueda: 
         partes=Ot_Parte.objects.filter (
             Q (num_ot__icontains = busqueda)|   

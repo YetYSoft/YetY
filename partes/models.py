@@ -47,6 +47,7 @@ class Ot_Trabajos(models.Model):
         ordering = ["-fecha_cambio_tra"]
 
 class Ot_Ubicaciones(models.Model):
+    #id=models.IntegerField()
     ubicacion_ub=models.CharField(primary_key=True, max_length=30)
     class Meta:
         ordering = ['ubicacion_ub']
