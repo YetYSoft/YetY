@@ -16,7 +16,7 @@ urlpatterns = [
     
 
 
-    
+ ##################          Viejo Partes    ################    
     #path  ("", views.index, name='index'),  #va a pag de Inicio
     path ('partes/', views.partes.as_view(), name='Listapartes'), #va a class view.OtListView
     path ('<int:pk>', views.DetalleParte, name='Detalle_Parte'),

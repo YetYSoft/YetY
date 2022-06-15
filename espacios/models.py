@@ -31,8 +31,8 @@ class Amaestramientos (models.Model):
             ordering = ["nombre"]
 
  
-class Puertas (models.Model):
-    nombre=models.CharField(default='' ,null=False,max_length=50,verbose_name='Puerta de la ubicacion', help_text="Puerta de la ubicacion",blank=True)
+class Elementos (models.Model):
+    nombre=models.CharField(default='' ,null=False,max_length=50,verbose_name='Equipo o instalacion', help_text="Equipo o instalacion",blank=True)
     ubicacion=models.ManyToManyField('Ubicaciones',  max_length=50,verbose_name='acceso a ...',  help_text="acceso a ..." , blank=True)
     zona=models.ManyToManyField('Zonas',  max_length=50,verbose_name='acceso desde zona',  help_text="acceso desde zona" , blank=True)
     departamento=models.ManyToManyField('Departamentos',  max_length=50,verbose_name='departamento de',  help_text="departamento de" ,blank=True)
@@ -46,8 +46,10 @@ class Ubicaciones(models.Model):
     nombre=models.CharField(default='' ,null=False,max_length=50,verbose_name='Nombre de la ubicacion', help_text="Nombre de la zona",blank=True)
     zona=models.ManyToManyField('Zonas',  max_length=50,verbose_name='acceso desde zona',  help_text="acceso desde zona", blank=True)
     departamento=models.ManyToManyField('Departamentos',  max_length=50,verbose_name='departamento de',  help_text="departamento de", blank=True)
-    habitacion=models.BooleanField(default= False,  verbose_name='Habitacion?',  help_text="Habitacion?") 
-    
+    alojamiento=models.BooleanField(default= False,  verbose_name='Habitacion?',  help_text="Habitacion?") 
+    AyB=models.BooleanField(default= False,  verbose_name='AyB?',  help_text="AyB?") 
+    General=models.BooleanField(default= False,  verbose_name='General?',  help_text="General?") 
+    otro=models.BooleanField(default= False,  verbose_name='Otro?',  help_text="Otro?") 
     def __str__(self):
         return '{}'.format(self.nombre)
     class Meta:

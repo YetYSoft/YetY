@@ -174,12 +174,12 @@ def ubicacion_edit(request,pk):
 
 
 
-############     Puertas   ###################
+############     Elemento   ###################
 
-def puerta_nueva (request):
-    data ={ 'form' :Puerta_nueva_form()  }
+def elemento_nuevo (request):
+    data ={ 'form' :Elemento_nuevo_form()  }
     if request.method == "POST":
-        form=Puerta_nueva_form (data=request.POST)
+        form=Elemento_nuevo_form (data=request.POST)
         if form.is_valid():
            form.save()
            return redirect ('puerta_list')
@@ -193,8 +193,8 @@ def puerta_nueva (request):
 
 
 
-class puerta_list (ListView): # Lista de departamentos
-    model = Puertas
+class Elemento_list (ListView): # Lista de departamentos
+    model = Elementos
     fields= '__all__'
     template_name = 'puerta_list.html'
     ordering = ['nombre']
@@ -202,14 +202,14 @@ class puerta_list (ListView): # Lista de departamentos
     context_object_name = 'list' # Esto es lo que envía al template
 
 
-def puerta_edit(request,pk):
-    ubicacion = Puertas.objects.get(id=pk)
+def elemento_edit(request,pk):
+    ubicacion = Elementos.objects.get(id=pk)
     if request.method == "GET":
-        form = Puerta_edit_form(instance=ubicacion)
+        form = Elemento_edit_form(instance=ubicacion)
         print("--------------------------")
        # print(form)
     else:
-        form=Puerta_edit_form(request.POST,instance=ubicacion)
+        form=Elemento_edit_form(request.POST,instance=ubicacion)
        
         if form.is_valid():
             print("////////////////////////////")

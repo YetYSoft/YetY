@@ -1,14 +1,86 @@
+from mailbox import NoSuchMailboxError
 from django.db import models
 from django.contrib.auth.models import User
+from espacios.models import Ubicaciones, Elementos
 # Create your models here.
  
+
+
+class Parte (models.Model):
+    ubicacion=models.ForeignKey('espacios.Ubicaciones',max_length=40,verbose_name='Ubicación', help_text="Numero de Habitación o ubicación",on_delete=models.SET_NULL,null=True)
+    elemento =models.ForeignKey('espacios.Elementos',  max_length=40,verbose_name='Elemento',  help_text="Elemento, Objeto o Aparato",      on_delete=models.SET_NULL,null=True)
+    descripcion=models.CharField(max_length=300,verbose_name='Descripción', help_text="Descripción del problema")
+    prioridad=models.ForeignKey('Prioridad',max_length=30, default=3, blank=True,  null=True, on_delete=models.SET_NULL)
+    estado=models.ForeignKey ('Estados',max_length=30,default='Pendiente',null=True,on_delete=models.SET_NULL)
+    recusos_propios=models.BooleanField(default= True,  verbose_name='Recursos propios',  help_text="Recursos propios") 
+    pedido =models.ForeignKey('Pedido',  max_length=40,verbose_name='num_pedido',  help_text="num_pedido",      on_delete=models.SET_NULL,null=True)
+    notas=models.CharField(default='',max_length=30, blank=True, help_text="Poner una nota a este parte") #        falta por definir (Nota para relacionar)
+    Usuario=models.ForeignKey(User,related_name="Usuario",default=1,on_delete=models.SET_NULL, null=True,blank=True,help_text="usuario que ha hecho este parte") 
+    Tecnico_asignado=models.ForeignKey(User,related_name="Tecnico",default=1,on_delete=models.SET_NULL, null=True,blank=True, help_text="Tecnico que tiene este parte") 
+    Tecnico_fin_parte=models.ForeignKey(User,related_name="Tecnico_fin_parte",default=1,on_delete=models.SET_NULL, null=True,blank=True,  help_text="Tecnico que tiene este parte") 
+    fecha_parte=models.DateField(auto_now_add=True,verbose_name='Fecha del parte')
+    fecha_hora_cambio=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
+    fecha_hora_terminado=models.DateTimeField(null=True,blank=True, verbose_name='Fecha y hora de la terminacion del parte', )
+    def __str__(self):
+        #"""String for representing the Model object (in Admin site etc.)"""
+        return '{}'.format(self.pk)
+    class Meta:
+        ordering = ["-pk"]
+
+
+class Trabajos(models.Model):
+    num_parte_tra=models.ForeignKey('Parte',verbose_name='Num de parte', help_text="Num de parte",on_delete=models.SET_NULL,null=True)
+    descripcion_tra=models.CharField(max_length=300,verbose_name='Descripción', help_text="Descripción del Trabajo")
+    fecha_tra=models.DateField(auto_now_add=True,verbose_name='Fecha del trabajo')
+    fecha_cambio_tra=models.DateField(auto_now=True,verbose_name='Fecha del ultimo cambio')
+    fecha_hora_cambio_tra=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
+    tecnico_tra=models.ForeignKey(User,related_name="tecnico_tra",default=1,on_delete=models.SET_NULL, null=True,blank=False,help_text="usuario que ha hecho este trabajo") 
+    def __str__(self):
+        #"""String for representing the Model object (in Admin site etc.)"""
+        return '{}'.format(self.pk)
+    class Meta:
+        ordering = ["-pk"]
+
+class Pedido (models.Model):
+    num_pedido=models.IntegerField   (default= 0,verbose_name='num_pedido', help_text="num_pedido",blank=True)
+    nombre_empresa=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=False)
+    descrip_trabajo=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=False)
+    def __str__(self):
+        #"""String for representing the Model object (in Admin site etc.)"""
+        return '{}'.format(self.num_pedido)
+    class Meta:
+        ordering = ["-num_pedido"]
+
+
+class Prioridad(models.Model):
+    prioridades=models.CharField(max_length=30, blank=False, null=False)
+    def __str__(self):
+        #"""String for representing the Model object (in Admin site etc.)"""
+        return '{}'.format(self.pk)
+    class Meta:
+        ordering = ["-pk"]
+
+
+class Estados(models.Model):
+    estados=models.CharField(max_length=30, blank=False, null=True)
+    def __str__(self):
+        #"""String for representing the Model object (in Admin site etc.)"""
+        return '{}'.format(self.pk)
+    class Meta:
+        ordering = ["-pk"]
+
+
+
+
+
+##################          Viejo Partes    ################ 
+
 class Ot_Parte(models.Model):
     num_ot=models.AutoField(primary_key=True, verbose_name='numero de Ot', help_text="numero de orden de trabajo")
     ubicacion_ot=models.ForeignKey('Ot_Ubicaciones',max_length=30,verbose_name='Ubicación', help_text="Numero de Habitación o ubicación",on_delete=models.SET_NULL,null=True)
     elemento_ot =models.ForeignKey('Ot_Elementos',  max_length=30,verbose_name='Elemento',  help_text="Elemento, Objeto o Aparato",      on_delete=models.SET_NULL,null=True)
     descripcion_ot=models.CharField(max_length=300,verbose_name='Descripción', help_text="Descripción del problema")
     fecha_ot=models.DateField(auto_now_add=True,verbose_name='Fecha del parte')
-    fecha_cambio_ot=models.DateField(auto_now=True,verbose_name='Fecha del ultimo cambio')
     fecha_hora_cambio_ot=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
     fecha_hora_terminado_ot=models.DateTimeField(null=True,blank=True, verbose_name='Fecha y hora de la terminacion del parte', )
     PRIORIDADES=(('1','Urgente') ,('2','Provoca daños') , ('3','Molesta al cliente' ), ('4', 'Mala imagen' ),('5','Legal'))
@@ -31,7 +103,7 @@ class Ot_Parte(models.Model):
         return '{}'.format(self.num_ot)
     class Meta:
         ordering = ["-num_ot"]
- 
+
 class Ot_Trabajos(models.Model):
     num_tra=models.AutoField(primary_key=True,verbose_name='Numero TRA', help_text="Numero de Trabajo")
     num_ot_tra=models.ForeignKey('Ot_Parte',verbose_name='Num de parte', help_text="Num de parte",on_delete=models.CASCADE)

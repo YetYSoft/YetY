@@ -21,9 +21,9 @@ urlpatterns = [
     path ('ubicacion_list/', views.ubicacion_list.as_view(), name='ubicacion_list'), # zonas_list
     path ('ubicacion_edit/<int:pk>', views.ubicacion_edit , name='ubicacion_edit'), # zonas_list
 
-    path ('puerta_nueva/', views.puerta_nueva, name='puerta_nueva'), # puerta_nueva
-    path ('puerta_list/', views.puerta_list.as_view(), name='puerta_list'), # puerta_list
-    path ('puerta_edit/<int:pk>', views.puerta_edit , name='puerta_edit'), # puerta_list
+    path ('elemento_nuevo/', views.elemento_nuevo, name='elemento_nuevo'), # elemento_nuevo
+    path ('elemento_list/', views.Elemento_list.as_view(), name='elemento_list'), # elemento_list
+    path ('elemento_edit/<int:pk>', views.elemento_edit , name='elemento_edit'), # elemento_list
 
     path ('llave_nueva/', views.llave_nueva, name='llave_nueva'), # llave_nueva
     path ('llave_list/', views.llave_list.as_view(), name='llave_list'), # llave_list
