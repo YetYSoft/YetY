@@ -1,0 +1,25 @@
+{% extends '-base_parte.html'%}
+
+
+
+
+{% block titulo  %}
+
+<div style= "display: flex ;  margin: 0px;padding: 0px; justify-content :center; text-align: center; ">
+    <h5> {{ titulo }}</h5>
+</div>
+<div style= "display: flex ;  margin: 0px;padding: 0px; justify-content :center; text-align: center; ">
+    <h5> {{ ubicacion}} </h5>
+</div>
+
+
+<div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Elige lo que tenga la incidencia</label>
+        <select class="form-select" id="exampleSelect1">
+            {% for  data in data  %}
+                <option value='{{ data }}'>{{ data }}</option>
+            {% endfor %}               
+        </select>
+
+
+{% endblock titulo %}

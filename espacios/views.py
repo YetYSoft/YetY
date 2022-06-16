@@ -367,4 +367,4 @@ def pruebas (request):
         #print ('q >>>>>>>',q)
         #print ('variable >>>>>>>',variable)
         print('******************')
-    return render (request,'pruebas.html')
+    return render (request,'pruebas.html') 

@@ -12,9 +12,11 @@ from partes.views import *
 
 urlpatterns = [
 
-   
-    
+    path ('parte_nuevo/', views.parte_nuevo, name='parte_nuevo'), 
+    path ('parte_nuevo/<str:ubicacion>', views.parte_nuevo, name='parte_nuevo'), 
 
+     
+ 
 
  ##################          Viejo Partes    ################    
     #path  ("", views.index, name='index'),  #va a pag de Inicio
@@ -23,7 +25,7 @@ urlpatterns = [
     path ('Marcar_Terminado/<int:num_ot>', views.Marcar_Terminado, name='Marcar_Terminado'),
 
     path ('edit/<int:num_ot>', views.parte_editar, name='Editar_Parte'),
-    path ('nuevo/', views.parte_nuevo, name='Nuevo_Parte'), # nuevo parte sin listado de partes
+    path ('nuevo/', views.parte_nuevo1 , name='Nuevo_Parte'), # nuevo parte sin listado de partes
 
     # Nuevo parte-----------------------------------------------------
     path ('nuevo_form/' , views.nuevo_form, name='Partenuev'), # Abre el formulario

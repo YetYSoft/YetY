@@ -43,8 +43,8 @@ class Trabajos(models.Model):
 
 class Pedido (models.Model):
     num_pedido=models.IntegerField   (default= 0,verbose_name='num_pedido', help_text="num_pedido",blank=True)
-    nombre_empresa=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=False)
-    descrip_trabajo=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=False)
+    nombre_empresa=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=True)
+    descrip_trabajo=models.CharField( default='' ,null=False,max_length=50,verbose_name='nombre_empresa', help_text="nombre_empresa",blank=True)
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
         return '{}'.format(self.num_pedido)
@@ -81,6 +81,7 @@ class Ot_Parte(models.Model):
     elemento_ot =models.ForeignKey('Ot_Elementos',  max_length=30,verbose_name='Elemento',  help_text="Elemento, Objeto o Aparato",      on_delete=models.SET_NULL,null=True)
     descripcion_ot=models.CharField(max_length=300,verbose_name='Descripción', help_text="Descripción del problema")
     fecha_ot=models.DateField(auto_now_add=True,verbose_name='Fecha del parte')
+    fecha_cambio_ot=models.DateField(auto_now=True,verbose_name='Fecha del ultimo cambio')
     fecha_hora_cambio_ot=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
     fecha_hora_terminado_ot=models.DateTimeField(null=True,blank=True, verbose_name='Fecha y hora de la terminacion del parte', )
     PRIORIDADES=(('1','Urgente') ,('2','Provoca daños') , ('3','Molesta al cliente' ), ('4', 'Mala imagen' ),('5','Legal'))

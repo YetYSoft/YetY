@@ -15,17 +15,34 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 
-
-
-from partes.forms import ParteForm, Nuevo_form, TrabajosForm, TrabajosEditForm, Elemento_list_form,Trabajo_nuevo_en_parte
-from partes.models import Ot_Parte, Ot_Ubicaciones, Ot_Elementos, Ot_Trabajos, Ot_Etiquetas, Ot_Pedidos
-
 from datetime import datetime
 
-# Import module
-import sqlite3
-  
 
+from partes.forms import *
+from partes.models import *
+from espacios.models import Ubicaciones, Elementos
+
+
+@login_required
+def parte_nuevo(request,ubicacion):
+    data=Elementos.objects.all()
+    partes_list=Parte.objects.filter(ubicacion=ubicacion)
+    if request.method == "POST":
+        form = Parte_nuevo_Form(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('Listapartes')
+    else:
+        form=Parte_nuevo_Form()
+    return render (request,'-parte_nuevo.html',{ 'titulo':'Parte nuevo en ...', 'form':form, "ubicacion":ubicacion, 'data':data})
+
+
+
+
+
+
+
+ ##################          Viejo Partes    ################    
 
 
 ################  Permisos en las vistas 
@@ -261,11 +278,11 @@ def nuevo_lista_partes(request): # Recoje el dato del form
         return redirect('PartesPorUbicacion',ubicaci) #  Envia el dato al template del listado
 
 
-
+ 
 
 #-------Formulario de PARTE NUEVO/EDITAR ---------
 @login_required
-def parte_nuevo(request):
+def parte_nuevo1(request):
     if request.method == "POST":
         form = ParteForm(request.POST)
       
