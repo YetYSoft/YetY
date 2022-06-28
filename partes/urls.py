@@ -15,6 +15,13 @@ urlpatterns = [
     path ('parte_nuevo/', views.parte_nuevo, name='parte_nuevo'), 
     path ('parte_nuevo/<str:ubicacion>', views.parte_nuevo, name='parte_nuevo'), 
 
+
+    # Parcial htmx
+    #path ('select_to_imput/', views.select_to_imput, name='select_to_imput'), # Cambia el select del nuevo parte por un imput
+    path ('select_elemento/', views.select_elemento, name='select_elemento'), 
+    path ('select_elemento/<str:elemento>', views.select_un_elemento, name='select_un_elemento'), 
+
+
      
  
 

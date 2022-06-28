@@ -4,22 +4,83 @@
 
 
 {% block titulo  %}
-
-<div style= "display: flex ;  margin: 0px;padding: 0px; justify-content :center; text-align: center; ">
-    <h5> {{ titulo }}</h5>
+<div>
+    <div id="grid_start" style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))">
+        <div> <h5> {{ titulo }}</h5></div>
+        <div  style="justify-items:end"> <h5 style="align-self:end;"> {{ ubicacion}} </h5></div>
+    </div>
 </div>
-<div style= "display: flex ;  margin: 0px;padding: 0px; justify-content :center; text-align: center; ">
-    <h5> {{ ubicacion}} </h5>
-</div>
-
-
-<div class="form-group">
-        <label for="exampleSelect1" class="form-label mt-4">Elige lo que tenga la incidencia</label>
-        <select class="form-select" id="exampleSelect1">
-            {% for  data in data  %}
-                <option value='{{ data }}'>{{ data }}</option>
-            {% endfor %}               
-        </select>
-
-
 {% endblock titulo %}
+
+
+<form method="post">{% csrf_token %}
+    {% block elemento  %}
+    <div id='lista-input'>
+        <div style= "display: flex; justify-content: center;">
+            <input  class="form-control" 
+            type="search" 
+            name="elemento_buscado"
+            value= '{{ elemento }}'
+            placeholder="incidencia en este objeto..." 
+            hx-get="/partes/select_elemento/" 
+            hx-trigger="keyup changed delay:100ms" 
+            hx-target="#lista-input" 
+            hx-include="[name='select_elemento']"> 
+      
+            
+
+        </div>
+       
+    </div>
+
+
+    {% endblock elemento %}
+
+ 
+
+
+
+    {% block descripcion  %}
+ 
+    {% endblock descripcion  %}
+
+
+
+
+        
+       
+
+
+
+    </form>
+      
+                
+
+    
+    <hr/>
+</div>
+  
+
+
+<div >
+    <label for="no_pendientes" class="form-label mt-4"; style="margin: 0px; padding: 0px">Partes pendientes aquí</label>
+    <div id="pendientes">
+    {% for list in partes_list_pendientes %}
+    <div> &nbsp; &nbsp;{{list.elemento }}, &nbsp; {{list.descripcion }}.</div>
+    {% endfor %}
+    </div>
+
+    <label for="no_pendientes" class="form-label mt-4"; style="margin: 0px; padding: 0px">Ultimos partes aquí
+    </label>
+    <div id="pendientes">
+    {% for list in partes_list_ultimos %}
+    <div> &nbsp; &nbsp;{{list.elemento }}, &nbsp; {{list.descripcion }},&nbsp; <small> <small>{{list.estado }}.</div></small></small>
+    {% endfor %}
+    </div>
+        
+</div>
+
+
+
+
+

@@ -70,3 +70,50 @@ def pruebas (request):
         #print ('variable >>>>>>>',variable)
         print('******************')
     return render (request,'pruebas.html')
+
+
+
+
+    {
+    "window.zoomLevel": 2,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "workbench.startupEditor": "none",
+    "files.autoSave": "afterDelay",
+    "git.confirmSync": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.minimap.enabled": false,
+    "[django-html]": {
+        
+
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html",
+    }
+}
+
+
+
+
+def select_to_imput(request):
+   # buscado=request.GET.get("search")
+   # ubicacion=request.GET.get("select_elemento")
+    #   descripcion=request.GET.get("select_descripcion")
+   
+    descripciones=Parte.objects.annotate(contador = Count('descripcion')) 
+    print('____________________________')
+    print(buscado)
+    print(ubicacion)
+    print(descripciones)
+    print(opciones.contador)
+
+    print('____________________________')
+    return render (request,'-cambio.html',{
+        'buscado':buscado,
+        'ubicacion':ubicacion,
+        'descripciones' :descripciones})

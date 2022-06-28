@@ -1,0 +1,16 @@
+
+
+
+<div >
+    <div>
+        <select class="form-select" name='select_elemento'>
+            <div>
+                <option disabled selected>Elige que objeto tiene la incidencia</option>
+                {% for  todos_elementos in todos_elementos  %}
+                <option value='{{ todos_elementos }}'>{{ todos_elementos }}</option>
+                {% endfor %}               
+        
+            </div>
+        </select>
+    </div>          
+</div>

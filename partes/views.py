@@ -1,6 +1,5 @@
 
-import django
-from django import db
+from itertools import count
 from django.shortcuts import render,redirect
 
  
@@ -16,17 +15,22 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 
 from datetime import datetime
-
+from django.db.models import Q, Count
 
 from partes.forms import *
 from partes.models import *
 from espacios.models import Ubicaciones, Elementos
 
 
+
 @login_required
 def parte_nuevo(request,ubicacion):
-    data=Elementos.objects.all()
-    partes_list=Parte.objects.filter(ubicacion=ubicacion)
+    todos_elementos=Elementos.objects.all()
+    todos_descripcion=Parte.objects.all()
+
+    todos_partes  =Parte.objects.all()
+    partes_list_pendientes=Parte.objects.filter(ubicacion__nombre=ubicacion).filter  (estado__estados='Pendiente') [:5] #6 = pendiente
+    partes_list_ultimos   =Parte.objects.filter(ubicacion__nombre=ubicacion).exclude (estado__estados='Pendiente') [:5]
     if request.method == "POST":
         form = Parte_nuevo_Form(request.POST)
         if form.is_valid():
@@ -34,12 +38,36 @@ def parte_nuevo(request,ubicacion):
         return redirect('Listapartes')
     else:
         form=Parte_nuevo_Form()
-    return render (request,'-parte_nuevo.html',{ 'titulo':'Parte nuevo en ...', 'form':form, "ubicacion":ubicacion, 'data':data})
+    return render (request,'-parte_nuevo.html',{
+        'titulo':'Parte nuevo en ...',
+        'form':form, 
+        "ubicacion":ubicacion,
+        'todos_elementos':todos_elementos,
+        'todos_descripcion':todos_descripcion,
+        'todos_partes': todos_partes,
+        'partes_list_pendientes': partes_list_pendientes,
+        'partes_list_ultimos': partes_list_ultimos
+       })
 
 
 
 
+def select_elemento(request):
+    select_elemento=Elementos.objects.all()
+    return render (request,'-select_elemento.html',{
+        'select_elemento':select_elemento})
 
+def select_un_elemento(request,elemento):
+    select_elemento=Elementos.objects.all()
+    return render (request,'-select_elemento.html',{
+        'select_elemento':select_elemento, 'elemento':elemento})
+
+
+
+
+   # elemento_buscado=request.GET.get("elemento_buscado")
+    #ubicacion=request.GET.get("select_elemento")
+    #descripcion=request.GET.get("select_descripcion")
 
 
  ##################          Viejo Partes    ################    
@@ -133,7 +161,7 @@ def buscar(request):
 """
 
 #------------------ Buscar en los partes----------------
-from django.db.models import Q
+
 
 def buscar_parte(request):
     return render(request,'buscar_parte.html')

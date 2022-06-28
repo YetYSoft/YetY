@@ -10,20 +10,20 @@ class Parte (models.Model):
     ubicacion=models.ForeignKey('espacios.Ubicaciones',max_length=40,verbose_name='Ubicación', help_text="Numero de Habitación o ubicación",on_delete=models.SET_NULL,null=True)
     elemento =models.ForeignKey('espacios.Elementos',  max_length=40,verbose_name='Elemento',  help_text="Elemento, Objeto o Aparato",      on_delete=models.SET_NULL,null=True)
     descripcion=models.CharField(max_length=300,verbose_name='Descripción', help_text="Descripción del problema")
-    prioridad=models.ForeignKey('Prioridad',max_length=30, default=3, blank=True,  null=True, on_delete=models.SET_NULL)
+    prioridad=models.ForeignKey('Prioridad',max_length=30, default=4, blank=True,  null=True, on_delete=models.SET_NULL)
     estado=models.ForeignKey ('Estados',max_length=30,default='Pendiente',null=True,on_delete=models.SET_NULL)
     recusos_propios=models.BooleanField(default= True,  verbose_name='Recursos propios',  help_text="Recursos propios") 
-    pedido =models.ForeignKey('Pedido',  max_length=40,verbose_name='num_pedido',  help_text="num_pedido",      on_delete=models.SET_NULL,null=True)
+    pedido =models.ForeignKey('Pedido',  max_length=40,default=0,verbose_name='num_pedido',  help_text="num_pedido",      on_delete=models.SET_NULL,null=True)
     notas=models.CharField(default='',max_length=30, blank=True, help_text="Poner una nota a este parte") #        falta por definir (Nota para relacionar)
     Usuario=models.ForeignKey(User,related_name="Usuario",default=1,on_delete=models.SET_NULL, null=True,blank=True,help_text="usuario que ha hecho este parte") 
-    Tecnico_asignado=models.ForeignKey(User,related_name="Tecnico",default=1,on_delete=models.SET_NULL, null=True,blank=True, help_text="Tecnico que tiene este parte") 
-    Tecnico_fin_parte=models.ForeignKey(User,related_name="Tecnico_fin_parte",default=1,on_delete=models.SET_NULL, null=True,blank=True,  help_text="Tecnico que tiene este parte") 
+    Tecnico_asignado=models.ForeignKey(User,related_name="Tecnico",default=0,on_delete=models.SET_NULL, null=True,blank=True, help_text="Tecnico que tiene este parte") 
+    Tecnico_fin_parte=models.ForeignKey(User,related_name="Tecnico_fin_parte",default=0,on_delete=models.SET_NULL, null=True,blank=True,  help_text="Tecnico que tiene este parte") 
     fecha_parte=models.DateField(auto_now_add=True,verbose_name='Fecha del parte')
     fecha_hora_cambio=models.DateTimeField(auto_now=True,verbose_name='Fecha y hora del ultimo cambio')
     fecha_hora_terminado=models.DateTimeField(null=True,blank=True, verbose_name='Fecha y hora de la terminacion del parte', )
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
-        return '{}'.format(self.pk)
+        return '{}'.format(self.descripcion)
     class Meta:
         ordering = ["-pk"]
 
@@ -37,7 +37,7 @@ class Trabajos(models.Model):
     tecnico_tra=models.ForeignKey(User,related_name="tecnico_tra",default=1,on_delete=models.SET_NULL, null=True,blank=False,help_text="usuario que ha hecho este trabajo") 
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
-        return '{}'.format(self.pk)
+        return '{}'.format(self.descripcion_tra)
     class Meta:
         ordering = ["-pk"]
 
@@ -56,7 +56,7 @@ class Prioridad(models.Model):
     prioridades=models.CharField(max_length=30, blank=False, null=False)
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
-        return '{}'.format(self.pk)
+        return '{}'.format(self.prioridades)
     class Meta:
         ordering = ["-pk"]
 
@@ -65,7 +65,7 @@ class Estados(models.Model):
     estados=models.CharField(max_length=30, blank=False, null=True)
     def __str__(self):
         #"""String for representing the Model object (in Admin site etc.)"""
-        return '{}'.format(self.pk)
+        return '{}'.format(self.estados)
     class Meta:
         ordering = ["-pk"]
 

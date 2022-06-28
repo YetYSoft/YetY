@@ -1,0 +1,24 @@
+
+    <div id='lista-input'>
+        <div style= "display: flex; justify-content: center;">
+            <input  class="form-control" 
+            type="search" 
+            name="elemento_buscado"
+            value= '{{ elemento }}'
+            placeholder="incidencia en este objeto..." 
+            hx-get="/partes/select_elemento/" 
+            hx-trigger="keyup changed delay:100ms" 
+            hx-target="#lista-input" 
+            hx-include="[name='select_elemento']"> 
+          
+            <a type="button" class="btn btn-success" href="http://">ok</a>
+
+        </div>
+    
+    
+    </div>
+
+
+{% for  elemento in select_elemento  %}
+    <div style= "display: flex; justify-content: center;"><a hx-target="#lista-input"  hx-get="/partes/select_elemento/{{ elemento }}"   >{{ elemento }}  {{elemento.cantidad_elementos}}</a></div>
+{% endfor %}               
