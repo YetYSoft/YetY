@@ -4,12 +4,12 @@
 
 
 {% block titulo  %}
-<div>
-    <div id="grid_start" style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))">
-        <div> <h5> {{ titulo }}</h5></div>
-        <div  style="justify-items:end"> <h5 style="align-self:end;"> {{ ubicacion}} </h5></div>
+    <div>
+        <div id="grid_start" style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))">
+            <div> <h5> {{ titulo }}</h5></div>
+            <div  style="justify-items:end"> <h5 style="align-self:end;"> {{ ubicacion}} </h5></div>
+        </div>
     </div>
-</div>
 {% endblock titulo %}
 
 
@@ -20,28 +20,23 @@
 
 <form method="post">{% csrf_token %}
     {% block elemento  %}
-    <script>  $(document).ready(function() 
-        { $('.seleccion_elemento').select2(); });
-    </script>
+        <script>  $(document).ready(function() 
+            { $('.seleccion_elemento').select2({
+                tags: true
+              }); });
+        </script>
 
-<hr>
-
-    <div >
-        <div style= "display: flex; justify-content: center;">
-            <select  class="select-control, seleccion_elemento " >
-                {% for  elemento in todos_elementos  %}
-                <option value=" {{ elemento }}">{{ elemento }}</option>
-            {% endfor %}
-
-
-                
-            </select>
+        <div>
+            <div style= "display: flex; justify-content: end; padding: 5px;">
+                <h5>
+                    <select  class="select-control, seleccion_elemento " >
+                        {% for  elemento in todos_elementos  %}
+                        <option value=" {{ elemento }}">{{ elemento }}</option>
+                        {% endfor %}
+                    </select>
+                </h5>
+            </div>
         </div>
-       
-     <div id='lista-input'>
-     </div>
-
-
     {% endblock elemento %}
 
  
@@ -49,7 +44,26 @@
 
 
     {% block descripcion  %}
- 
+        <script>  $(document).ready(function() 
+            { $('.seleccion_descripcion').select2(); });
+        </script>
+
+        <divclass="form-group" >
+            <div style= "display: flex; justify-content: end; padding: 5px;">
+                <h5>
+                    <select  class="form-select, seleccion_descripcion " >
+                        {% for  descripcion in todos_descripcion  %}
+                        <option value=" {{ descripcion }}">{{ descripcion }}</option>
+                        {% endfor %}
+                    </select>
+                </h5>
+            </div>
+        
+            <div style= "display: flex; justify-content: end; padding: 5px;">
+                <input class="btn btn-success"     type="submit" value="Añadir este parte">
+            </div>
+        </div>
+
     {% endblock descripcion  %}
 
 

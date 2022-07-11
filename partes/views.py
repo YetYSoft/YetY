@@ -27,7 +27,6 @@ from espacios.models import Ubicaciones, Elementos
 def parte_nuevo(request,ubicacion):
     todos_elementos=Elementos.objects.all()
     todos_descripcion=Parte.objects.all()
-    
     todos_partes  =Parte.objects.all()
     partes_list_pendientes=Parte.objects.filter(ubicacion__nombre=ubicacion).filter  (estado__estados='Pendiente') [:5] #6 = pendiente
     partes_list_ultimos   =Parte.objects.filter(ubicacion__nombre=ubicacion).exclude (estado__estados='Pendiente') [:5]

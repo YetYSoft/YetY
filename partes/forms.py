@@ -4,7 +4,6 @@ from django.urls import reverse
 #from betterforms.multiform import MultiModelForm # clase para varios modelos en un formulario
 
 from partes.models import Ot_Parte,Ot_Trabajos,Ot_Ubicaciones, Parte
-from django.contrib.admin.widgets import AutocompleteSelect
 from django.contrib import admin
 
 
@@ -19,7 +18,6 @@ class Parte_nuevo_Form (forms.ModelForm):
         widgets={
             'ubicacion':forms.Select(),
             'descripcion':forms.Textarea(),
-            'elemento': AutocompleteSelect(Parte._meta.get_field('elemento').remote_field, admin.site, attrs={'placeholder': 'seleccionar...'}, )
         }
 
 
